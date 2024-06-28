@@ -33,7 +33,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Supprime la table de liaison 'users_questions'
-        Schema::dropIfExists('users_questions');
+        // Supprime la table de liaison 'games_questions'
+        Schema::dropIfExists('games_questions');
     }
 };
