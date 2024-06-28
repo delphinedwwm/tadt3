@@ -30,27 +30,33 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'HTML',
                 'color' => 'Blue',
+                'type' => 'Langage',
                 // ne pas oublier l'ajout du logo pour chaque catégorie ds une colonne supplémentaire
             ],
             [
                 'name' => 'CSS',
                 'color' => 'Red',
+                'type' => 'Langage',
             ],
             [
                 'name' => 'JAVASCRIPT',
                 'color' => 'Yellow',
+                'type' => 'Langage',
             ],
             [
                 'name' => 'PHP',
                 'color' => 'Green',
+                'type' => 'Langage',
             ],
             [
                 'name' => 'SQL',
                 'color' => 'Pink',
+                'type' => 'Langage',
             ],
             [
                 'name' => 'LARAVEL',
                 'color' => 'Orange',
+                'type' => 'Framework',
             ],
         ];
 
@@ -58,7 +64,6 @@ class DatabaseSeeder extends Seeder
         $this->questions = [
             // question HTML
             [  
-                
                 'question' => 'Qu\'est-ce que HTML5 ?',
                 'level' => '1',
             ],
@@ -134,41 +139,108 @@ class DatabaseSeeder extends Seeder
 
              // question JS
             [  
-                'question' => '',
-                'level' => '2',
-            ],
-            [  
-                'question' => '',
+                'question' => 'Qu\'est-ce que JavaScript ?',
                 'level' => '1',
             ],
             [  
-                'question' => '',
-                'level' => '3',
-            ],
-            [  
-                'question' => '',
-                'level' => '2',
-            ],
-            [  
-                'question' => '',
+                'question' => 'Comment incorporer JavaScript dans une page HTML ?',
                 'level' => '1',
             ],
             [  
-                'question' => '',
+                'question' => 'Quelle est la différence entre les méthodes == et === ?',
                 'level' => '3',
             ],
             [  
-                'question' => '',
+                'question' => 'Quelle méthode JavaScript est utilisée pour convertir une chaîne de caractères en un nombre entier ?',
                 'level' => '2',
             ],
             [  
-                'question' => '',
+                'question' => 'Quelle est la méthode utilisée pour ajouter un élément à la fin d\'un tableau en JavaScript ?',
                 'level' => '1',
             ],
             [  
-                'question' => '',
+                'question' => 'Quelle est la méthode JavaScript utilisée pour sélectionner un élément par son ID dans le DOM ?',
                 'level' => '3',
             ],
+
+            // question PHP
+            [  
+                'question' => 'Qu\'est-ce que PHP ?',
+                'level' => '2',
+            ],
+            [  
+                'question' => 'Comment déclarer une variable en PHP ?',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Quelles sont les règles pour nommer une variable en PHP ?',
+                'level' => '3',
+            ],
+            [  
+                'question' => 'Comment convertir une chaîne JSON en tableau PHP ?',
+                'level' => '3',
+            ],
+            [  
+                'question' => 'Quelle est la fonction utilisée pour échapper les caractères spéciaux en PHP ? ',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Comment afficher le contenu d\'un fichier texte en PHP ? ',
+                'level' => '3',
+            ],
+
+            // question SQL
+            [  
+                'question' => 'Qu\'est-ce que SQL ?',
+                'level' => '2',
+            ],
+            [  
+                'question' => 'Quelle est la différence entre SQL et MySQL ?',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Qu\'est-ce qu\'une jointure (join) en SQL ?',
+                'level' => '3',
+            ],
+            [  
+                'question' => 'Qu\'est-ce qu\'une clé primaire en SQL ? ',
+                'level' => '2',
+            ],
+            [  
+                'question' => 'Comment insérer une nouvelle ligne dans une table en SQL ?',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Quelle est la différence entre GROUP BY et ORDER BY en SQL ',
+                'level' => '3',
+            ],
+
+            // question LARAVEL
+            [  
+                'question' => 'Qu\'est-ce que Laravel ?',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Qu\'est-ce que Composer ?',
+                'level' => '3',
+            ],
+            [  
+                'question' => 'Qu\'est-ce que l\'ORM Eloquent ?',
+                'level' => '2',
+            ],
+            [  
+                'question' => 'Quelle commande Laravel est utilisée pour créer un nouveau modèle ?',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Quelle méthode est utilisée pour définir une relation "many-to-many" dans Eloquent ? ',
+                'level' => '3',
+            ],
+            [  
+                'question' => 'Quelle est la commande pour exécuter toutes les migrations en Laravel ? ',
+                'level' => '2',
+            ],
+          
         ];
 
          // Liste des réponses
