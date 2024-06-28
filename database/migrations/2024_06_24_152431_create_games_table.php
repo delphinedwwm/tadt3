@@ -15,6 +15,7 @@ return new class extends Migration
             // $table->id();
             // Utilise user_id comme clé primaire et clé étrangère
             $table->unsignedBigInteger('user_id')->primary();
+            $table->integer('points');
             $table->timestamps();
             
             // Contrainte de clé étrangère

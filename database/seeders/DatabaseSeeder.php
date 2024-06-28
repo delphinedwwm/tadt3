@@ -570,8 +570,12 @@ class DatabaseSeeder extends Seeder
     {
         // Seed la table 'categories'
         $this->processCategories($this->categories);
+
         // Seed la table 'answers'
         $this->processAnswers($this->answers);
+
+        // Seed la table 'questions'
+        $this->processQuestions($this->questions);
 
     }
 
@@ -587,6 +591,11 @@ class DatabaseSeeder extends Seeder
         DB::table('answers')->insert($answers);
     }
 
+    private function processQuestions($questions)
+    {
+        // Insère les données dans la table 'questions'
+        DB::table('questions')->insert($questions);
+    }
 
 
 }
