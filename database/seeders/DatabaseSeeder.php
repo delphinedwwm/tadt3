@@ -25,8 +25,9 @@ class DatabaseSeeder extends Seeder
     public function __construct()
     {
         // Liste des catégories
+        // ne pas oublier l'ajout du logo pour chaque catégorie ds une colonne supplémentaire
         $this->categories = [
-            // ne pas oublier l'ajout du logo pour chaque catégorie ds une colonne supplémentaire
+            
             [
                 'name' => 'HTML',
                 'color' => 'Blue',
@@ -587,15 +588,40 @@ class DatabaseSeeder extends Seeder
 
     private function processAnswers($answers)
     {
+        foreach ($answers as $answer) {
+         // Définit les données de la réponse à destination de la table 'answers'
+         $data = [
+            'description'=> $answer['description'],
+            'is_correct'=> $answer['is_correct'],
+        ];
         // Insère les données dans la table 'answers'
-        DB::table('answers')->insert($answers);
+        $answer_id = DB::table('answers')->insertGetId($data);
+
+         // Seed la catégorie de la réponse
+         $this->processAnswerCategorie($answer_id, $answer['type']);
+
+          // Seed la question corespondande à la réponse
+          $this->processAnswerQuestion($answer_id, $answer['question']);
+        }
     }
 
-    private function processQuestions($questions)
+    private function processquestions($questions)
     {
+        foreach ($questions as $question) {
+            // Définit les données de la réponse à destination de la table 'questions'
+            $data = [
+            'question'=> $question['question'],
+            'level'=> $question['level'],
+        ];
         // Insère les données dans la table 'questions'
-        DB::table('questions')->insert($questions);
+        $question_id = DB::table('questions')->insertGetId($data);
+
+            // Seed la catégorie de la question
+            $this->processquestionCategorie($question_id, $question['type']);
+
+            // Seed la réponse corespondande à la question
+            $this->processquestionQuestion($question_id, $question['question']);
+        }
     }
-
-
 }
+

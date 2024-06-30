@@ -10,6 +10,7 @@ class Game extends Model
     use HasFactory;
 
     public function statistics(): HasOne {
-        return $this->hasOne(Statistics::class, 'game_id', 'user_id');
+        // return $this->hasOne(Statistics::class, 'game_id', 'user_id');
+        return $this->hasOne(Statistics::class, 'user_id');
     }
 }
