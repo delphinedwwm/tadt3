@@ -5,9 +5,11 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Question;
-use App\Models\Answers;
+use App\Models\Answer;
 use App\Models\Game;
-use App\Models\Statistic;
+use App\Models\Game_question;
+use App\Models\User_question;
+
 use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Database\Seeder;
@@ -82,189 +84,197 @@ class DatabaseSeeder extends Seeder
         ];
 
         // // liste des questions
-        // $this->questions = [
-        //     // question HTML
-        //     [  
-        //         'question' => 'Qu\'est-ce que HTML5 ?',
-        //         'level' => '1',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle est la différence entre une balise de bloc et une balise en ligne ?',
-        //         'level' => '2',
-        //     ],
-        //     [  
-        //         'question' => 'Comment inclure une image dans une page HTML ?',
-        //         'level' => '1',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle balise HTML est utilisée pour définir un paragraphe ?',
-        //         'level' => '1',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle balise HTML est utilisée pour créer un lien hypertexte ?',
-        //         'level' => '3',
-        //     ],
+        $this->questions = [
+            // question HTML
+            [  
+                'question' => 'Qu\'est-ce que HTML5 ?',
+                'category_id' => '1',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Quelle est la différence entre une balise de bloc et une balise en ligne ?',
+                'category_id' => '1',
+                'level' => '2',
+            ],
+            [  
+                'question' => 'Comment inclure une image dans une page HTML ?',
+                'category_id' => '1',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Quelle balise HTML est utilisée pour définir un paragraphe ?',
+                'category_id' => '1',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Quelle balise HTML est utilisée pour créer un lien hypertexte ?',
+                'category_id' => '1',
+                'level' => '3',
+            ],
 
-        //     // question CSS
-        //     [  
-        //         'question' => 'Qu\'est-ce que CSS3 ?',
-        //         'level' => '1',
-        //     ],
-        //     [  
-        //         'question' => 'Comment lier un fichier CSS externe à un document HTML ?',
-        //         'level' => '2',
-        //     ],
-        //     [  
-        //         'question' => 'Qu\'est-ce qu\'un sélecteur CSS ?',
-        //         'level' => '1',
-        //     ],
-        //     [  
-        //         'question' => 'Comment centrer un élément horizontalement avec CSS ?',
-        //         'level' => '2',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle propriété CSS est utilisée pour changer la couleur du texte ?',
-        //         'level' => '1',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle propriété CSS est utilisée pour ajouter de l\'espace à l\'intérieur d\'un élément, entre son contenu et sa bordure ?',
-        //         'level' => '3',
-        //     ],
+            // question CSS
+            [  
+                'question' => 'Qu\'est-ce que CSS3 ?',
+                'category_id' => '2',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Comment lier un fichier CSS externe à un document HTML ?',
+                'category_id' => '2',
+                'level' => '2',
+            ],
+            [  
+                'question' => 'Qu\'est-ce qu\'un sélecteur CSS ?',
+                'category_id' => '2',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Comment centrer un élément horizontalement avec CSS ?',
+                'category_id' => '2',
+                'level' => '2',
+            ],
+            [  
+                'question' => 'Quelle propriété CSS est utilisée pour changer la couleur du texte ?',
+                'category_id' => '2',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Quelle propriété CSS est utilisée pour ajouter de l\'espace à l\'intérieur d\'un élément, entre son contenu et sa bordure ?',
+                'category_id' => '2',
+                'level' => '3',
+            ],
 
-        //     // question JS
-        //     [  
-        //         'question' => 'Qu\'est-ce que JavaScript ?',
-        //         'level' => '1',
-        //     ],
-        //     [  
-        //         'question' => 'Comment incorporer JavaScript dans une page HTML ?',
-        //         'level' => '2',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle est la différence entre les méthodes == et === ?',
-        //         'level' => '3',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle méthode JavaScript est utilisée pour convertir une chaîne de caractères en un nombre entier ?',
-        //         'level' => '2',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle est la méthode utilisée pour ajouter un élément à la fin d\'un tableau en JavaScript ?',
-        //         'level' => '1',
-        //     ],
+             // question JS
+            [  
+                'question' => 'Qu\'est-ce que JavaScript ?',
+                'category_id' => '3',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Comment incorporer JavaScript dans une page HTML ?',
+                'category_id' => '3',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Quelle est la différence entre les méthodes == et === ?',
+                'category_id' => '3',
+                'level' => '3',
+            ],
+            [  
+                'question' => 'Quelle méthode JavaScript est utilisée pour convertir une chaîne de caractères en un nombre entier ?',
+                'category_id' => '3',
+                'level' => '2',
+            ],
+            [  
+                'question' => 'Quelle est la méthode utilisée pour ajouter un élément à la fin d\'un tableau en JavaScript ?',
+                'category_id' => '3',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Quelle est la méthode JavaScript utilisée pour sélectionner un élément par son ID dans le DOM ?',
+                'category_id' => '3',
+                'level' => '3',
+            ],
 
-        //     [  
-        //         'question' => 'Quelle est la méthode JavaScript utilisée pour sélectionner un élément par son ID dans le DOM ?',
-        //         'level' => '3',
-        //     ],
+            // question PHP
+            [  
+                'question' => 'Qu\'est-ce que PHP ?',
+                'category_id' => '4',
+                'level' => '2',
+            ],
+            [  
+                'question' => 'Comment déclarer une variable en PHP ?',
+                'category_id' => '4',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Quelles sont les règles pour nommer une variable en PHP ?',
+                'category_id' => '4',
+                'level' => '3',
+            ],
+            [  
+                'question' => 'Comment convertir une chaîne JSON en tableau PHP ?',
+                'category_id' => '4',
+                'level' => '3',
+            ],
+            [  
+                'question' => 'Quelle est la fonction utilisée pour échapper les caractères spéciaux en PHP ? ',
+                'category_id' => '4',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Comment afficher le contenu d\'un fichier texte en PHP ? ',
+                'category_id' => '4',
+                'level' => '3',
+            ],
 
-        //      // question JS
-        //     [  
-        //         'question' => 'Qu\'est-ce que JavaScript ?',
-        //         'level' => '1',
-        //     ],
-        //     [  
-        //         'question' => 'Comment incorporer JavaScript dans une page HTML ?',
-        //         'level' => '1',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle est la différence entre les méthodes == et === ?',
-        //         'level' => '3',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle méthode JavaScript est utilisée pour convertir une chaîne de caractères en un nombre entier ?',
-        //         'level' => '2',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle est la méthode utilisée pour ajouter un élément à la fin d\'un tableau en JavaScript ?',
-        //         'level' => '1',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle est la méthode JavaScript utilisée pour sélectionner un élément par son ID dans le DOM ?',
-        //         'level' => '3',
-        //     ],
+            // question SQL
+            [  
+                'question' => 'Qu\'est-ce que SQL ?',
+                'category_id' => '5',
+                'level' => '2',
+            ],
+            [  
+                'question' => 'Quelle est la différence entre SQL et MySQL ?',
+                'category_id' => '5',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Qu\'est-ce qu\'une jointure (join) en SQL ?',
+                'category_id' => '5',
+                'level' => '3',
+            ],
+            [  
+                'question' => 'Qu\'est-ce qu\'une clé primaire en SQL ? ',
+                'category_id' => '5',
+                'level' => '2',
+            ],
+            [  
+                'question' => 'Comment insérer une nouvelle ligne dans une table en SQL ?',
+                'category_id' => '5',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Quelle est la différence entre GROUP BY et ORDER BY en SQL ',
+                'category_id' => '5',
+                'level' => '3',
+            ],
 
-        //     // question PHP
-        //     [  
-        //         'question' => 'Qu\'est-ce que PHP ?',
-        //         'level' => '2',
-        //     ],
-        //     [  
-        //         'question' => 'Comment déclarer une variable en PHP ?',
-        //         'level' => '1',
-        //     ],
-        //     [  
-        //         'question' => 'Quelles sont les règles pour nommer une variable en PHP ?',
-        //         'level' => '3',
-        //     ],
-        //     [  
-        //         'question' => 'Comment convertir une chaîne JSON en tableau PHP ?',
-        //         'level' => '3',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle est la fonction utilisée pour échapper les caractères spéciaux en PHP ? ',
-        //         'level' => '1',
-        //     ],
-        //     [  
-        //         'question' => 'Comment afficher le contenu d\'un fichier texte en PHP ? ',
-        //         'level' => '3',
-        //     ],
-
-        //     // question SQL
-        //     [  
-        //         'question' => 'Qu\'est-ce que SQL ?',
-        //         'level' => '2',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle est la différence entre SQL et MySQL ?',
-        //         'level' => '1',
-        //     ],
-        //     [  
-        //         'question' => 'Qu\'est-ce qu\'une jointure (join) en SQL ?',
-        //         'level' => '3',
-        //     ],
-        //     [  
-        //         'question' => 'Qu\'est-ce qu\'une clé primaire en SQL ? ',
-        //         'level' => '2',
-        //     ],
-        //     [  
-        //         'question' => 'Comment insérer une nouvelle ligne dans une table en SQL ?',
-        //         'level' => '1',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle est la différence entre GROUP BY et ORDER BY en SQL ',
-        //         'level' => '3',
-        //     ],
-
-        //     // question LARAVEL
-        //     [  
-        //         'question' => 'Qu\'est-ce que Laravel ?',
-        //         'level' => '1',
-        //     ],
-        //     [  
-        //         'question' => 'Qu\'est-ce que Composer ?',
-        //         'level' => '3',
-        //     ],
-        //     [  
-        //         'question' => 'Qu\'est-ce que l\'ORM Eloquent ?',
-        //         'level' => '2',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle commande Laravel est utilisée pour créer un nouveau modèle ?',
-        //         'level' => '1',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle méthode est utilisée pour définir une relation "many-to-many" dans Eloquent ? ',
-        //         'level' => '3',
-        //     ],
-        //     [  
-        //         'question' => 'Quelle est la commande pour exécuter toutes les migrations en Laravel ? ',
-        //         'level' => '2',
-        //     ],
+            // question LARAVEL
+            [  
+                'question' => 'Qu\'est-ce que Laravel ?',
+                'category_id' => '6',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Qu\'est-ce que Composer ?',
+                'category_id' => '6',
+                'level' => '3',
+            ],
+            [  
+                'question' => 'Qu\'est-ce que l\'ORM Eloquent ?',
+                'category_id' => '6',
+                'level' => '2',
+            ],
+            [  
+                'question' => 'Quelle commande Laravel est utilisée pour créer un nouveau modèle ?',
+                'category_id' => '6',
+                'level' => '1',
+            ],
+            [  
+                'question' => 'Quelle méthode est utilisée pour définir une relation "many-to-many" dans Eloquent ? ',
+                'category_id' => '6',
+                'level' => '3',
+            ],
+            [  
+                'question' => 'Quelle est la commande pour exécuter toutes les migrations en Laravel ? ',
+                'category_id' => '6',
+                'level' => '2',
+            ],
           
-        // ];
+        ];
 
-        //  // Liste des réponses
+         // Liste des réponses
         //  $this->answers = [
 
         //     // réponses true HTML
@@ -596,8 +606,8 @@ class DatabaseSeeder extends Seeder
         // // Seed la table 'answers'
         // $this->processAnswers($this->answers);
 
-        // // Seed la table 'questions'
-        // $this->processQuestions($this->questions);
+        // Seed la table 'questions'
+        $this->processQuestions($this->questions);
 
         // // Seed la table 'games'
         // $this->processGames($this->games);
@@ -611,8 +621,19 @@ class DatabaseSeeder extends Seeder
 
     private function processCategories($categories)
     {
-        // Insère les données dans la table 'categories'
-        DB::table('categories')->insert($categories);
+        // // Insère les données dans la table 'categories'
+        // foreach ($categories as $category) {
+        //     // Définit les données de la category à destination de la table 'categories'
+        //     $data = 
+        //     [
+        //         'name'=> $category['name'],
+        //         'color'=> $category['color'],
+        //     ];
+        //     // Seed la question de la catégorie
+        //     $this->processQuestions($category_id, $category['type']);
+
+            DB::table('categories')->insert($categories);
+        // }
     }
 
     // private function processAnswers($answers)
@@ -634,25 +655,42 @@ class DatabaseSeeder extends Seeder
     //     }
     // }
 
-    // private function processQuestions($questions)
+    private function processQuestions($questions)
+    {
+        foreach ($questions as $question) {
+            dump($question);
+            // Définit les données de la question à destination de la table 'questions'
+            $data = 
+            [
+                'question'=> $question['question'],
+                'level'=> $question['level'],
+                'category_id' => $question['category_id'],
+                'user_id' => $question['category_id']
+            ];
+
+            // Insère les données dans la table 'questions'
+            $question_id = DB::table('questions')->insertGetId($data);
+
+            // Seed la catégorie de la question
+            // $this->processQuestionCategory($question_id, $question['type']);
+
+            // Seed la réponse correspondande à la question
+            // $this->processAnswer($question_id, $question['question']);
+        }
+    }
+
+    // private function processQuestionCategory($question_id, $category_name)
     // {
-    //     foreach ($questions as $question) {
-    //         // Définit les données de la réponse à destination de la table 'questions'
-    //         $data = 
-    //         [
-    //             'question'=> $question['question'],
-    //             'level'=> $question['level'],
-    //         ];
+    //     $data = [
+    //         'question_id' => $question,
+    //         'name' => $category['name'],
+    //         'color' => $category['color'],
+    //         'type' => $category['type'],
+    //         // ne pas oublier la colonne logo
+    //     ];
 
-    //         // Insère les données dans la table 'questions'
-    //         $question_id = DB::table('questions')->insertGetId($data);
-
-    //         // Seed la catégorie de la question
-    //         $this->processquestionCategorie($question_id, $question['type']);
-
-    //         // Seed la réponse corespondande à la question
-    //         $this->processquestionQuestion($question_id, $question['question']);
-    //     }
+    //     // Inssère les données dans la table 'categoriess'
+    //     DB::table('categories')->insert($data);
     // }
 
     // private function processGames($games)

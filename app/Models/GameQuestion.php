@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
  * Cette classe défini le modèle Eloquent concernant pour la table 'games_questions'
  * Cette table est la table pivot de la relation ManyToMany entre les tables 'games' et 'questions'
  */
-class Games_questions extends Pivot
+class GameQuestion extends Pivot
 {
     use HasFactory;
 
