@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {    
+    private $users;
     private $categories;
     private $answers;
     private $questions;
-    private $users;
 
     /**
      * Initialise les données à seeder
@@ -26,23 +26,23 @@ class DatabaseSeeder extends Seeder
     public function __construct()
     {
         // liste des utilisateurs 
-        // $this->users = [
-        //     [
-        //         'name' => 'Hugo',
-        //         'e-mail' => 'hugodev@user.com',
-        //         'password' => 'vedoguh'
-        //     ],
-        //     [
-        //         'name' => 'David',
-        //         'e-mail' => 'davidweb@user.com',
-        //         'password' => 'bewdivad'
-        //     ],
-        //     [
-        //         'name' => 'Alicia',
-        //         'e-mail' => 'aliciawebdev@user.com',
-        //         'password' => 'vedbewaicila'
-        //     ],
-        // ];
+        $this->users = [
+            [
+                'name' => 'Hugo',
+                'email' => 'hugodev@user.com',
+                'password' => 'vedoguh'
+            ],
+            [
+                'name' => 'David',
+                'email' => 'davidweb@user.com',
+                'password' => 'bewdivad'
+            ],
+            [
+                'name' => 'Alicia',
+                'email' => 'aliciawebdev@user.com',
+                'password' => 'vedbewaicila'
+            ],
+        ];
 
         // Liste des catégories
         // ne pas oublier l'ajout du logo pour chaque catégorie ds une colonne supplémentaire
@@ -588,7 +588,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Seed la table 'users'
-        // $this->processUsers($this->users);
+        $this->processUsers($this->users);
 
         // Seed la table 'categories'
         $this->processCategories($this->categories);
@@ -601,14 +601,13 @@ class DatabaseSeeder extends Seeder
 
         // // Seed la table 'games'
         // $this->processGames($this->games);
-
     }
 
-    // private function processUsers($Users)
-    // {
-    //     // Insère les données dans la table 'users'
-    //     DB::table('users')->insert($users);
-    // }
+    private function processUsers($users)
+    {
+        // Insère les données dans la table 'users'
+        DB::table('users')->insert($users);
+    }
 
     private function processCategories($categories)
     {
