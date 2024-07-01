@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->timestamp('email_verified_at')->nullable(); //  Quand un utilisateur vérifie son email, la colonne email_verified_at est mise à jour avec l'heure actuelle.
             $table->string('password');
-            $table->rememberToken();
+            $table->rememberToken(); // utilisée pour stocker un jeton (token) qui permet de "se souvenir" d'un utilisateur connecté pour une certaine période.
             $table->timestamps();
         });
 
