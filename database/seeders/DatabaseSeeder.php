@@ -677,6 +677,21 @@ class DatabaseSeeder extends Seeder
             ],
          ];
 
+        //  Liste des points
+        $this->games = [
+            [
+                'user_id' => '1',
+                'points' => '16',
+            ],
+            [
+                'user_id' => '2',
+                'points' => '9',
+            ],
+            [
+                'user_id' => '3',
+                'points' => '23',
+            ]
+            ];
     }
 
     /**
@@ -697,7 +712,7 @@ class DatabaseSeeder extends Seeder
         $this->processAnswers($this->answers);
 
         // // Seed la table 'games'
-        // $this->processGames($this->games);
+        $this->processGames($this->games);
     }
 
     private function processUsers($users)
@@ -761,14 +776,23 @@ class DatabaseSeeder extends Seeder
             ];
             // Insère les données dans la table 'answers'
             $answer_id = DB::table('answers')->insertGetId($data);
-            }
+        }
     }
 
-    // private function processGames($games)
-    // {
-    //     // Insère les données dans la table 'games'
+    private function processGames($games)
+    {
+        foreach ($games as $game) {
+            // Définit les données de la réponse à destination de la table 'answers'
+            $data = [
+                'user_id' => $game['user_id'],
+                'points' => $game['points'],
+            ];
+            // Insère les données dans la table 'games'
+            $user_id = DB::table('games')->insertGetId($data);
+        }
        
-    // }
+       
+    }
 
 }
 
