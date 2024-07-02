@@ -29,9 +29,19 @@ class DatabaseSeeder extends Seeder
         // liste des utilisateurs 
         $this->users = [
             [
-                'name' => 'Hugo',
-                'email' => 'hugodev@user.com',
-                'password' => 'vedoguh'
+                'name' => 'Célia',
+                'email' => 'celiadev@user.com',
+                'password' => 'vedailec'
+            ],
+            [
+                'name' => 'Nathan',
+                'email' => 'nathanweb@user.com',
+                'password' => 'bewnahtan'
+            ],
+            [
+                'name' => 'Jérémie',
+                'email' => 'jeremiedev@user.com',
+                'password' => 'vedeimerej'
             ],
             [
                 'name' => 'David',
@@ -681,16 +691,24 @@ class DatabaseSeeder extends Seeder
         $this->games = [
             [
                 'user_id' => '1',
-                'points' => '16',
+                'points' => '27',
             ],
             [
                 'user_id' => '2',
-                'points' => '9',
+                'points' => '27',
             ],
             [
                 'user_id' => '3',
-                'points' => '23',
-            ]
+                'points' => '26',
+            ],
+            [
+                'user_id' => '4',
+                'points' => '19',
+            ],
+            [
+                'user_id' => '5',
+                'points' => '7',
+            ],
             ];
     }
 
