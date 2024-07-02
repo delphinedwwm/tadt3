@@ -92,7 +92,7 @@ class DatabaseSeeder extends Seeder
             ],
         ];
 
-        // // liste des questions
+        // liste des questions
         $this->questions = [
             // question HTML
             [  
@@ -283,411 +283,1277 @@ class DatabaseSeeder extends Seeder
           
         ];
 
-         // Liste des réponses
-         $this->answers = [
+        //  // Liste des réponses
+        //  $this->answers = [
 
-            // réponses true HTML
-            [  // Qu'est-ce que HTML5 ?
+        //     // réponses true HTML
+        //     [  // Qu'est-ce que HTML5 ?
+        //         'question_id' => '1',
+        //         'description' => 'HTML5 est la dernière version du langage de balisage utilisé pour créer des pages Web. Il introduit de nouvelles fonctionnalités et améliorations par rapport aux versions précédentes.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Quelle est la différence entre une balise de bloc et une balise en ligne ?
+        //         'question_id' => '2',
+        //         'description' => 'Les balises de bloc (<div>, <p>, <h1>, etc.) sont utilisées pour structurer le contenu et occupent toute la largeur disponible, tandis que les balises en ligne (<span>, <a>, <strong>, etc.) ne prennent que l\'espace nécessaire et peuvent être incluses dans une ligne de texte.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Comment inclure une image dans une page HTML ?
+        //         'question_id' => '3',
+        //         'description' => 'Utilisez la balise <img> avec l\'attribut src pour spécifier l\'emplacement de l\'image. Par exemple : <img src="image.jpg" alt="Description de l\'image">',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Quelle balise HTML est utilisée pour définir un paragraphe ?
+        //         'question_id' => '4',
+        //         'description' => '<p>',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Quelle balise HTML est utilisée pour créer un lien hypertexte ?
+        //         'question_id' => '5',
+        //         'description' => '<a>',
+        //         'is_correct' => 'true',
+        //     ],
+
+        //     // réponses true CSS
+        //     [  // Qu'est-ce que CSS3 ?
+        //         'question_id' => '1',
+        //         'description' => 'CSS3 est la dernière version des feuilles de style en cascade (Cascading Style Sheets) utilisée pour décrire la présentation d\'un document HTML ou XML.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Comment lier un fichier CSS externe à un document HTML ?
+        //         'question_id' => '2',
+        //         'description' => 'Utilisez la balise <link> dans la section <head> de votre document HTML. Exemple : <link rel="stylesheet" href="styles.css">',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Qu'est-ce qu'un sélecteur CSS ?
+        //         'question_id' => '3',
+        //         'description' => 'Un sélecteur CSS est un motif utilisé pour sélectionner les éléments HTML que vous souhaitez styliser. Il peut être basé sur des noms de balises, des classes, des identifiants, des attributs, ou des pseudoclasses.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Comment centrer un élément horizontalement avec CSS ?
+        //         'question_id' => '4',
+        //         'description' => 'Utilisez margin: 0 auto sur un élément en bloc avec une largeur définie.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Quelle propriété CSS est utilisée pour changer la couleur du texte ?
+        //         'question_id' => '5',
+        //         'description' => 'color',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Quelle propriété CSS est utilisée pour ajouter de l\'espace à l\'intérieur d\'un élément, entre son contenu et sa bordure ?
+        //         'question_id' => '6',
+        //         'description' => 'padding',
+        //         'is_correct' => 'true',
+        //     ],
+            
+        //      // réponses true JS
+        //      [  // Qu'est-ce que JavaScript ?
+        //         'question_id' => '1',
+        //         'description' => 'JavaScript est un langage de programmation de haut niveau principalement utilisé pour ajouter des fonctionnalités interactives aux sites web.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Comment incorporer JavaScript dans une page HTML ?
+        //         'question_id' => '2',
+        //         'description' => 'Pour incorporer JavaScript dans une page HTML il faut utiliser la balise <script>.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Quelle est la différence entre les méthodes == et === ?
+        //         'question_id' => '3',
+        //         'description' => '== vérifie l\'égalité avec conversion de type, tandis que === vérifie l\'égalité sans conversion de type (strictement égal).',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Quelle méthode JavaScript est utilisée pour convertir une chaîne de caractères en un nombre entier ?
+        //         'question_id' => '4',
+        //         'description' => 'parseInt()',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Quelle est la méthode utilisée pour ajouter un élément à la fin d\'un tableau en JavaScript ?
+        //         'question_id' => '5',
+        //         'description' => 'push()',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Quelle est la méthode JavaScript utilisée pour sélectionner un élément par son ID dans le DOM ?
+        //         'question_id' => '6',
+        //         'description' => 'getElementById()',
+        //         'is_correct' => 'true',
+        //     ],
+             
+        //      // réponses true PHP
+        //     [  // Qu'est-ce que PHP ?
+        //         'question_id' => '1',
+        //         'description' => 'PHP (Hypertext Preprocessor) est un langage de script côté serveur conçu pour le développement web.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Comment déclarer une variable en PHP ?
+        //         'question_id' => '2',
+        //         'description' => 'En PHP, une variable est déclarée en utilisant le symbole "$" suivi du nom de la variable. Par exemple : $nom_variable = valeur;',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Quelles sont les règles pour nommer une variable en PHP ?
+        //         'question_id' => '3',
+        //         'description' => 'Une variable en PHP doit commencer par une lettre ou un underscore, et elle ne peut contenir que des lettres, des chiffres et des underscores.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Comment déclarer une variable en PHP et lui assigner une valeur ?
+        //         'question_id' => '4',
+        //         'description' => 'déclarer une variable en commençant par le symbole $ suivi du nom de la variable, puis utiliser l\'opérateur d\'assignation = pour lui attribuer une valeur.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Quelle est la fonction utilisée pour échapper les caractères spéciaux en PHP ?
+        //         'question_id' => '5',
+        //         'description' => 'La fonction utilisée est htmlspecialchars()',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Comment afficher le contenu d\'un fichier texte en PHP ? 
+        //         'question_id' => '6',
+        //         'description' => 'Utilisez la fonction file_get_contents(). Cette fonction lit tout le contenu d\'un fichier dans une chaîne.',
+        //         'is_correct' => 'true',
+        //     ],
+             
+        //      // réponses true SQL
+        //     [  // Qu'est-ce que SQL ?
+        //         'question_id' => '4',
+        //         'description' => 'SQL (Structured Query Language) est un langage de programmation standardisé utilisé pour gérer et manipuler des bases de données relationnelles.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Quelle est la différence entre SQL et MySQL ?
+        //         'question_id' => '5',
+        //         'description' => 'SQL est un langage de requête standard, tandis que MySQL est un système de gestion de base de données relationnelle qui utilise SQL comme langage de requête.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Qu'est-ce qu'une jointure (join) en SQL ?
+        //         'question_id' => '6',
+        //         'description' => 'Une jointure est une opération qui combine les lignes de deux tables en fonction d\'une condition spécifiée.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Qu\'est-ce qu\'une clé primaire en SQL ?
+        //         'question_id' => '4',
+        //         'description' => 'Une colonne ou un ensemble de colonnes qui identifie de manière unique chaque ligne dans une table de base de données.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Comment insérer une nouvelle ligne dans une table en SQL ?
+        //         'question_id' => '5',
+        //         'description' => 'Utilisez la commande INSERT INTO suivie du nom de la table et des valeurs à insérer dans les colonnes correspondantes.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Quelle est la différence entre GROUP BY et ORDER BY en SQL  ?
+        //         'question_id' => '6',
+        //         'description' => 'ORDER BY est utilisé pour trier les résultats d\'une requête selon une ou plusieurs colonnes spécifiées.
+        //         GROUP BY est utilisé pour regrouper les résultats d\'une requête selon les valeurs d\'une ou plusieurs colonnes, souvent en conjonction avec des fonctions d\'agrégation pour obtenir des statistiques sur les groupes de données.',
+        //         'is_correct' => 'true',
+        //     ],
+              
+        //      // réponses true LARAVEL
+        //      [  // Qu'est-ce que Laravel ?
+        //         'question_id' => '7',
+        //         'description' => 'Laravel est un framework PHP open-source destiné au développement web, offrant des outils et des fonctionnalités pour faciliter et accélérer le processus de développement.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Qu'est-ce que Composer ?
+        //         'question_id' => '8',
+        //         'description' => 'Composer est un gestionnaire de dépendances pour PHP, largement utilisé dans le développement avec Laravel pour installer et gérer les bibliothèques et les dépendances.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Qu'est-ce que l'ORM Eloquent ?
+        //         'question_id' => '9',
+        //         'description' => 'Eloquent est le système de mapping objet-relationnel (ORM) de Laravel, qui permet aux développeurs de travailler avec des bases de données relationnelles en utilisant des objets PHP plutôt que du SQL brut.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Quelle commande Laravel est utilisée pour créer un nouveau modèle ?
+        //         'question_id' => '4',
+        //         'description' => 'Utilisez la commande php artisan make:model NomDeVotreModele dans le terminal pour générer un nouveau modèle dans Laravel',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Quelle méthode est utilisée pour définir une relation "many-to-many" dans Eloquent ? 
+        //         'question_id' => '5',
+        //         'description' => 'C\'est la méthode belongsToMany() dans la classe de modèle qui est utilisée pour définir une relation "many-to-many" entre deux entités.',
+        //         'is_correct' => 'true',
+        //     ],
+        //     [  // Quelle est la commande pour exécuter toutes les migrations en Laravel ? 
+        //         'question_id' => '6',
+        //         'description' => 'php artisan migrate',
+        //         'is_correct' => 'true',
+        //     ],
+
+        //     // réponses false HTML
+        //     [  // Qu'est-ce que HTML5 ? mauvaise réponse 1
+        //         'question_id' => '1',
+        //         'description' => 'HTML5 est un langage de programmation utilisé pour créer des applications mobiles.',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Qu'est-ce que HTML5 ? mauvaise réponse 2
+        //         'question_id' => '1',
+        //         'description' => 'HTML5 est la dernière version de CSS qui permet de styliser les pages Web.',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Qu'est-ce que HTML5 ? mauvaise réponse 3
+        //         'question_id' => '1',
+        //         'description' => 'HTML5 est un logiciel que l\'on installe sur son ordinateur pour développer des sites Web.',
+        //         'is_correct' => 'false',
+        //     ], 
+           
+        //     [  // Quelle balise HTML est utilisée pour définir un paragraphe ? mauvaise réponse 1
+        //         'question_id' => '2',
+        //         'description' => '<pg>',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle balise HTML est utilisée pour définir un paragraphe ? mauvaise réponse 2
+        //         'question_id' => '2',
+        //         'description' => '<para>',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle balise HTML est utilisée pour définir un paragraphe ? mauvaise réponse 3
+        //         'question_id' => '2',
+        //         'description' => '<paragraph>',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Comment insérer une image dans une page HTML ? mauvaise réponse 1
+        //         'question_id' => '3',
+        //         'description' => '<image src="image.jpg" alt="Description">',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Comment insérer une image dans une page HTML ? mauvaise réponse 2
+        //         'question_id' => '3',
+        //         'description' => '<img href="image.jpg" alt="Description">',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Comment insérer une image dans une page HTML ? mauvaise réponse 3
+        //         'question_id' => '3',
+        //         'description' => '<picture src="image.jpg" alt="Description">',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle balise HTML est utilisée pour créer un lien hypertexte ? mauvaise réponse 1
+        //         'question_id' => '5',
+        //         'description' => '<link url="page.html">Cliquez ici</link>',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle balise HTML est utilisée pour créer un lien hypertexte ? mauvaise réponse 2
+        //         'question_id' => '5',
+        //         'description' => '<hyperlink href="page.html">Cliquez ici</hyperlink>',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle balise HTML est utilisée pour créer un lien hypertexte ? mauvaise réponse 3
+        //         'question_id' => '5',
+        //         'description' => '<a src="page.html">Cliquez ici</a>',
+        //         'is_correct' => 'false',
+        //     ],
+
+        //     // réponses false CSS
+        //     [  // Comment centrer un élément horizontalement avec CSS ? mauvaise réponse 1
+        //         'question_id' => '13',
+        //         'description' => 'align: center',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Comment centrer un élément horizontalement avec CSS ? mauvaise réponse 2
+        //         'question_id' => '13',
+        //         'description' => 'center: horizontal',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Comment centrer un élément horizontalement avec CSS ? mauvaise réponse 3
+        //         'question_id' => '13',
+        //         'description' => 'margin-left-right: auto',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle propriété CSS est utilisée pour changer la couleur du texte ? mauvaise réponse 1
+        //         'question_id' => '14',
+        //         'description' => 'font-color',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle propriété CSS est utilisée pour changer la couleur du texte ? mauvaise réponse 2
+        //         'question_id' => '14',
+        //         'description' => 'text-color',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle propriété CSS est utilisée pour changer la couleur du texte ? mauvaise réponse 3
+        //         'question_id' => '14',
+        //         'description' => 'color-text',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle propriété CSS est utilisée pour ajouter de l'espace à l'intérieur d'un élément, entre son contenu et sa bordure ? mauvaise réponse 1
+        //         'question_id' => '15',
+        //         'description' => 'spacing',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle propriété CSS est utilisée pour ajouter de l'espace à l'intérieur d'un élément, entre son contenu et sa bordure ? mauvaise réponse 2
+        //         'question_id' => '15',
+        //         'description' => 'border-spacing',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle propriété CSS est utilisée pour ajouter de l'espace à l'intérieur d'un élément, entre son contenu et sa bordure ? mauvaise réponse 3
+        //         'question_id' => '15',
+        //         'description' => 'inner-margin',
+        //         'is_correct' => 'false',
+        //     ],
+            
+        //      // réponses false JS
+        //      [  // Quelle méthode JavaScript est utilisée pour convertir une chaîne de caractères en un nombre entier ? mauvaise réponse 1
+        //         'question_id' => '16',
+        //         'description' => 'parseChar()',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle méthode JavaScript est utilisée pour convertir une chaîne de caractères en un nombre entier ? mauvaise réponse 2
+        //         'question_id' => '16',
+        //         'description' => 'convertToInt()',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle méthode JavaScript est utilisée pour convertir une chaîne de caractères en un nombre entier ? mauvaise réponse 3
+        //         'question_id' => '16',
+        //         'description' => 'toString()',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle est la méthode utilisée pour ajouter un élément à la fin d'un tableau en JavaScript ? mauvaise réponse 1
+        //         'question_id' => '17',
+        //         'description' => 'add()',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle est la méthode utilisée pour ajouter un élément à la fin d'un tableau en JavaScript ? mauvaise réponse 2
+        //         'question_id' => '17',
+        //         'description' => 'append()',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle est la méthode utilisée pour ajouter un élément à la fin d'un tableau en JavaScript ? mauvaise réponse 3
+        //         'question_id' => '17',
+        //         'description' => 'insert()',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle est la méthode JavaScript utilisée pour sélectionner un élément par son ID dans le DOM ? mauvaise réponse 1
+        //         'question_id' => '18',
+        //         'description' => 'getElementByTag()',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle est la méthode JavaScript utilisée pour sélectionner un élément par son ID dans le DOM ? mauvaise réponse 2
+        //         'question_id' => '18',
+        //         'description' => 'querySelector()',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle est la méthode JavaScript utilisée pour sélectionner un élément par son ID dans le DOM ? mauvaise réponse 3
+        //         'question_id' => '18',
+        //         'description' => 'getElementByIdentifier()',
+        //         'is_correct' => 'false',
+        //     ],
+
+        //      // réponses false PHP
+        //      [  // Comment convertir une chaîne JSON en tableau PHP ? mauvaise réponse 1
+        //         'question_id' => '19',
+        //         'description' => ' Utilisez json_decode($chaine_json, true) pour convertir une chaîne JSON en tableau PHP',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Comment convertir une chaîne JSON en tableau PHP ? mauvaise réponse 2
+        //         'question_id' => '19',
+        //         'description' => 'Utilisez json_encode($chaine_json) pour convertir une chaîne JSON en tableau PHP.',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Comment convertir une chaîne JSON en tableau PHP ? mauvaise réponse 3
+        //         'question_id' => '19',
+        //         'description' => 'Utilisez json_parse($chaine_json) pour convertir une chaîne JSON en tableau PHP.',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  //  Quelle est la fonction utilisée pour échapper les caractères spéciaux en PHP ? mauvaise réponse 1
+        //         'question_id' => '20',
+        //         'description' => 'escape_special_chars()',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  //  Quelle est la fonction utilisée pour échapper les caractères spéciaux en PHP ? mauvaise réponse 2
+        //         'question_id' => '20',
+        //         'description' => 'htmlspecialchars_decode()',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  //  Quelle est la fonction utilisée pour échapper les caractères spéciaux en PHP ? mauvaise réponse 3
+        //         'question_id' => '20',
+        //         'description' => 'sanitize_string()',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  //  Comment afficher le contenu d'un fichier texte en PHP ? mauvaise réponse 1
+        //         'question_id' => '21',
+        //         'description' => ' Utilisez la fonction readfile() pour afficher le contenu d\'un fichier texte en PHP.',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  //  Comment afficher le contenu d'un fichier texte en PHP ? mauvaise réponse 2
+        //         'question_id' => '21',
+        //         'description' => 'Utilisez file_get_contents() pour afficher le contenu d\'un fichier texte en PHP.',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  //  Comment afficher le contenu d'un fichier texte en PHP ? mauvaise réponse 3
+        //         'question_id' => '21',
+        //         'description' => 'Utilisez fwrite() pour afficher le contenu d\'un fichier texte en PHP.',
+        //         'is_correct' => 'false',
+        //     ],
+
+        //     // réponses false SQL
+        //     [  // Qu'est-ce qu'une clé primaire en SQL ? mauvaise réponse 1
+        //         'question_id' => '22',
+        //         'description' => 'Une clé primaire peut contenir des valeurs NULL.',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Qu'est-ce qu'une clé primaire en SQL ? mauvaise réponse 2
+        //         'question_id' => '22',
+        //         'description' => 'Une clé primaire est une colonne qui peut être partagée entre plusieurs tables.',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Qu'est-ce qu'une clé primaire en SQL ? mauvaise réponse 3
+        //         'question_id' => '22',
+        //         'description' => 'Une clé primaire n\'est pas nécessaire pour identifier de manière unique chaque enregistrement dans une table.',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Comment insérer une nouvelle ligne dans une table en SQL ? mauvaise réponse 1
+        //         'question_id' => '23',
+        //         'description' => 'Utilisez la commande ADD ROW INTO table_name.',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Comment insérer une nouvelle ligne dans une table en SQL ? mauvaise réponse 2
+        //         'question_id' => '23',
+        //         'description' => 'Utilisez la commande INSERT table_name VALUES (new_row_data).',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Comment insérer une nouvelle ligne dans une table en SQL ? mauvaise réponse 3
+        //         'question_id' => '23',
+        //         'description' => 'Utilisez la commande UPDATE table_name SET new_row_data.',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle est la différence entre GROUP BY et ORDER BY en SQL ? mauvaise réponse 1
+        //         'question_id' => '24',
+        //         'description' => 'GROUP BY est utilisé pour trier les résultats d\'une requête, tandis que ORDER BY est utilisé pour grouper les résultats.',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle est la différence entre GROUP BY et ORDER BY en SQL ? mauvaise réponse 2
+        //         'question_id' => '24',
+        //         'description' => 'ORDER BY est utilisé pour appliquer une condition de filtrage sur un groupe de résultats, tandis que GROUP BY est utilisé pour trier les résultats.',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  //Quelle est la différence entre GROUP BY et ORDER BY en SQL ? mauvaise réponse 3
+        //         'question_id' => '24',
+        //         'description' => ' GROUP BY et ORDER BY sont interchangeables et peuvent être utilisés de la même manière dans une requête SQL.',
+        //         'is_correct' => 'false',
+        //     ],
+
+        //     // réponses false LARAVEL
+        //     [  // Quelle commande Laravel est utilisée pour créer un nouveau modèle ? mauvaise réponse 1
+        //         'question_id' => '25',
+        //         'description' => 'php artisan make:model User',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle commande Laravel est utilisée pour créer un nouveau modèle ? mauvaise réponse 2
+        //         'question_id' => '25',
+        //         'description' => 'php artisan generate:model User',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle commande Laravel est utilisée pour créer un nouveau modèle ? mauvaise réponse 3
+        //         'question_id' => '25',
+        //         'description' => 'php artisan create:model User',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle méthode est utilisée pour définir une relation "many-to-many" dans Eloquent ? mauvaise réponse 1
+        //         'question_id' => '26',
+        //         'description' => 'hasOneThrough()',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle méthode est utilisée pour définir une relation "many-to-many" dans Eloquent ? mauvaise réponse 2
+        //         'question_id' => '26',
+        //         'description' => 'belongsToMany()',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  // Quelle méthode est utilisée pour définir une relation "many-to-many" dans Eloquent ? mauvaise réponse 3
+        //         'question_id' => '26',
+        //         'description' => 'hasManyThrough()',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  //  Quelle est la commande pour exécuter toutes les migrations en Laravel ? mauvaise réponse 1
+        //         'question_id' => '27',
+        //         'description' => 'php artisan migrate:all', 
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  //  Quelle est la commande pour exécuter toutes les migrations en Laravel ? mauvaise réponse 2
+        //         'question_id' => '27',
+        //         'description' => 'php artisan migrate',
+        //         'is_correct' => 'false',
+        //     ],
+        //     [  //  Quelle est la commande pour exécuter toutes les migrations en Laravel ? mauvaise réponse 3
+        //         'question_id' => '27',
+        //         'description' => 'php artisan migrate:run',
+        //         'is_correct' => 'false',
+        //     ],
+        // ];
+
+        // Listes des réponses nouvelles organisation
+        $this->answers = [
+            // Réponses HTML5
+            [
                 'question_id' => '1',
                 'description' => 'HTML5 est la dernière version du langage de balisage utilisé pour créer des pages Web. Il introduit de nouvelles fonctionnalités et améliorations par rapport aux versions précédentes.',
                 'is_correct' => 'true',
             ],
-            [  // Quelle est la différence entre une balise de bloc et une balise en ligne ?
-                'question_id' => '2',
-                'description' => 'Les balises de bloc (<div>, <p>, <h1>, etc.) sont utilisées pour structurer le contenu et occupent toute la largeur disponible, tandis que les balises en ligne (<span>, <a>, <strong>, etc.) ne prennent que l\'espace nécessaire et peuvent être incluses dans une ligne de texte.',
-                'is_correct' => 'true',
-            ],
-            [  // Comment inclure une image dans une page HTML ?
-                'question_id' => '3',
-                'description' => 'Utilisez la balise <img> avec l\'attribut src pour spécifier l\'emplacement de l\'image. Par exemple : <img src="image.jpg" alt="Description de l\'image">',
-                'is_correct' => 'true',
-            ],
-
-            // réponses true CSS
-            [  // Qu'est-ce que CSS3 ?
-                'question_id' => '1',
-                'description' => 'CSS3 est la dernière version des feuilles de style en cascade (Cascading Style Sheets) utilisée pour décrire la présentation d\'un document HTML ou XML.',
-                'is_correct' => 'true',
-            ],
-            [  // Comment lier un fichier CSS externe à un document HTML ?
-                'question_id' => '2',
-                'description' => 'Utilisez la balise <link> dans la section <head> de votre document HTML. Exemple : <link rel="stylesheet" href="styles.css">',
-                'is_correct' => 'true',
-            ],
-            [  // Qu'est-ce qu'un sélecteur CSS ?
-                'question_id' => '3',
-                'description' => 'Un sélecteur CSS est un motif utilisé pour sélectionner les éléments HTML que vous souhaitez styliser. Il peut être basé sur des noms de balises, des classes, des identifiants, des attributs, ou des pseudoclasses.',
-                'is_correct' => 'true',
-            ],
-            
-             // réponses true JS
-             [  // Qu'est-ce que JavaScript ?
-                'question_id' => '1',
-                'description' => 'JavaScript est un langage de programmation de haut niveau principalement utilisé pour ajouter des fonctionnalités interactives aux sites web.',
-                'is_correct' => 'true',
-            ],
-            [  // Comment incorporer JavaScript dans une page HTML ?
-                'question_id' => '2',
-                'description' => 'Pour incorporer JavaScript dans une page HTML il faut utiliser la balise <script>.',
-                'is_correct' => 'true',
-            ],
-            [  // Quelle est la différence entre les méthodes == et === ?
-                'question_id' => '3',
-                'description' => '== vérifie l\'égalité avec conversion de type, tandis que === vérifie l\'égalité sans conversion de type (strictement égal).',
-                'is_correct' => 'true',
-            ],
-             
-             // réponses true PHP
-             [  // Qu'est-ce que PHP ?
-                'question_id' => '1',
-                'description' => 'PHP (Hypertext Preprocessor) est un langage de script côté serveur conçu pour le développement web.',
-                'is_correct' => 'true',
-            ],
-            [  // Comment déclarer une variable en PHP ?
-                'question_id' => '2',
-                'description' => 'En PHP, une variable est déclarée en utilisant le symbole "$" suivi du nom de la variable. Par exemple : $nom_variable = valeur;',
-                'is_correct' => 'true',
-            ],
-            [  // Quelles sont les règles pour nommer une variable en PHP ?
-                'question_id' => '3',
-                'description' => 'Une variable en PHP doit commencer par une lettre ou un underscore, et elle ne peut contenir que des lettres, des chiffres et des underscores.',
-                'is_correct' => 'true',
-            ],
-             
-             // réponses true SQL
-             [  // Qu'est-ce que SQL ?
-                'question_id' => '4',
-                'description' => 'SQL (Structured Query Language) est un langage de programmation standardisé utilisé pour gérer et manipuler des bases de données relationnelles.',
-                'is_correct' => 'true',
-            ],
-            [  // Quelle est la différence entre SQL et MySQL ?
-                'question_id' => '5',
-                'description' => 'SQL est un langage de requête standard, tandis que MySQL est un système de gestion de base de données relationnelle qui utilise SQL comme langage de requête.',
-                'is_correct' => 'true',
-            ],
-            [  // Qu'est-ce qu'une jointure (join) en SQL ?
-                'question_id' => '6',
-                'description' => 'Une jointure est une opération qui combine les lignes de deux tables en fonction d\'une condition spécifiée.',
-                'is_correct' => 'true',
-            ],
-              
-             // réponses true LARAVEL
-             [  // Qu'est-ce que Laravel ?
-                'question_id' => '7',
-                'description' => 'Laravel est un framework PHP open-source destiné au développement web, offrant des outils et des fonctionnalités pour faciliter et accélérer le processus de développement.',
-                'is_correct' => 'true',
-            ],
-            [  // Qu'est-ce que Composer ?
-                'question_id' => '8',
-                'description' => 'Composer est un gestionnaire de dépendances pour PHP, largement utilisé dans le développement avec Laravel pour installer et gérer les bibliothèques et les dépendances.',
-                'is_correct' => 'true',
-            ],
-            [  // Qu'est-ce que l'ORM Eloquent ?
-                'question_id' => '9',
-                'description' => 'Eloquent est le système de mapping objet-relationnel (ORM) de Laravel, qui permet aux développeurs de travailler avec des bases de données relationnelles en utilisant des objets PHP plutôt que du SQL brut.',
-                'is_correct' => 'true',
-            ],
-
-            // réponses false HTML
-            [  // Qu'est-ce que HTML5 ? mauvaise réponse 1
+            [
                 'question_id' => '1',
                 'description' => 'HTML5 est un langage de programmation utilisé pour créer des applications mobiles.',
                 'is_correct' => 'false',
             ],
-            [  // Qu'est-ce que HTML5 ? mauvaise réponse 2
+            [
                 'question_id' => '1',
-                'description' => 'HTML5 est la dernière version de CSS qui permet de styliser les pages Web.',
+                'description' => 'HTML5 est un framework JavaScript pour le développement front-end.',
                 'is_correct' => 'false',
             ],
-            [  // Qu'est-ce que HTML5 ? mauvaise réponse 3
+            [
                 'question_id' => '1',
-                'description' => 'HTML5 est un logiciel que l\'on installe sur son ordinateur pour développer des sites Web.',
-                'is_correct' => 'false',
-            ], 
-           
-            [  // Quelle balise HTML est utilisée pour définir un paragraphe ? mauvaise réponse 1
-                'question_id' => '4',
-                'description' => '<pg>',
+                'description' => 'HTML5 est un système de gestion de base de données.',
                 'is_correct' => 'false',
             ],
-            [  // Quelle balise HTML est utilisée pour définir un paragraphe ? mauvaise réponse 2
-                'question_id' => '4',
-                'description' => '<para>',
+
+            // Réponses pour la question différence entre une balise de bloc et une balise en ligne
+            [
+                'question_id' => '2',
+                'description' => 'Une balise de bloc est une balise qui crée un bloc distinct sur la page, occupant toute la largeur disponible. Une balise en ligne, quant à elle, est une balise qui n\'occupe que l\'espace nécessaire autour de son contenu.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '2',
+                'description' => 'Une balise de bloc est une balise qui n\'a pas de contenu visible sur la page, contrairement à une balise en ligne qui affiche du contenu.',
                 'is_correct' => 'false',
             ],
-            [  // Quelle balise HTML est utilisée pour définir un paragraphe ? mauvaise réponse 3
-                'question_id' => '4',
-                'description' => '<paragraph>',
+            [
+                'question_id' => '2',
+                'description' => 'Une balise de bloc est une balise utilisée pour styliser du texte, tandis qu\'une balise en ligne est utilisée pour structurer une page.',
                 'is_correct' => 'false',
             ],
-            [  // Comment insérer une image dans une page HTML ? mauvaise réponse 1
+            [
+                'question_id' => '2',
+                'description' => 'Une balise de bloc est une balise utilisée pour ajouter des images, tandis qu\'une balise en ligne est utilisée pour du texte uniquement.',
+                'is_correct' => 'false',
+            ],
+
+            // Réponses pour la question inclure une image dans une page HTML
+            [
                 'question_id' => '3',
-                'description' => '<image src="image.jpg" alt="Description">',
-                'is_correct' => 'false',
+                'description' => 'Pour inclure une image dans une page HTML, utilisez la balise <img> avec l\'attribut src pour spécifier l\'emplacement de l\'image.',
+                'is_correct' => 'true',
             ],
-            [  // Comment insérer une image dans une page HTML ? mauvaise réponse 2
+            [
                 'question_id' => '3',
-                'description' => '<img href="image.jpg" alt="Description">',
+                'description' => 'Pour inclure une image dans une page HTML, utilisez la balise <image> avec l\'attribut source pour spécifier l\'emplacement de l\'image.',
                 'is_correct' => 'false',
             ],
-            [  // Comment insérer une image dans une page HTML ? mauvaise réponse 3
+            [
                 'question_id' => '3',
-                'description' => '<picture src="image.jpg" alt="Description">',
+                'description' => 'Pour inclure une image dans une page HTML, utilisez la balise <img> avec l\'attribut link pour spécifier l\'emplacement de l\'image.',
                 'is_correct' => 'false',
             ],
-            [  // Quelle balise HTML est utilisée pour créer un lien hypertexte ? mauvaise réponse 1
+            [
+                'question_id' => '3',
+                'description' => 'Pour inclure une image dans une page HTML, utilisez la balise <img> avec l\'attribut href pour spécifier l\'emplacement de l\'image.',
+                'is_correct' => 'false',
+            ],
+
+            // Réponses pour la question balise HTML pour définir un paragraphe
+            [
+                'question_id' => '4',
+                'description' => 'La balise HTML <p> est utilisée pour définir un paragraphe dans une page Web.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '4',
+                'description' => 'La balise HTML <paragraph> est utilisée pour définir un paragraphe dans une page Web.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '4',
+                'description' => 'La balise HTML <para> est utilisée pour définir un paragraphe dans une page Web.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '4',
+                'description' => 'La balise HTML <text> est utilisée pour définir un paragraphe dans une page Web.',
+                'is_correct' => 'false',
+            ],
+
+            // Réponses pour la question balise HTML pour créer un lien hypertexte
+            [
                 'question_id' => '5',
-                'description' => '<link url="page.html">Cliquez ici</link>',
-                'is_correct' => 'false',
+                'description' => 'La balise HTML <a> est utilisée pour créer un lien hypertexte dans une page Web.',
+                'is_correct' => 'true',
             ],
-            [  // Quelle balise HTML est utilisée pour créer un lien hypertexte ? mauvaise réponse 2
+            [
                 'question_id' => '5',
-                'description' => '<hyperlink href="page.html">Cliquez ici</hyperlink>',
+                'description' => 'La balise HTML <link> est utilisée pour créer un lien hypertexte dans une page Web.',
                 'is_correct' => 'false',
             ],
-            [  // Quelle balise HTML est utilisée pour créer un lien hypertexte ? mauvaise réponse 3
+            [
                 'question_id' => '5',
-                'description' => '<a src="page.html">Cliquez ici</a>',
+                'description' => 'La balise HTML <href> est utilisée pour créer un lien hypertexte dans une page Web.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '5',
+                'description' => 'La balise HTML <hyperlink> est utilisée pour créer un lien hypertexte dans une page Web.',
                 'is_correct' => 'false',
             ],
 
-            // réponses false CSS
-            [  // Comment centrer un élément horizontalement avec CSS ? mauvaise réponse 1
+            // Réponses CSS3
+            // Qu'est-ce que CSS3 ?
+            [
+                'question_id' => '6',
+                'description' => 'CSS3 est la dernière version du langage de feuilles de style utilisé pour styliser les éléments HTML sur une page Web.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '6',
+                'description' => 'CSS3 est un langage de programmation utilisé pour créer des animations dans les pages Web.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '6',
+                'description' => 'CSS3 est un framework JavaScript pour la création d\'interfaces utilisateur.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '6',
+                'description' => 'CSS3 est un système de gestion de bases de données pour les applications Web.',
+                'is_correct' => 'false',
+            ],
+            [// Comment lier un fichier CSS externe à un document HTML ?
+                'question_id' => '7',
+                'description' => 'Pour lier un fichier CSS externe à un document HTML, utilisez la balise <link> avec l\'attribut href spécifiant le chemin vers le fichier CSS.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '7',
+                'description' => 'Pour lier un fichier CSS externe à un document HTML, utilisez la balise <style> avec l\'attribut src spécifiant le chemin vers le fichier CSS.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '7',
+                'description' => 'Pour lier un fichier CSS externe à un document HTML, utilisez la balise <script> avec l\'attribut href spécifiant le chemin vers le fichier CSS.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '7',
+                'description' => 'Pour lier un fichier CSS externe à un document HTML, utilisez la balise <css> avec l\'attribut href spécifiant le chemin vers le fichier CSS.',
+                'is_correct' => 'false',
+            ],
+
+            // Qu'est-ce qu'un sélecteur CSS ?
+            [
+                'question_id' => '8',
+                'description' => 'Un sélecteur CSS est une expression utilisée pour cibler les éléments HTML sur une page Web afin de leur appliquer des styles spécifiques.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '8',
+                'description' => 'Un sélecteur CSS est une balise utilisée pour structurer le contenu d\'une page Web.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '8',
+                'description' => 'Un sélecteur CSS est une fonction JavaScript utilisée pour manipuler le DOM.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '8',
+                'description' => 'Un sélecteur CSS est une méthode PHP utilisée pour interroger une base de données.',
+                'is_correct' => 'false',
+            ],
+
+            // Comment centrer un élément horizontalement avec CSS ?
+            [
+                'question_id' => '9',
+                'description' => 'Pour centrer un élément horizontalement avec CSS, utilisez la propriété CSS "margin: 0 auto;" sur l\'élément que vous souhaitez centrer.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '9',
+                'description' => 'Pour centrer un élément horizontalement avec CSS, utilisez la propriété CSS "text-align: center;" sur l\'élément parent.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '9',
+                'description' => 'Pour centrer un élément horizontalement avec CSS, utilisez la propriété CSS "align: center;" sur l\'élément que vous souhaitez centrer.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '9',
+                'description' => 'Pour centrer un élément horizontalement avec CSS, utilisez la propriété CSS "padding: 0 auto;" sur l\'élément que vous souhaitez centrer.',
+                'is_correct' => 'false',
+            ],
+
+            // Quelle propriété CSS est utilisée pour changer la couleur du texte ?
+            [
+                'question_id' => '10',
+                'description' => 'La propriété CSS utilisée pour changer la couleur du texte est "color".',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '10',
+                'description' => 'La propriété CSS utilisée pour changer la couleur du texte est "text-color".',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '10',
+                'description' => 'La propriété CSS utilisée pour changer la couleur du texte est "font-color".',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '10',
+                'description' => 'La propriété CSS utilisée pour changer la couleur du texte est "background-color".',
+                'is_correct' => 'false',
+            ],
+
+            // Quelle propriété CSS est utilisée pour ajouter de l'espace à l'intérieur d'un élément, entre son contenu et sa bordure ?
+            [
+                'question_id' => '11',
+                'description' => 'La propriété CSS utilisée pour ajouter de l\'espace à l\'intérieur d\'un élément est "padding".',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '11',
+                'description' => 'La propriété CSS utilisée pour ajouter de l\'espace à l\'intérieur d\'un élément est "margin".',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '11',
+                'description' => 'La propriété CSS utilisée pour ajouter de l\'espace à l\'intérieur d\'un élément est "border-spacing".',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '11',
+                'description' => 'La propriété CSS utilisée pour ajouter de l\'espace à l\'intérieur d\'un élément est "spacing".',
+                'is_correct' => 'false',
+            ],
+
+            // Réponses JAVASCRIPT
+            // Qu'est-ce que JavaScript ?
+            [
+                'question_id' => '12',
+                'description' => 'JavaScript est un langage de programmation utilisé principalement pour rendre les pages Web interactives et dynamiques.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '12',
+                'description' => 'JavaScript est un moteur de base de données utilisé pour stocker des informations sur le client.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '12',
+                'description' => 'JavaScript est un système d\'exploitation pour les serveurs Web.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '12',
+                'description' => 'JavaScript est un format de fichier pour l\'échange de données.',
+                'is_correct' => 'false',
+            ],
+
+            // Comment incorporer JavaScript dans une page HTML ?
+            [
                 'question_id' => '13',
-                'description' => 'align: center',
-                'is_correct' => 'false',
+                'description' => 'Pour incorporer JavaScript dans une page HTML, utilisez la balise <script> avec l\'attribut src pour inclure un fichier externe ou placez le code JavaScript directement entre les balises <script> et </script>.',
+                'is_correct' => 'true',
             ],
-            [  // Comment centrer un élément horizontalement avec CSS ? mauvaise réponse 2
+            [
                 'question_id' => '13',
-                'description' => 'center: horizontal',
+                'description' => 'Pour incorporer JavaScript dans une page HTML, utilisez la balise <js> avec l\'attribut src pour inclure un fichier externe ou placez le code JavaScript directement entre les balises <js> et </js>.',
                 'is_correct' => 'false',
             ],
-            [  // Comment centrer un élément horizontalement avec CSS ? mauvaise réponse 3
+            [
                 'question_id' => '13',
-                'description' => 'margin-left-right: auto',
+                'description' => 'Pour incorporer JavaScript dans une page HTML, utilisez la balise <script> avec l\'attribut href pour inclure un fichier externe ou placez le code JavaScript directement entre les balises <script> et </script>.',
                 'is_correct' => 'false',
             ],
-            [  // Quelle propriété CSS est utilisée pour changer la couleur du texte ? mauvaise réponse 1
+            [
+                'question_id' => '13',
+                'description' => 'Pour incorporer JavaScript dans une page HTML, utilisez la balise <javascript> avec l\'attribut src pour inclure un fichier externe ou placez le code JavaScript directement entre les balises <javascript> et </javascript>.',
+                'is_correct' => 'false',
+            ],
+
+            // Quelle est la différence entre les méthodes == et === ?
+            [
                 'question_id' => '14',
-                'description' => 'font-color',
-                'is_correct' => 'false',
+                'description' => 'En JavaScript, == est un opérateur d\'égalité qui compare les valeurs après conversion de type, tandis que === est un opérateur d\'égalité strict qui compare à la fois les valeurs et les types de données sans conversion.',
+                'is_correct' => 'true',
             ],
-            [  // Quelle propriété CSS est utilisée pour changer la couleur du texte ? mauvaise réponse 2
+            [
                 'question_id' => '14',
-                'description' => 'text-color',
+                'description' => 'En JavaScript, == est un opérateur d\'égalité strict qui compare à la fois les valeurs et les types de données sans conversion, tandis que === est un opérateur d\'égalité qui compare les valeurs après conversion de type.',
                 'is_correct' => 'false',
             ],
-            [  // Quelle propriété CSS est utilisée pour changer la couleur du texte ? mauvaise réponse 3
+            [
                 'question_id' => '14',
-                'description' => 'color-text',
+                'description' => 'En JavaScript, == est un opérateur d\'affectation simple, tandis que === est un opérateur d\'égalité qui compare les valeurs après conversion de type.',
                 'is_correct' => 'false',
             ],
-            [  // Quelle propriété CSS est utilisée pour ajouter de l'espace à l'intérieur d'un élément, entre son contenu et sa bordure ? mauvaise réponse 1
+            [
+                'question_id' => '14',
+                'description' => 'En JavaScript, == et === sont deux opérateurs d\'affectation utilisés pour attribuer des valeurs aux variables.',
+                'is_correct' => 'false',
+            ],
+
+            // Quelle méthode JavaScript est utilisée pour convertir une chaîne de caractères en un nombre entier ?
+            [
                 'question_id' => '15',
-                'description' => 'spacing',
-                'is_correct' => 'false',
+                'description' => 'La méthode JavaScript utilisée pour convertir une chaîne de caractères en un nombre entier est parseInt().',
+                'is_correct' => 'true',
             ],
-            [  // Quelle propriété CSS est utilisée pour ajouter de l'espace à l'intérieur d'un élément, entre son contenu et sa bordure ? mauvaise réponse 2
+            [
                 'question_id' => '15',
-                'description' => 'border-spacing',
+                'description' => 'La méthode JavaScript utilisée pour convertir une chaîne de caractères en un nombre entier est toInt().',
                 'is_correct' => 'false',
             ],
-            [  // Quelle propriété CSS est utilisée pour ajouter de l'espace à l'intérieur d'un élément, entre son contenu et sa bordure ? mauvaise réponse 3
+            [
                 'question_id' => '15',
-                'description' => 'inner-margin',
+                'description' => 'La méthode JavaScript utilisée pour convertir une chaîne de caractères en un nombre entier est parseNumber().',
                 'is_correct' => 'false',
             ],
-            
-             // réponses false JS
-             [  // Quelle méthode JavaScript est utilisée pour convertir une chaîne de caractères en un nombre entier ? mauvaise réponse 1
+            [
+                'question_id' => '15',
+                'description' => 'La méthode JavaScript utilisée pour convertir une chaîne de caractères en un nombre entier est toInteger().',
+                'is_correct' => 'false',
+            ],
+
+            // Quelle est la méthode utilisée pour ajouter un élément à la fin d'un tableau en JavaScript ?
+            [
                 'question_id' => '16',
-                'description' => 'parseChar()',
-                'is_correct' => 'false',
+                'description' => 'La méthode JavaScript utilisée pour ajouter un élément à la fin d\'un tableau est push().',
+                'is_correct' => 'true',
             ],
-            [  // Quelle méthode JavaScript est utilisée pour convertir une chaîne de caractères en un nombre entier ? mauvaise réponse 2
+            [
                 'question_id' => '16',
-                'description' => 'convertToInt()',
+                'description' => 'La méthode JavaScript utilisée pour ajouter un élément à la fin d\'un tableau est append().',
                 'is_correct' => 'false',
             ],
-            [  // Quelle méthode JavaScript est utilisée pour convertir une chaîne de caractères en un nombre entier ? mauvaise réponse 3
+            [
                 'question_id' => '16',
-                'description' => 'toString()',
+                'description' => 'La méthode JavaScript utilisée pour ajouter un élément à la fin d\'un tableau est add().',
                 'is_correct' => 'false',
             ],
-            [  // Quelle est la méthode utilisée pour ajouter un élément à la fin d'un tableau en JavaScript ? mauvaise réponse 1
+            [
+                'question_id' => '16',
+                'description' => 'La méthode JavaScript utilisée pour ajouter un élément à la fin d\'un tableau est insert().',
+                'is_correct' => 'false',
+            ],
+
+            // Quelle est la méthode JavaScript utilisée pour sélectionner un élément par son ID dans le DOM ?
+            [
                 'question_id' => '17',
-                'description' => 'add()',
-                'is_correct' => 'false',
+                'description' => 'La méthode JavaScript utilisée pour sélectionner un élément par son ID dans le DOM est document.getElementById().',
+                'is_correct' => 'true',
             ],
-            [  // Quelle est la méthode utilisée pour ajouter un élément à la fin d'un tableau en JavaScript ? mauvaise réponse 2
+            [
                 'question_id' => '17',
-                'description' => 'append()',
+                'description' => 'La méthode JavaScript utilisée pour sélectionner un élément par son ID dans le DOM est getElementById().',
                 'is_correct' => 'false',
             ],
-            [  // Quelle est la méthode utilisée pour ajouter un élément à la fin d'un tableau en JavaScript ? mauvaise réponse 3
+            [
                 'question_id' => '17',
-                'description' => 'insert()',
+                'description' => 'La méthode JavaScript utilisée pour sélectionner un élément par son ID dans le DOM est selectElementById().',
                 'is_correct' => 'false',
             ],
-            [  // Quelle est la méthode JavaScript utilisée pour sélectionner un élément par son ID dans le DOM ? mauvaise réponse 1
+            [
+                'question_id' => '17',
+                'description' => 'La méthode JavaScript utilisée pour sélectionner un élément par son ID dans le DOM est findElementById().',
+                'is_correct' => 'false',
+            ],
+
+
+            // Réponses PHP
+            // Qu'est-ce que PHP ?
+            [
                 'question_id' => '18',
-                'description' => 'getElementByTag()',
-                'is_correct' => 'false',
+                'description' => 'PHP est un langage de script côté serveur utilisé principalement pour le développement Web.',
+                'is_correct' => 'true',
             ],
-            [  // QQuelle est la méthode JavaScript utilisée pour sélectionner un élément par son ID dans le DOM ? mauvaise réponse 2
+            [
                 'question_id' => '18',
-                'description' => 'querySelector()',
+                'description' => 'PHP est un langage de programmation utilisé pour créer des applications mobiles.',
                 'is_correct' => 'false',
             ],
-            [  // Quelle est la méthode JavaScript utilisée pour sélectionner un élément par son ID dans le DOM ? mauvaise réponse 3
+            [
                 'question_id' => '18',
-                'description' => 'getElementByIdentifier()',
+                'description' => 'PHP est une base de données relationnelle souvent utilisée avec MySQL.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '18',
+                'description' => 'PHP est un framework JavaScript pour le développement back-end.',
                 'is_correct' => 'false',
             ],
 
-             // réponses false PHP
-             [  // Comment convertir une chaîne JSON en tableau PHP ? mauvaise réponse 1
+            // Comment déclarer une variable en PHP ?
+            [
                 'question_id' => '19',
-                'description' => ' Utilisez json_decode($chaine_json, true) pour convertir une chaîne JSON en tableau PHP',
-                'is_correct' => 'false',
+                'description' => 'Pour déclarer une variable en PHP, utilisez le symbole $ suivi du nom de la variable et attribuez-lui une valeur avec l\'opérateur =.',
+                'is_correct' => 'true',
             ],
-            [  // Comment convertir une chaîne JSON en tableau PHP ? mauvaise réponse 2
+            [
                 'question_id' => '19',
-                'description' => 'Utilisez json_encode($chaine_json) pour convertir une chaîne JSON en tableau PHP.',
+                'description' => 'Pour déclarer une variable en PHP, utilisez le mot-clé var suivi du nom de la variable et attribuez-lui une valeur avec l\'opérateur =.',
                 'is_correct' => 'false',
             ],
-            [  // Comment convertir une chaîne JSON en tableau PHP ? mauvaise réponse 3
+            [
                 'question_id' => '19',
-                'description' => 'Utilisez json_parse($chaine_json) pour convertir une chaîne JSON en tableau PHP.',
+                'description' => 'Pour déclarer une variable en PHP, utilisez le mot-clé let suivi du nom de la variable et attribuez-lui une valeur avec l\'opérateur =.',
                 'is_correct' => 'false',
             ],
-            [  //  Quelle est la fonction utilisée pour échapper les caractères spéciaux en PHP ? mauvaise réponse 1
-                'question_id' => '20',
-                'description' => 'escape_special_chars()',
-                'is_correct' => 'false',
-            ],
-            [  //  Quelle est la fonction utilisée pour échapper les caractères spéciaux en PHP ? mauvaise réponse 2
-                'question_id' => '20',
-                'description' => 'htmlspecialchars_decode()',
-                'is_correct' => 'false',
-            ],
-            [  //  Quelle est la fonction utilisée pour échapper les caractères spéciaux en PHP ? mauvaise réponse 3
-                'question_id' => '20',
-                'description' => 'sanitize_string()',
-                'is_correct' => 'false',
-            ],
-            [  //  Comment afficher le contenu d'un fichier texte en PHP ? mauvaise réponse 1
-                'question_id' => '21',
-                'description' => ' Utilisez la fonction readfile() pour afficher le contenu d\'un fichier texte en PHP.',
-                'is_correct' => 'false',
-            ],
-            [  //  Comment afficher le contenu d'un fichier texte en PHP ? mauvaise réponse 2
-                'question_id' => '21',
-                'description' => 'Utilisez file_get_contents() pour afficher le contenu d\'un fichier texte en PHP.',
-                'is_correct' => 'false',
-            ],
-            [  //  Comment afficher le contenu d'un fichier texte en PHP ? mauvaise réponse 3
-                'question_id' => '21',
-                'description' => 'Utilisez fwrite() pour afficher le contenu d\'un fichier texte en PHP.',
+            [
+                'question_id' => '19',
+                'description' => 'Pour déclarer une variable en PHP, utilisez le symbole # suivi du nom de la variable et attribuez-lui une valeur avec l\'opérateur =.',
                 'is_correct' => 'false',
             ],
 
-            // réponses false SQL
-            [  // Qu'est-ce qu'une clé primaire en SQL ? mauvaise réponse 1
-                'question_id' => '22',
-                'description' => 'Une clé primaire peut contenir des valeurs NULL.',
+            // Quelles sont les règles pour nommer une variable en PHP ?
+            [
+                'question_id' => '20',
+                'description' => 'Les règles pour nommer une variable en PHP sont : commencer par un caractère alphabétique ou underscore (_), suivis de caractères alphanumériques ou underscores (_), sans utiliser de caractères spéciaux ni d\'espaces.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '20',
+                'description' => 'Les règles pour nommer une variable en PHP sont : commencer par un chiffre, suivis de caractères alphanumériques ou underscores (_), sans utiliser de caractères spéciaux ni d\'espaces.',
                 'is_correct' => 'false',
             ],
-            [  // Qu'est-ce qu'une clé primaire en SQL ? mauvaise réponse 2
-                'question_id' => '22',
-                'description' => 'Une clé primaire est une colonne qui peut être partagée entre plusieurs tables.',
+            [
+                'question_id' => '20',
+                'description' => 'Les règles pour nommer une variable en PHP sont : utiliser uniquement des majuscules et des chiffres, sans espaces ni caractères spéciaux.',
                 'is_correct' => 'false',
             ],
-            [  // Qu'est-ce qu'une clé primaire en SQL ? mauvaise réponse 3
-                'question_id' => '22',
-                'description' => 'Une clé primaire n\'est pas nécessaire pour identifier de manière unique chaque enregistrement dans une table.',
-                'is_correct' => 'false',
-            ],
-            [  // Comment insérer une nouvelle ligne dans une table en SQL ? mauvaise réponse 1
-                'question_id' => '23',
-                'description' => 'Utilisez la commande ADD ROW INTO table_name.',
-                'is_correct' => 'false',
-            ],
-            [  // Comment insérer une nouvelle ligne dans une table en SQL ? mauvaise réponse 2
-                'question_id' => '23',
-                'description' => 'Utilisez la commande INSERT table_name VALUES (new_row_data).',
-                'is_correct' => 'false',
-            ],
-            [  // Comment insérer une nouvelle ligne dans une table en SQL ? mauvaise réponse 3
-                'question_id' => '23',
-                'description' => 'Utilisez la commande UPDATE table_name SET new_row_data.',
-                'is_correct' => 'false',
-            ],
-            [  // Quelle est la différence entre GROUP BY et ORDER BY en SQL ? mauvaise réponse 1
-                'question_id' => '24',
-                'description' => 'GROUP BY est utilisé pour trier les résultats d\'une requête, tandis que ORDER BY est utilisé pour grouper les résultats.',
-                'is_correct' => 'false',
-            ],
-            [  // Quelle est la différence entre GROUP BY et ORDER BY en SQL ? mauvaise réponse 2
-                'question_id' => '24',
-                'description' => 'ORDER BY est utilisé pour appliquer une condition de filtrage sur un groupe de résultats, tandis que GROUP BY est utilisé pour trier les résultats.',
-                'is_correct' => 'false',
-            ],
-            [  //Quelle est la différence entre GROUP BY et ORDER BY en SQL ? mauvaise réponse 3
-                'question_id' => '24',
-                'description' => ' GROUP BY et ORDER BY sont interchangeables et peuvent être utilisés de la même manière dans une requête SQL.',
+            [
+                'question_id' => '20',
+                'description' => 'Les règles pour nommer une variable en PHP sont : commencer par un signe $, suivis de caractères alphanumériques ou underscores (_), sans utiliser de caractères spéciaux ni d\'espaces.',
                 'is_correct' => 'false',
             ],
 
-            // réponses false LARAVEL
-            [  // Quelle commande Laravel est utilisée pour créer un nouveau modèle ? mauvaise réponse 1
-                'question_id' => '25',
-                'description' => 'php artisan make:model User',
+            // Comment convertir une chaîne JSON en tableau PHP ?
+            [
+                'question_id' => '21',
+                'description' => 'Pour convertir une chaîne JSON en tableau PHP, utilisez la fonction json_decode().',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '21',
+                'description' => 'Pour convertir une chaîne JSON en tableau PHP, utilisez la fonction json_encode().',
                 'is_correct' => 'false',
             ],
-            [  // Quelle commande Laravel est utilisée pour créer un nouveau modèle ? mauvaise réponse 2
-                'question_id' => '25',
-                'description' => 'php artisan generate:model User',
+            [
+                'question_id' => '21',
+                'description' => 'Pour convertir une chaîne JSON en tableau PHP, utilisez la fonction array_parse().',
                 'is_correct' => 'false',
             ],
-            [  // Quelle commande Laravel est utilisée pour créer un nouveau modèle ? mauvaise réponse 3
-                'question_id' => '25',
-                'description' => 'php artisan create:model User',
+            [
+                'question_id' => '21',
+                'description' => 'Pour convertir une chaîne JSON en tableau PHP, utilisez la fonction array_json().',
                 'is_correct' => 'false',
             ],
-            [  // Quelle méthode est utilisée pour définir une relation "many-to-many" dans Eloquent ? mauvaise réponse 1
-                'question_id' => '26',
-                'description' => 'hasOneThrough()',
-                'is_correct' => 'false',
-            ],
-            [  // Quelle méthode est utilisée pour définir une relation "many-to-many" dans Eloquent ? mauvaise réponse 2
-                'question_id' => '26',
-                'description' => 'belongsToMany()',
-                'is_correct' => 'false',
-            ],
-            [  // Quelle méthode est utilisée pour définir une relation "many-to-many" dans Eloquent ? mauvaise réponse 3
-                'question_id' => '26',
-                'description' => 'hasManyThrough()',
-                'is_correct' => 'false',
-            ],
-            [  //  Quelle est la commande pour exécuter toutes les migrations en Laravel ? mauvaise réponse 1
-                'question_id' => '27',
-                'description' => 'php artisan migrate:all', 
-                'is_correct' => 'false',
-            ],
-            [  //  Quelle est la commande pour exécuter toutes les migrations en Laravel ? mauvaise réponse 2
-                'question_id' => '27',
-                'description' => 'php artisan migrate',
-                'is_correct' => 'false',
-            ],
-            [  //  Quelle est la commande pour exécuter toutes les migrations en Laravel ? mauvaise réponse 3
-                'question_id' => '27',
-                'description' => 'php artisan migrate:run',
-                'is_correct' => 'false',
-            ],
-         ];
 
-        //  Liste des points
+            // Quelle est la fonction utilisée pour échapper les caractères spéciaux en PHP ?
+            [
+                'question_id' => '22',
+                'description' => 'La fonction utilisée pour échapper les caractères spéciaux en PHP est addslashes().',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '22',
+                'description' => 'La fonction utilisée pour échapper les caractères spéciaux en PHP est htmlspecialchars().',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '22',
+                'description' => 'La fonction utilisée pour échapper les caractères spéciaux en PHP est escape().',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '22',
+                'description' => 'La fonction utilisée pour échapper les caractères spéciaux en PHP est secure().',
+                'is_correct' => 'false',
+            ],
+
+            // Comment afficher le contenu d'un fichier texte en PHP ?
+            [
+                'question_id' => '23',
+                'description' => 'Pour afficher le contenu d\'un fichier texte en PHP, utilisez la fonction file_get_contents() avec le chemin complet du fichier.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '23',
+                'description' => 'Pour afficher le contenu d\'un fichier texte en PHP, utilisez la fonction read_file() avec le chemin complet du fichier.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '23',
+                'description' => 'Pour afficher le contenu d\'un fichier texte en PHP, utilisez la fonction get_file_contents() avec le chemin complet du fichier.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '23',
+                'description' => 'Pour afficher le contenu d\'un fichier texte en PHP, utilisez la fonction read_text_file() avec le chemin complet du fichier.',
+                'is_correct' => 'false',
+            ],
+
+
+            // Réponses SQL
+            // Qu'est-ce que SQL ?
+            [
+                'question_id' => '24',
+                'description' => 'SQL (Structured Query Language) est un langage de programmation standardisé utilisé pour gérer et manipuler des bases de données relationnelles.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '24',
+                'description' => 'SQL est un système de gestion de base de données relationnelles développé par Microsoft.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '24',
+                'description' => 'SQL est un langage de programmation utilisé pour créer des applications Web dynamiques.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '24',
+                'description' => 'SQL est un framework JavaScript pour le développement front-end.',
+                'is_correct' => 'false',
+            ],
+
+            // Quelle est la différence entre SQL et MySQL ?
+            [
+                'question_id' => '25',
+                'description' => 'SQL est un langage de requête utilisé pour interagir avec des bases de données, tandis que MySQL est un système de gestion de bases de données relationnelles (SGBDR) utilisant SQL comme langage de requête.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '25',
+                'description' => 'SQL est une version de MySQL optimisée pour les grandes entreprises, tandis que MySQL est conçu pour les petites et moyennes entreprises.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '25',
+                'description' => 'SQL est un logiciel open-source développé par Oracle, tandis que MySQL est développé par Microsoft.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '25',
+                'description' => 'SQL est un langage de programmation, tandis que MySQL est un système d\'exploitation de base de données.',
+                'is_correct' => 'false',
+            ],
+
+            // Qu'est-ce qu'une jointure (join) en SQL ?
+            [
+                'question_id' => '26',
+                'description' => 'Une jointure (join) en SQL est une clause qui combine des enregistrements de deux ou plusieurs tables basées sur une condition liée à une colonne commune entre elles.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '26',
+                'description' => 'Une jointure (join) en SQL est utilisée pour trier les résultats d\'une requête selon un ordre spécifique.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '26',
+                'description' => 'Une jointure (join) en SQL est une méthode pour insérer des données dans une table à partir d\'une autre table.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '26',
+                'description' => 'Une jointure (join) en SQL est une fonction pour rechercher des informations spécifiques dans une base de données.',
+                'is_correct' => 'false',
+            ],
+
+            // Qu'est-ce qu'une clé primaire en SQL ?
+            [
+                'question_id' => '27',
+                'description' => 'Une clé primaire en SQL est une colonne (ou un groupe de colonnes) qui identifie de manière unique chaque ligne d\'une table. Elle garantit l\'unicité des données et est utilisée pour les relations entre tables.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '27',
+                'description' => 'Une clé primaire en SQL est utilisée pour trier les données d\'une table selon un ordre spécifique.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '27',
+                'description' => 'Une clé primaire en SQL est une fonction pour insérer des données dans une table à partir d\'une autre table.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '27',
+                'description' => 'Une clé primaire en SQL est une méthode pour rechercher des informations spécifiques dans une base de données.',
+                'is_correct' => 'false',
+            ],
+
+            // Comment insérer une nouvelle ligne dans une table en SQL ?
+            [
+                'question_id' => '28',
+                'description' => 'Pour insérer une nouvelle ligne dans une table en SQL, utilisez la commande INSERT INTO suivie du nom de la table et des valeurs à insérer dans les colonnes correspondantes.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '28',
+                'description' => 'Pour insérer une nouvelle ligne dans une table en SQL, utilisez la commande ADD suivie du nom de la table et des valeurs à insérer dans les colonnes correspondantes.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '28',
+                'description' => 'Pour insérer une nouvelle ligne dans une table en SQL, utilisez la commande UPDATE suivie du nom de la table et des valeurs à insérer dans les colonnes correspondantes.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '28',
+                'description' => 'Pour insérer une nouvelle ligne dans une table en SQL, utilisez la commande CREATE suivie du nom de la table et des valeurs à insérer dans les colonnes correspondantes.',
+                'is_correct' => 'false',
+            ],
+
+            // Quelle est la différence entre GROUP BY et ORDER BY en SQL ?
+            [
+                'question_id' => '29',
+                'description' => 'GROUP BY et ORDER BY sont utilisés dans SQL pour organiser les résultats d\'une requête. GROUP BY est utilisé pour regrouper les résultats basés sur une colonne spécifique, tandis que ORDER BY est utilisé pour trier les résultats selon une ou plusieurs colonnes spécifiques.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '29',
+                'description' => 'GROUP BY est utilisé pour trier les résultats d\'une requête selon un ordre spécifique, tandis que ORDER BY est utilisé pour regrouper les résultats basés sur une colonne spécifique.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '29',
+                'description' => 'GROUP BY est utilisé pour regrouper les résultats basés sur une colonne spécifique, tandis que ORDER BY est utilisé pour filtrer les résultats selon un critère spécifique.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '29',
+                'description' => 'GROUP BY est utilisé pour agréger les résultats d\'une requête, tandis que ORDER BY est utilisé pour limiter le nombre de résultats renvoyés.',
+                'is_correct' => 'false',
+            ],
+
+
+            // Réponses pour la question Laravel
+            // Qu'est-ce que Laravel ?
+            [
+                'question_id' => '30',
+                'description' => 'Laravel est un framework PHP open-source utilisé pour le développement d\'applications web. Il offre une structure robuste et des fonctionnalités puissantes, facilitant la création d\'applications sécurisées et évolutives.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '30',
+                'description' => 'Laravel est un gestionnaire de base de données relationnelles pour PHP.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '30',
+                'description' => 'Laravel est un système de gestion de contenu (CMS) pour la création de sites web.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '30',
+                'description' => 'Laravel est un langage de programmation pour le développement d\'applications mobiles.',
+                'is_correct' => 'false',
+            ],
+
+            // Qu'est-ce que Composer ?
+            [
+                'question_id' => '31',
+                'description' => 'Composer est un gestionnaire de dépendances pour PHP, permettant l\'installation, la mise à jour et la gestion des bibliothèques et des packages PHP nécessaires dans un projet.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '31',
+                'description' => 'Composer est un framework PHP utilisé pour créer des applications web.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '31',
+                'description' => 'Composer est un éditeur de texte populaire utilisé par les développeurs PHP.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '31',
+                'description' => 'Composer est une base de données NoSQL utilisée pour le stockage de données non structurées.',
+                'is_correct' => 'false',
+            ],
+
+            // Qu'est-ce que l'ORM Eloquent ?
+            [
+                'question_id' => '32',
+                'description' => 'Eloquent est un ORM (Object-Relational Mapping) inclus dans Laravel. Il simplifie la gestion des bases de données en permettant d\'interagir avec celles-ci en utilisant des modèles PHP plutôt que des requêtes SQL directes.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '32',
+                'description' => 'Eloquent est un moteur de recherche intégré dans Laravel pour trouver des fichiers dans un projet.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '32',
+                'description' => 'Eloquent est un outil de test unitaire pour PHP inclus dans Laravel.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '32',
+                'description' => 'Eloquent est un système de cache pour améliorer les performances des applications web.',
+                'is_correct' => 'false',
+            ],
+
+            // Quelle commande Laravel est utilisée pour créer un nouveau modèle ?
+            [
+                'question_id' => '33',
+                'description' => 'La commande artisan make:model est utilisée pour créer un nouveau modèle dans Laravel.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '33',
+                'description' => 'La commande artisan create:model est utilisée pour créer un nouveau modèle dans Laravel.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '33',
+                'description' => 'La commande artisan new:model est utilisée pour créer un nouveau modèle dans Laravel.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '33',
+                'description' => 'La commande artisan generate:model est utilisée pour créer un nouveau modèle dans Laravel.',
+                'is_correct' => 'false',
+            ],
+
+            // Quelle méthode est utilisée pour définir une relation "many-to-many" dans Eloquent ?
+            [
+                'question_id' => '34',
+                'description' => 'La méthode belongsToMany() est utilisée dans Eloquent pour définir une relation "many-to-many" entre deux modèles.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '34',
+                'description' => 'La méthode hasManyToMany() est utilisée dans Eloquent pour définir une relation "many-to-many" entre deux modèles.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '34',
+                'description' => 'La méthode manyToMany() est utilisée dans Eloquent pour définir une relation "many-to-many" entre deux modèles.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '34',
+                'description' => 'La méthode relateManyToMany() est utilisée dans Eloquent pour définir une relation "many-to-many" entre deux modèles.',
+                'is_correct' => 'false',
+            ],
+
+            // Quelle est la commande pour exécuter toutes les migrations en Laravel ?
+            [
+                'question_id' => '35',
+                'description' => 'La commande artisan migrate est utilisée pour exécuter toutes les migrations en Laravel.',
+                'is_correct' => 'true',
+            ],
+            [
+                'question_id' => '35',
+                'description' => 'La commande artisan migrate:all est utilisée pour exécuter toutes les migrations en Laravel.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '35',
+                'description' => 'La commande artisan migrate:run est utilisée pour exécuter toutes les migrations en Laravel.',
+                'is_correct' => 'false',
+            ],
+            [
+                'question_id' => '35',
+                'description' => 'La commande artisan run:migrations est utilisée pour exécuter toutes les migrations en Laravel.',
+                'is_correct' => 'false',
+            ],
+
+        ];
+
+        // Liste des jeux
         $this->games = [
             [
                 'user_id' => '1',
@@ -699,7 +1565,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'user_id' => '3',
-                'points' => '26',
+                'points' => '6',
             ],
             [
                 'user_id' => '4',
@@ -707,9 +1573,17 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'user_id' => '5',
-                'points' => '7',
+                'points' => '0',
             ],
-            ];
+        ];
+
+        // // Liste des games_questions
+        // $this->games_questions = [
+        //     [
+        //         'user_id' => '1',
+        //         ''
+        //     ],
+        // ]
     }
 
     /**
@@ -733,17 +1607,26 @@ class DatabaseSeeder extends Seeder
         $this->processGames($this->games);
     }
 
+     /**
+     * Seed la table 'users'
+     */
     private function processUsers($users)
     {
         // Insère les données dans la table 'users'
         DB::table('users')->insert($users);
     }
 
+     /**
+     * Seed la table 'categories'
+     */
     private function processCategories($categories)
     {
         DB::table('categories')->insert($categories);
     }
 
+     /**
+     * Seed la table 'questions'
+     */
     private function processQuestions($questions)
     {
         foreach ($questions as $question) {
@@ -758,8 +1641,9 @@ class DatabaseSeeder extends Seeder
             ];
 
             // Insère les données dans la table 'questions'
-            $question_id = DB::table('questions')->insertGetId($data);
+            DB::table('questions')->insertGetId($data); // je n'ai pas besoin de '$question_id = ' car je ne m'en ressers pas après dans la fonction. je n'ai pas besoin de sotcker la valeur ds une variable.
 
+            // ---- code suivants inutile -----
             // Seed la catégorie de la question
             // $this->processQuestionCategory($question_id, $question['type']);
 
@@ -782,6 +1666,9 @@ class DatabaseSeeder extends Seeder
     //     DB::table('categories')->insert($data);
     // }
 
+     /**
+     * Seed la table 'answers'
+     */
     private function processAnswers($answers)
     {
         foreach ($answers as $answer) {
@@ -797,6 +1684,9 @@ class DatabaseSeeder extends Seeder
         }
     }
 
+     /**
+     * Seed la table 'games'
+     */
     private function processGames($games)
     {
         foreach ($games as $game) {
@@ -806,11 +1696,16 @@ class DatabaseSeeder extends Seeder
                 'points' => $game['points'],
             ];
             // Insère les données dans la table 'games'
-            $user_id = DB::table('games')->insertGetId($data);
+            DB::table('games')->insertGetId($data);
         }
-       
-       
     }
 
+     /**
+     * Seed la table 'movies_genres' pour un film
+     */
+    private function processUsersQuestions($user_id, $question_id)
+    {
+        // Récupère les identifiants des 
+    }
 }
 
