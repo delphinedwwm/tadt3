@@ -1577,6 +1577,1589 @@ class DatabaseSeeder extends Seeder
             ],
         ];
 
+        // // Liste Users_Questions 
+        // $this->users_questions_old = [
+        //     [ 
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '17',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2', // moitié juste
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '3',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '25',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '8',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '19',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '6',
+        //             'asked_count' => '1',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '14',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '20',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //     ], // fin user 1 1ere partie
+        //     [
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '5',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1', // plus fausse
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '13',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '4',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '0',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '24',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '0',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '15',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '7',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '21',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '1',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '0',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '23',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '12',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '0',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '2',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '10',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '9',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '16',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '0',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '18',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '22',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //     ], // fin user 1 2eme partie
+        //     [
+        //         [ 
+        //             'user_id' => '1',
+        //             'question_id' => '11',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '2', // plus juste
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '26',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '3',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '17',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '8',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '29',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '6',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '30',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '14',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '31',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '20',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '19',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '32',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '33',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '12',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '34',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '35',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '36',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '37',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '15',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '7',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '38',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '39',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '40',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '41',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '42',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '43',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '1',
+        //             'question_id' => '44',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //     ], // fin user 1 3eme partie
+
+        //     [
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '10',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '5',
+        //             'asked_count' => '1',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '18',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '14',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '7',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '22',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '0',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '3',
+        //             'asked_count' => '1',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '26',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '11',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '9',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '15',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '17',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //     ], // fin user 2 1ere partie
+        //     [
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '20',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '6',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '8',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '13',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '0',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '4',
+        //             'asked_count' => '1',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '0',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '25',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '12',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '23',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '2',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '27',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '19',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '1',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '0',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '28',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '16',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '0',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '21',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '29',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '30',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '31',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '24',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '0',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '32',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '33',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '2',
+        //             'question_id' => '34',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //     ], // fin user 2 2eme partie
+
+        //     [
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '4',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '0',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '17',
+        //             'asked_count' => '1',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '10',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '25',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '29',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '7',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '15',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '22',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '9',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '12',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '1',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '3',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '24',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '19',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '31',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '21',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '28',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '5',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '14',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '27',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '11',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '13',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '30',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '8',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '6',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //     ], // fin user 3 1ere partie
+        //     [
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '20',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '32',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '18',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '23',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '2',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '26',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '33',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '16',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '34',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '35',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '36',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '37',
+        //             'asked_count' => '4',
+        //             'nb_star(s)' => '1',
+        //             'answers_trues_count' => '3',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '38',
+        //             'asked_count' => '3',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '2',
+        //         ],
+        //         [
+        //             'user_id' => '3',
+        //             'question_id' => '39',
+        //             'asked_count' => '2',
+        //             'nb_star(s)' => '0',
+        //             'answers_trues_count' => '1',
+        //         ],
+        //     ], // fin user 3 2eme partie
+        // ];
+        
+        $this->users_questions = [
+            [
+                'user_id' => '1',
+                'question_id' => '17',
+                'asked_count' => '4',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '3', 
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '25',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '8',
+                'asked_count' => '2',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '19',
+                'asked_count' => '3',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '6',
+                'asked_count' => '3',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '14',
+                'asked_count' => '3',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '20',
+                'asked_count' => '3',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '5',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1', 
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '13',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '4',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '0',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '24',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '0',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '15',
+                'asked_count' => '3',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '7',
+                'asked_count' => '4',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '3',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '21',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '1',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '0',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '23',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '12',
+                'asked_count' => '3',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '2',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '10',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '9',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '16',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '0',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '18',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '22',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '26',
+                'asked_count' => '2',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '29',
+                'asked_count' => '4',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '3',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '30',
+                'asked_count' => '4',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '3',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '31',
+                'asked_count' => '3',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '32',
+                'asked_count' => '3',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '33',
+                'asked_count' => '4',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '3',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '34',
+                'asked_count' => '4',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '3',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '35',
+                'asked_count' => '4',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '3',
+            ],
+
+            // user 2
+            [
+                'user_id' => '2',
+                'question_id' => '10',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '5',
+                'asked_count' => '1',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '18',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '14',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '7',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '22',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '0',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '3',
+                'asked_count' => '1',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '26',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '11',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '3',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '9',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '15',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '17',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '20',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '6',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '8',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '13',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '0',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '4',
+                'asked_count' => '1',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '0',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '25',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '12',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '23',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '2',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '27',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '19',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '1',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '0',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '28',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '16',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '0',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '21',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '29',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '30',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '31',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '3',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '24',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '0',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '32',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '33',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '34',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+
+            // user 3
+
+            [
+                'user_id' => '3',
+                'question_id' => '29',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '18',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '20',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '26',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '32',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '3',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '15',
+                'asked_count' => '3',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '34',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '31',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '5',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '23',
+                'asked_count' => '4',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '3',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '11',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '3',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '7',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '16',
+                'asked_count' => '4',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '3',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '19',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '13',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '1',
+                'asked_count' => '1',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '14',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '17',
+                'asked_count' => '1',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '8',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '30',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '25',
+                'asked_count' => '2',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '12',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '10',
+                'asked_count' => '4',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '3',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '22',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '3',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '6',
+                'asked_count' => '3',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '24',
+                'asked_count' => '4',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '2',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '9',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '28',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '3',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '35',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '11',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '3',
+            ],
+        ];
+         
+            
         // // Liste des games_questions
         // $this->games_questions = [
         //     [
@@ -1600,11 +3183,15 @@ class DatabaseSeeder extends Seeder
         // Seed la table 'questions'
         $this->processQuestions($this->questions);
 
-        // // Seed la table 'answers'
+        // Seed la table 'answers'
         $this->processAnswers($this->answers);
 
+        // Seed la table 'users_questions'
+        $this->processUsers_Questions($this->users_questions);
+        
         // // Seed la table 'games'
-        $this->processGames($this->games);
+        // $this->processGames($this->games);
+
     }
 
      /**
@@ -1652,7 +3239,7 @@ class DatabaseSeeder extends Seeder
         }
     }
 
-    // private function processQuestionCategory($question_id, $category_name)
+    // private function processQuestionCategoryNull($question_id, $category_name)
     // {
     //     $data = [
     //         'question_id' => $question,
@@ -1685,6 +3272,58 @@ class DatabaseSeeder extends Seeder
     }
 
      /**
+     * Seed la table 'users_questions' pour un user
+     */
+
+    // private function processUsersQuestionsOLD($user_id, $questions, $nb_star, $answers_trues_count)
+    // {
+
+    //     // Récupère les identifiants des users sous formes de tableau
+    //     $question_ids = DB::table('question')
+    //         ->whereIn('name', $questions)
+    //         ->pluck('id')
+    //         ->toArray();
+
+    //     // dd($question_ids);
+    //     $data = [];
+
+    //     // Parcours tous les id des questionuser
+    //     foreach ($question_ids as $question_id) {
+    //         // Définit les données des questions des users à destination de la table 'users_questions'
+    //         $data[] = [
+    //             // 'question_id' => $user['question_id'],
+    //             'user_id' => $user_ids,
+    //             'question_id' => $question_ids,
+    //             // 'asked_count' => '4',
+    //             'nb_star(s)' => $nb_star,
+    //             'answers_trues_count' => $answers_trues_count,
+                
+    //         ];
+    //         // Insère les données dans la table 'users_questions'
+    //         DB::table('users_questions')->insert($data);
+    //     }  
+    // } 
+    
+    private function processUsers_Questions($users_questions)
+    {
+        foreach ($users_questions as $user_question) {
+            // dump($users_question);
+            // Définit les données de la réponse à destination de la table 'users_questions'
+            $data = [
+                'question_id' => $user_question['question_id'],
+                'user_id'=> $user_question['user_id'],
+                'asked_count'=> $user_question['asked_count'],
+                'nb_star(s)' => $user_question['nb_star(s)'],
+                'answers_trues_count' => $user_question['answers_trues_count'],
+                
+            ];
+            // Insère les données dans la table 'answers'
+            $answer_id = DB::table('users_questions')->insertGetId($data);
+        }
+    }
+
+
+    /**
      * Seed la table 'games'
      */
     private function processGames($games)
@@ -1699,13 +3338,4 @@ class DatabaseSeeder extends Seeder
             DB::table('games')->insertGetId($data);
         }
     }
-
-     /**
-     * Seed la table 'movies_genres' pour un film
-     */
-    private function processUsersQuestions($user_id, $question_id)
-    {
-        // Récupère les identifiants des 
-    }
 }
-

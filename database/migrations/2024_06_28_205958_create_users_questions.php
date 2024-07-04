@@ -16,16 +16,19 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('question_id');
+            $table->integer('asked_count');
+            $table->integer('nb_star(s)');
+            $table->unsignedBigInteger('answers_trues_count')->default(0);
             $table->timestamps();
 
             // Contraintes de clé étrangère
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
             
-            // Contrainte d'unicité
-            $table->unique(['user_id','question_id']);
+            // // Contrainte d'unicité
+            // $table->unique(['user_id','question_id']); 
+            // 'unique' ne convient pas ici car j'ai plusieurs fois le même user_id et la même question_id das ma table
         });
-
     }
 
     /**
