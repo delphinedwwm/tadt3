@@ -43,16 +43,16 @@ class DatabaseSeeder extends Seeder
                 'email' => 'jeremiedev@user.com',
                 'password' => 'vedeimerej'
             ],
-            [
-                'name' => 'David',
-                'email' => 'davidweb@user.com',
-                'password' => 'bewdivad'
-            ],
-            [
-                'name' => 'Alicia',
-                'email' => 'aliciawebdev@user.com',
-                'password' => 'vedbewaicila'
-            ],
+        //     [
+        //         'name' => 'David',
+        //         'email' => 'davidweb@user.com',
+        //         'password' => 'bewdivad'
+        //     ],
+        //     [
+        //         'name' => 'Alicia',
+        //         'email' => 'aliciawebdev@user.com',
+        //         'password' => 'vedbewaicila'
+        //     ],
         ];
 
         // Liste des catégories
@@ -94,7 +94,7 @@ class DatabaseSeeder extends Seeder
 
         // liste des questions
         $this->questions = [
-            // question HTML
+        // question HTML
             [  
                 'question' => 'Qu\'est-ce que HTML5 ?',
                 'category_id' => '1',
@@ -121,7 +121,7 @@ class DatabaseSeeder extends Seeder
                 'level' => '3',
             ],
 
-            // question CSS
+        // question CSS
             [  
                 'question' => 'Qu\'est-ce que CSS3 ?',
                 'category_id' => '2',
@@ -153,7 +153,7 @@ class DatabaseSeeder extends Seeder
                 'level' => '3',
             ],
 
-             // question JS
+        // question JS
             [  
                 'question' => 'Qu\'est-ce que JavaScript ?',
                 'category_id' => '3',
@@ -185,7 +185,7 @@ class DatabaseSeeder extends Seeder
                 'level' => '3',
             ],
 
-            // question PHP
+        // question PHP
             [  
                 'question' => 'Qu\'est-ce que PHP ?',
                 'category_id' => '4',
@@ -217,7 +217,7 @@ class DatabaseSeeder extends Seeder
                 'level' => '3',
             ],
 
-            // question SQL
+        // question SQL
             [  
                 'question' => 'Qu\'est-ce que SQL ?',
                 'category_id' => '5',
@@ -249,7 +249,7 @@ class DatabaseSeeder extends Seeder
                 'level' => '3',
             ],
 
-            // question LARAVEL
+        // question LARAVEL
             [  
                 'question' => 'Qu\'est-ce que Laravel ?',
                 'category_id' => '6',
@@ -283,8 +283,8 @@ class DatabaseSeeder extends Seeder
           
         ];
 
-        //  // Liste des réponses
-        //  $this->answers = [
+        // Liste des réponses OLD
+        //  $this->answersOLD = [
 
         //     // réponses true HTML
         //     [  // Qu'est-ce que HTML5 ?
@@ -775,7 +775,7 @@ class DatabaseSeeder extends Seeder
 
         // Listes des réponses nouvelles organisation
         $this->answers = [
-            // Réponses HTML5
+        // Réponses HTML5
             [
                 'question_id' => '1',
                 'description' => 'HTML5 est la dernière version du langage de balisage utilisé pour créer des pages Web. Il introduit de nouvelles fonctionnalités et améliorations par rapport aux versions précédentes.',
@@ -885,7 +885,7 @@ class DatabaseSeeder extends Seeder
                 'is_correct' => 'false',
             ],
 
-            // Réponses CSS3
+        // Réponses CSS3
             // Qu'est-ce que CSS3 ?
             [
                 'question_id' => '6',
@@ -1016,7 +1016,7 @@ class DatabaseSeeder extends Seeder
                 'is_correct' => 'false',
             ],
 
-            // Réponses JAVASCRIPT
+        // Réponses JAVASCRIPT
             // Qu'est-ce que JavaScript ?
             [
                 'question_id' => '12',
@@ -1149,8 +1149,7 @@ class DatabaseSeeder extends Seeder
                 'is_correct' => 'false',
             ],
 
-
-            // Réponses PHP
+        // Réponses PHP
             // Qu'est-ce que PHP ?
             [
                 'question_id' => '18',
@@ -1284,7 +1283,7 @@ class DatabaseSeeder extends Seeder
             ],
 
 
-            // Réponses SQL
+        // Réponses SQL
             // Qu'est-ce que SQL ?
             [
                 'question_id' => '24',
@@ -1418,7 +1417,7 @@ class DatabaseSeeder extends Seeder
             ],
 
 
-            // Réponses pour la question Laravel
+        // Réponses Laravel
             // Qu'est-ce que Laravel ?
             [
                 'question_id' => '30',
@@ -1567,17 +1566,17 @@ class DatabaseSeeder extends Seeder
                 'user_id' => '3',
                 'points' => '6',
             ],
-            [
-                'user_id' => '4',
-                'points' => '19',
-            ],
-            [
-                'user_id' => '5',
-                'points' => '0',
-            ],
+            // [
+            //     'user_id' => '4',
+            //     'points' => '19',
+            // ],
+            // [
+            //     'user_id' => '5',
+            //     'points' => '0',
+            // ],
         ];
 
-        // // Liste Users_Questions 
+        // Liste Users_Questions 
         // $this->users_questions_old = [
         //     [ 
         //         [
@@ -2473,6 +2472,7 @@ class DatabaseSeeder extends Seeder
         // ];
         
         $this->users_questions = [
+        // user 1
             [
                 'user_id' => '1',
                 'question_id' => '17',
@@ -2691,7 +2691,7 @@ class DatabaseSeeder extends Seeder
                 'answers_trues_count' => '3',
             ],
 
-            // user 2
+        // user 2
             [
                 'user_id' => '2',
                 'question_id' => '10',
@@ -2931,7 +2931,7 @@ class DatabaseSeeder extends Seeder
                 'answers_trues_count' => '2',
             ],
 
-            // user 3
+        // user 3
 
             [
                 'user_id' => '3',
@@ -3149,6 +3149,351 @@ class DatabaseSeeder extends Seeder
                 'asked_count' => '2',
                 'nb_star(s)' => '0',
                 'answers_trues_count' => '1',
+            ]
+        ];
+            
+        // Liste des games_questions
+        $this->games_questions = [
+        // user 1
+            [
+                'user_id' => '1',
+                'question_id' => '5',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '13',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '4',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '0',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '24',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '0',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '15',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '7',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '21',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '1',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '0',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '23',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '12',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '0',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '2',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '10',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '9',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '16',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '0',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '18',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '1',
+                'question_id' => '22',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+
+        // user 2
+            [
+                'user_id' => '2',
+                'question_id' => '10',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '5',
+                'asked_count' => '1',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '18',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '14',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '7',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '22',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '0',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '3',
+                'asked_count' => '1',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '26',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '11',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '3',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '9',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '15',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '2',
+                'question_id' => '17',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+
+        // user 3
+            [
+                'user_id' => '3',
+                'question_id' => '4',
+                'asked_count' => '2',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '0',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '17',
+                'asked_count' => '1',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '10',
+                'asked_count' => '4',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '3',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '25',
+                'asked_count' => '2',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '29',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '7',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '15',
+                'asked_count' => '3',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '22',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '3',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '9',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '12',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '1',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '3',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '24',
+                'asked_count' => '4',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '19',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '31',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '21',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '28',
+                'asked_count' => '4',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '3',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '5',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '14',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '27',
+                'asked_count' => '3',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '2',
             ],
             [
                 'user_id' => '3',
@@ -3157,17 +3502,38 @@ class DatabaseSeeder extends Seeder
                 'nb_star(s)' => '0',
                 'answers_trues_count' => '3',
             ],
+            [
+                'user_id' => '3',
+                'question_id' => '13',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '30',
+                'asked_count' => '3',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '2',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '8',
+                'asked_count' => '2',
+                'nb_star(s)' => '0',
+                'answers_trues_count' => '1',
+            ],
+            [
+                'user_id' => '3',
+                'question_id' => '6',
+                'asked_count' => '3',
+                'nb_star(s)' => '1',
+                'answers_trues_count' => '2',
+            ],
         ];
-         
-            
-        // // Liste des games_questions
-        // $this->games_questions = [
-        //     [
-        //         'user_id' => '1',
-        //         ''
-        //     ],
-        // ]
+        
     }
+
 
     /**
      * Seed the application's database.
@@ -3188,9 +3554,14 @@ class DatabaseSeeder extends Seeder
 
         // Seed la table 'users_questions'
         $this->processUsers_Questions($this->users_questions);
+
+        // Seed la table 'games'
+        $this->processGames($this->games);
+
+        // Seed la table 'games_questions'
+        $this->processGames_Questions($this->games_questions);
         
-        // // Seed la table 'games'
-        // $this->processGames($this->games);
+
 
     }
 
@@ -3318,18 +3689,18 @@ class DatabaseSeeder extends Seeder
                 
             ];
             // Insère les données dans la table 'answers'
-            $answer_id = DB::table('users_questions')->insertGetId($data);
+            DB::table('users_questions')->insertGetId($data);
         }
     }
 
-
-    /**
+     /**
      * Seed la table 'games'
      */
     private function processGames($games)
     {
         foreach ($games as $game) {
-            // Définit les données de la réponse à destination de la table 'answers'
+            dump($game);
+            // Définit les données de la réponse à destination de la table 'games'
             $data = [
                 'user_id' => $game['user_id'],
                 'points' => $game['points'],
@@ -3338,4 +3709,24 @@ class DatabaseSeeder extends Seeder
             DB::table('games')->insertGetId($data);
         }
     }
+     /**
+     * Seed la table 'games_questions'
+     */
+    private function processGames_Questions($games_questions)
+    {
+        foreach ($games_questions as $game_question) {
+            dump($game_question);
+            // Définit les données de la réponse à destination de la table 'games_questions'
+            $data = [
+                'question_id' => $game_question['question_id'],
+                'user_id'=> $game_question['user_id'],
+                'asked_count'=> $game_question['asked_count'],
+                'nb_star(s)' => $game_question['nb_star(s)'],
+                'answers_trues_count' => $game_question['answers_trues_count'],
+            ];
+            // Insère les données dans la table 'answers'
+            DB::table('games_questions')->insertGetId($data);
+        }
+    }
+
 }

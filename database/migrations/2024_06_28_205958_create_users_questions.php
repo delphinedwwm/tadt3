@@ -13,7 +13,7 @@ return new class extends Migration
     {
         // Crée la table de liason 'users_questions'
         Schema::create('users_questions', function (Blueprint $table) {
-            $table->id();
+            // $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('question_id');
             $table->integer('asked_count');
@@ -28,6 +28,9 @@ return new class extends Migration
             // // Contrainte d'unicité
             // $table->unique(['user_id','question_id']); 
             // 'unique' ne convient pas ici car j'ai plusieurs fois le même user_id et la même question_id das ma table
+
+            // Contrainte de clef étrangère
+            $table->primary(['user_id','question_id']); 
         });
     }
 
