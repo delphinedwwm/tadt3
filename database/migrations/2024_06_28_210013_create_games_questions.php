@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('question_id');
             $table->integer('asked_count');
-            $table->integer('nb_star(s)');
+            $table->integer('stars');
             $table->unsignedBigInteger('answers_trues_count')->default(0);
             $table->timestamps();
 

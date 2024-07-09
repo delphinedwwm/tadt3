@@ -16,16 +16,23 @@ class UserQuestion extends Pivot
 {
     use HasFactory;
 
-    /**
-     * Définit le nom de la table dans la BDD
+   /**
+     * Définit les champs assignables en masse
      * 
-     * @var $table
+     * @var array $fillable
      */
-    protected $table = 'users_questions';
+    protected $fillable =
+                [
+                    'user_id', 
+                    'question_id', 
+                    'asked_count', 
+                    'stars', 
+                    'answers_trues_count'
+                ];
 
     /**
-     * Définit la relation OneToMany avec la table 'user' :
-     *      - Un user (table 'users') concerne zéro ou plusieurs association users/questions (table 'users_questions') : défini dans le modèle 'User'
+     * Définit la relation OneToMany avec la table 'users' :
+     *      
      *      - Une association user/question (table 'users_questions') est concernée par un et un seul user (table 'users') : défini ici
      * 
      * @return BelongsTo
@@ -37,9 +44,8 @@ class UserQuestion extends Pivot
 
     /**
      * Définit la relation OneToMany avec la table 'questions' :
-     *      - Une question (table 'question') concerne zéro ou plusieurs association user/question (table 'users_questions') : défini dans le modèle 'Question'
      *      - Une association user/question (table 'users_questions') est concernée par une et une seule question (table 'questions') : défini ici
-     *
+     * 
      * @return BelongsTo
      */
     public function question(): BelongsTo

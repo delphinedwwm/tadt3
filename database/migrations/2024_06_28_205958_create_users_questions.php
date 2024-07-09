@@ -10,14 +10,13 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        // Crée la table de liason 'users_questions'
+    { // Crée la table de liason 'users_questions'
         Schema::create('users_questions', function (Blueprint $table) {
             // $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('question_id');
             $table->integer('asked_count');
-            $table->integer('nb_star(s)');
+            $table->integer('stars');
             $table->unsignedBigInteger('answers_trues_count')->default(0);
             $table->timestamps();
 

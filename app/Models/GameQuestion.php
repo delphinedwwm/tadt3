@@ -16,33 +16,38 @@ class GameQuestion extends Pivot
 {
     use HasFactory;
 
-    /**
-     * Définit le nom de la table dans la BDD
+     /**
+     * Définit les champs assignables en masse
      * 
-     * @var $table
+     * @var array $fillable
      */
-    protected $table = 'games_questions';
+    protected $fillable = 
+                [
+                    'user_id', 
+                    'question_id', 
+                    'asked_count', 
+                    'stars', 
+                    'answers_trues_count'
+                ];
 
     /**
-     * Définit la relation OneToMany avec la table 'games' :
-     *      - Un 'game' (table 'games') concerne zéro ou plusieurs association game/questions (table 'games_questions') : défini dans le modèle 'Game'
+     * Définit la relation BelongsTo avec la table 'games' :
      *      - Une association game/question (table 'games_questions') est concernée par un et un seul game (table 'games') : défini ici
      * 
      * @return BelongsTo
      */
-    public function movie(): BelongsTo
+    public function game(): BelongsTo
     {
         return $this->belongsTo(Game::class);
     }
 
     /**
-     * Définit la relation OneToMany avec la table 'questions' :
-     *      - Une question (table 'questions') concerne zéro ou plusieurs association game_questions (table 'games_questions') : défini dans le modèle 'Question'
+     * Définit la relation BelongsTo avec la table 'questions' :
      *      - Une association game/question (table 'games_questions') est concernée par une et un seule question (table 'questions') : défini ici
      *
      * @return BelongsTo
      */
-    public function genre(): BelongsTo
+    public function BelongsTo(): BelongsTo
     {
         return $this->belongsTo(Question::class);
     }
