@@ -20,11 +20,12 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\View\View
      */
+
     public function index(Request $request): View
     {
         // Récupère les utilisateurs les plus récents et les pagine par groupes de 5
         $data = User::latest()->paginate(5);
-
+        
         // Retourne la vue 'users.index' avec les données des utilisateurs
         // Ajoute également une variable 'i' pour la pagination
         return view('users.index',compact('data'))
