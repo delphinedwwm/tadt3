@@ -37,6 +37,9 @@
             <div class="form-group">
                 <strong>Name:</strong>
                 <input type="text" name="name" placeholder="Name" class="form-control" value="{{ $user->name }}">
+                @error('name')
+                <span>{{ $message }}</span>
+                @enderror
             </div>
         </div>
         <!-- Champ pour l'email de l'utilisateur -->
@@ -44,6 +47,9 @@
             <div class="form-group">
                 <strong>Email:</strong>
                 <input type="email" name="email" placeholder="Email" class="form-control" value="{{ $user->email }}">
+                @error('email')
+                <span>{{ $message }}</span>
+                @enderror
             </div>
         </div>
         <!-- Champ pour le mot de passe de l'utilisateur -->

@@ -31,17 +31,17 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Célia',
                 'email' => 'celiadev@user.com',
-                'password' => 'vedailec'
+                'password' => bcrypt('123456')
             ],
             [
                 'name' => 'Nathan',
                 'email' => 'nathanweb@user.com',
-                'password' => 'bewnahtan'
+                'password' => bcrypt('123456')
             ],
             [
                 'name' => 'Jérémie',
                 'email' => 'jeremiedev@user.com',
-                'password' => 'vedeimerej'
+                'password' => bcrypt('123456')
             ],
             // [
             //     'name' => 'David',

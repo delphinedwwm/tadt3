@@ -38,6 +38,9 @@
             <div class="form-group">
                 <strong>Name</strong>
                 <input type="text" name="name" value="{{ $category->name }}" class="form-control" placeholder="Name">
+                @error('name')
+                <span>{{ $message }}</span>
+                @enderror
             </div>
         </div>
         <!-- Champ pour la couleur de la catégorie LOGO --> 
@@ -45,6 +48,9 @@
             <div class="form-group">
                 <strong>Color</strong> <!-- attetion ajouter logo et colors geérée en CSS -->
                 <textarea class="form-control" style="height:150px" name="color" placeholder="Color">{{ $category->color }}</textarea>
+                @error('color')
+                <span>{{ $message }}</span>
+                @enderror
             </div>
         </div>
         <!-- Champ pour le type de la catégorie -->
@@ -52,6 +58,9 @@
             <div class="form-group">
                 <strong>Type</strong>
                 <input type="text" name="type" value="{{ $category->type }}" class="form-control" placeholder="Type">
+                @error('type')
+                <span>{{ $message }}</span>
+                @enderror
             </div>
         </div>
         <!-- Bouton pour soumettre le formulaire -->

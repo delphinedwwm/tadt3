@@ -37,6 +37,9 @@
             <div class="form-group">
                 <strong>Name:</strong>
                 <input type="text" name="name" class="form-control" placeholder="Name">
+                @error('name')
+                <span>{{ $message }}</span>
+                @enderror
             </div>
         </div>
         <!-- Champ pour les détails du produit -->
@@ -44,6 +47,9 @@
             <div class="form-group">
                 <strong>Color</strong><!-- attetion ajouter logo et colors geérée en CSS -->
                 <textarea class="form-control" style="height:150px" name="color" placeholder="Color"></textarea>
+                @error('color')
+                <span>{{ $message }}</span>
+                @enderror
             </div>
         </div>
         <!-- Champ pour les type de la catégorie -->
@@ -51,6 +57,9 @@
             <div class="form-group">
                 <strong>Type:</strong>
                 <input type="text" name="type" class="form-control" placeholder="Type">
+                @error('type')
+                <span>{{ $message }}</span>
+                @enderror
             </div>
         </div>
         <!-- Bouton pour soumettre le formulaire -->
