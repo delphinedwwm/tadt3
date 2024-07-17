@@ -45,7 +45,7 @@ class Question extends Model
      */
     public function category(): BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class , 'category_id');
     }
 
     /**
@@ -63,7 +63,7 @@ class Question extends Model
      /**
      * Définit la relation BelongsToMany avec la table 'users' :
      *      - Un user (table 'users') concerne zéro à plusieurs questions (table 'questions') : défini dans le modèle 'Genre'
-     *      - Un question (table 'questions') est concerné par zéro à plusieurs user (table 'users') : défini ici
+     *      - Une question (table 'questions') est concernée par zéro à plusieurs user (table 'users') : défini ici
      * 
      * Cette relation génère donc une table pivot (ou table d'association) qui est 'users_questions'
      * Il y a donc la relation suivante avec la table 'users_questions'

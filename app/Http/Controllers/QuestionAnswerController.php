@@ -1,0 +1,147 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Question;
+use App\Models\Answer;
+use App\Models\Category;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+
+class QuestionAnswerController extends Controller
+{
+    /**
+     * Constructeur de la classe qui définit les middlewares pour les permissions.
+     */
+    function __construct()
+    {
+        // Applique les permissions pour les actions index et show
+        $this->middleware('permission:questionanswer-list|questionanswer-create|questionanswer-edit|questionanswer-delete', ['only' => ['index', 'show']]);
+        // Applique les permissions pour les actions create et store
+        $this->middleware('permission:questionanswer-create', ['only' => ['create', 'store']]);
+        // Applique les permissions pour les actions edit et update
+        $this->middleware('permission:questionanswer-edit', ['only' => ['edit', 'update']]);
+        // Applique les permissions pour l'action destroy
+        $this->middleware('permission:questionanswer-delete', ['only' => ['destroy']]);
+    }
+
+    // Pour les Questions
+    public function index(): View
+    {
+        // Récupérer toutes les catégories
+        $categories = Category::all();
+
+        // Récupérer toutes les questions (vous pouvez ajouter des conditions si nécessaire)
+        $questions = Question::latest()->paginate(15);
+        return view('questionsanswers.index', compact('categories', 'questions'))
+            ->with('i', (request()->input('page', 1) - 1) * 15);
+    }
+
+    public function create(): View
+    {
+        // Assurez-vous de passer les catégories disponibles à la vue
+        $categories = Category::all();
+        return view('questionsanswers.create', compact('categories'));
+    }
+
+    public function store(Request $request): RedirectResponse
+{
+    $request->validate([
+        'question' => 'required|string|max:200',
+        'level' => 'required|integer|min:1|max:3',
+        'category_id' => 'required|integer|min:1',
+        'answers.*.description' => 'required|string|max:400',
+        'answers.*.is_correct' => 'required|boolean', // La première réponse doit être correcte
+    ]);
+
+    // Vérifier si la question existe déjà
+    $existingQuestion = Question::where('question', $request->input('question'))->first();
+    if ($existingQuestion) {
+        return redirect()->back()->withErrors(['question' => 'La question existe déjà.'])->withInput();
+    }
+
+    // Récupérer l'ID de la dernière question et l'incrémenter de 1
+    $lastQuestion = Question::latest()->first();
+    $nextId = $lastQuestion ? $lastQuestion->id + 1 : 1;
+
+    // Récupérer la catégorie par son ID
+    $category = Category::findOrFail($request->input('category_id'));
+
+    // Créer la question avec l'ID incrémenté
+    $question = Question::create([
+        'id' => $nextId,
+        'question' => $request->input('question'),
+        'level' => $request->input('level'),
+        'category_id' => $request->input('category_id'),
+        'user_id' => auth()->id(),  // Récupérer l'ID de l'utilisateur authentifié
+    ]);
+
+    // Créer les réponses associées avec les données préchargées
+    foreach ($request->input('answers') as $answerData) {
+        Answer::create([
+            'description' => $answerData['description'],
+            'is_correct' => $answerData['is_correct'],
+            'question_id' => $question->id
+        ]);
+    }
+
+    return redirect()->route('questionsanswers.index')
+        ->with('success', 'Question et réponses créées avec succès.');
+}
+
+    public function show($id): View
+    {
+        $question  = Question::findOrFail($id);
+        $answers =$question->answers;
+        return view('questionsanswers.show', compact('question', 'answers'));
+    }
+
+    public function edit($id): View
+    {
+        $question = Question::findOrFail($id);
+        $answers = $question->answers;
+        $categories = Category::all(); 
+        return view('questionsanswers.edit', compact('question', 'answers', 'categories'));
+    }
+
+    public function update(Request $request, $id): RedirectResponse
+{
+    $request->validate([
+        'question' => 'required|string|max:200',
+        'level' => 'required|integer|min:1',
+        'category_id' => 'required|integer|min:1|exists:categories,id',
+        'user_id' => 'required|integer|min:1', 
+        'answers.*.description' => 'required|string|max:400',
+    ]);
+
+    $question = Question::findOrFail($id);
+    $question->update([
+        'question' => $request->input('question'),
+        'level' => $request->input('level'),
+        'category_id' => $request->input('category_id'),
+        'updated_by' => auth()->id(), // Mettre à jour par l'utilisateur authentifié
+    ]);
+
+    // Mettre à jour les réponses associées
+    foreach ($request->input('answers') as $answerData) {
+        $answer = Answer::findOrFail($answerData['id']);
+        $answer->update($answerData);
+    }
+
+    return redirect()->route('questionsanswers.index')->with('success', 'Question et réponses mises à jour avec succès.');
+}
+
+    public function destroy($id): RedirectResponse
+    {
+        // Trouve la question à supprimer
+        $question = Question::findOrFail($id); // findOrFail = méthode utilisée pour récupérer un modèle par sa clé primaire (ID) à partir de la base de données
+        $question->answers()->delete();
+        $question->delete();
+
+        // Redirige l'utilisateur vers la page index 
+        return redirect()->route('questionsanswers.index')->with('success', 'Question et réponses supprimées avec succès.');
+
+     
+    }
+}

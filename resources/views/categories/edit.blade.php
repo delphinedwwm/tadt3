@@ -9,7 +9,7 @@
         </div>
         <!-- Bouton pour retourner à la liste des catégories -->
         <div class="pull-right">
-            <a class="btn btn-primary btn-sm mb-2" href="{{ route('categorys.index') }}"><i class="fa fa-arrow-left"></i> Back</a>
+            <a class="btn btn-primary btn-sm mb-2" href="{{ route('categories.index') }}"><i class="fa fa-arrow-left"></i> Back</a>
         </div>
     </div>
 </div>

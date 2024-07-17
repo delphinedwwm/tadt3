@@ -28,7 +28,7 @@
     <tr>
         <th>No</th>
         <th>Name</th>
-        <th>Color</th> <!-- colors geérée en CSS et rajouter le logo -->
+        <th>Color</th> <!-- colors générée en CSS et rajouter le logo -->
         <th>Type</th>
         <th width="280px">Action</th>
     </tr>
@@ -36,7 +36,7 @@
     @foreach ($categories as $category)
     <tr>
         <!-- Incrémente le compteur de category et affiche le numéro -->
-        <td>{{ ++$i }}</td>
+        <td>{{ $category->id }}</td>
         <!-- Affiche le nom de la category -->
         <td>{{ $category->name }}</td>
         <!-- Affiche les couleurs de la category -->
@@ -56,7 +56,6 @@
 
                 @csrf
                 @method('DELETE')
-
                 <!-- Bouton pour supprimer la categorie, visible uniquement si l'utilisateur a la permission -->
                 @can('category-delete')
                 <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> Delete</button>
@@ -68,7 +67,7 @@
 </table>
 
 <!-- Pagination des categories -->
-{!! $categorys->links() !!}
+{!! $categories->links() !!}
 
 <!-- Pied de page avec un crédit -->
 <!-- Mention du projet -->
