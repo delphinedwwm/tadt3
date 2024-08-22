@@ -46,7 +46,7 @@
 
         <!-- Actions disponibles pour chaque category -->
         <td>
-            <form action="{{ route('categories.destroy',$category->id) }}" method="POST">
+            <form action="{{ route('categories.delete',$category->id) }}" method="POST">
                 <!-- Lien pour afficher les détails du category -->
                 <a class="btn btn-info btn-sm" href="{{ route('categories.show',$category->id) }}"><i class="fa-solid fa-list"></i> Show</a>
                 <!-- Lien pour éditer la categorie, visible uniquement si l'utilisateur a la permission -->
@@ -55,7 +55,7 @@
                 @endcan
 
                 @csrf
-                @method('DELETE')
+                @method('GET')
                 <!-- Bouton pour supprimer la categorie, visible uniquement si l'utilisateur a la permission -->
                 @can('category-delete')
                 <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> Delete</button>

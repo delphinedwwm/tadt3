@@ -9,7 +9,7 @@
         </div>
         <!-- Bouton pour retourner à la liste des catégories -->
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('categories.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('categories.index') }}">Back</a>
         </div>
     </div>
 </div>
@@ -19,26 +19,47 @@
     <!-- Affichage du nom des catégories -->
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Name:</strong>
+            <strong>Name :</strong>
             {{ $category->name }}
         </div>
     </div>
     <!-- Affichage de la couleur de la  catégories -->  
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Color</strong> <!-- attetion ajouter logo et colors geérée en CSS -->
+            <strong>Color :</strong> <!-- attention ajouter logo et colors geérée en CSS -->
             {{ $category->color }}
         </div>
     </div>
     <!-- Affichage du type des catégories -->
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Type</strong>
+            <strong>Type :</strong>
             {{ $category->type }}
         </div>
     </div>
 </div>
+<!-- Actions disponibles pour chaque category -->
+<div>
+            <form action="{{ route('categories.update',$category->id) }}" method="PUT">
+                    @csrf
+                    @method('PUT')
+                <!-- Lien pour éditer la categorie, visible uniquement si l'utilisateur a la permission -->
+                @can('category-edit')
+                <a class="btn btn-primary btn-sm" href="{{ route('categories.edit',$category->id) }}"> Edit</a>
+                @endcan
 
+                @csrf
+                @method('DELETE')
+               <!-- Bouton pour supprimer la categorie et ses réponses, visible uniquement si l'utilisateur a la permission -->
+               @can('category-delete')
+                    
+                    <a class="btn btn-danger btn-sm" href="{{ route('categories.delete', $category->id) }}">Delete</a>
+                @endcan
+
+                
+            </form>
+                </td>
+    </div>
 <!-- Pied de page avec un crédit -->
 <!-- Mention du projet -->
 <p class="text-center text-primary"><small>Delphine Moulin DWWM</small></p>

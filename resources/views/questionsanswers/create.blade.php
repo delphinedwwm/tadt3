@@ -1,4 +1,3 @@
-<!-- resources/views/questionanswercontroller/create.blade.php -->
 @extends('layouts.app')
 
 @section('content')
@@ -38,23 +37,23 @@
             <div class="form-group">
                 <label for="level">Niveau:</label>
                 <div>
-            <label>
-                <input type="radio" name="level" value="1" {{ old('level') == 1 ? 'checked' : '' }}>
-                Niveau 1
-            </label>
-        </div>
-        <div>
-            <label>
-                <input type="radio" name="level" value="2" {{ old('level') == 2 ? 'checked' : '' }}>
-                Niveau 2
-            </label>
-        </div>
-        <div>
-            <label>
-                <input type="radio" name="level" value="3" {{ old('level') == 3 ? 'checked' : '' }}>
-                Niveau 3
-            </label>
-        </div>
+                    <label>
+                        <input type="radio" name="level" value="1" {{ old('level') == 1 ? 'checked' : '' }}>
+                        Niveau 1
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="radio" name="level" value="2" {{ old('level') == 2 ? 'checked' : '' }}>
+                        Niveau 2
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        <input type="radio" name="level" value="3" {{ old('level') == 3 ? 'checked' : '' }}>
+                        Niveau 3
+                    </label>
+                </div>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
@@ -62,7 +61,7 @@
                 <label for="category_id">Catégorie:</label>
                 <select id="category_id" name="category_id">
                     @foreach($categories as $category)
-                        <option name="category_id" class="form-control" placeholder="ID categorie" value="{{ $category->id }}">{{ $category->name }}</option>
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -74,35 +73,33 @@
             </div>
         </div>
     </div>
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">   
-            <h2>Réponses</h2>
-        </div>
-    </div>
-    @for ($i = 0; $i < 4; $i++)
-    <div class="col-xs-12 col-sm-12 col-md-12">
-         <div class="form-group">
-            <label for="answers[{{ $i }}][description]">Réponse {{ $i + 1 }}:</label>
-            <input type="text" name="answers[{{ $i }}][description]" class="form-control" placeholder="Description de la réponse" value="{{ old("answers.$i.description") }}">
-        </div>
-        <div class="form-group">
-            <label for="answers[{{ $i }}][is_correct]">Est-ce la réponse correcte ?</label><br>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="answers[{{ $i }}][is_correct]" id="answers{{ $i }}Correct" value="1" {{ old("answers.$i.is_correct") == '1' ? 'checked' : '' }}>
-                <label class="form-check-label" for="answers{{ $i }}Correct">Oui</label>
-            </div>
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="answers[{{ $i }}][is_correct]" id="answers{{ $i }}Incorrect" value="0" {{ old("answers.$i.is_correct") == '0' ? 'checked' : '' }}>
-                <label class="form-check-label" for="answers{{ $i }}Incorrect">Non</label>
+                <h2>Réponses</h2>
             </div>
         </div>
-    </div>
-    @endfor
-    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-        <button type="submit" class="btn btn-primary btn-sm mb-3 mt-2"><i class="fa-solid fa-floppy-disk"></i> Ajouter</button>
+        @foreach(range(0, 3) as $index)
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
+                    <label for="answers[{{ $index }}][description]"><strong>Réponse {{ $index + 1 }}:</strong></label>
+                    <input type="text" name="answers[{{ $index }}][description]" class="form-control" placeholder="Description de la réponse" value="{{ old("answers.$index.description") }}">
+                </div>
+                <div class="form-group">
+                    <label for="answers_correct_{{ $index }}">
+                        <input type="radio" name="correct_answer" id="answers_correct_{{ $index }}" value="{{ $index }}" {{ old('correct_answer') == $index ? 'checked' : '' }}>
+                        Correcte
+                    </label>
+                </div>
+            </div>
+        @endforeach
+
+        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+            <button type="submit" class="btn btn-primary btn-sm mb-3 mt-2"><i class="fa-solid fa-floppy-disk"></i> Ajouter</button>
+        </div>
     </div>
 </form>
 
-<p class="text-center text-primary"><small>Delphine  Moulin DWWM</small></p>
+<p class="text-center text-primary"><small>Delphine Moulin DWWM</small></p>
 @endsection

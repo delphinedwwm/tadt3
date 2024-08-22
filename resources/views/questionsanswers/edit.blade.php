@@ -1,4 +1,4 @@
-<!-- resources/views/questionanswercontroller/edit.blade.php -->
+<!-- resources/views/questionsanswers/edit.blade.php -->
 @extends('layouts.app')
 
 @section('content')
@@ -28,29 +28,35 @@
     @csrf
     @method('PUT')
 
+    <!-- Affichage de l'énoncé de la question -->
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <label for="question">Énoncé :</label>
-                <input type="text" name="question" class="form-control" placeholder="Énoncé" value="{{ old('question') }}" >
+                <label for="question"><strong>Énoncé :</strong></label>
+                <input type="text" name="question" class="form-control" value="{{ old('question', $question->question) }}" placeholder="Entrez l'énoncé de la question" required>
             </div>
         </div>
+
+        <!-- Sélection du nom de la catégorie -->
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Niveau:</strong>
-                <input type="number" name="level" class="form-control" value="{{ $question->level }}" placeholder="Niveau">
+                <label for="category_id"><strong>Catégorie :</strong></label>
+                <select name="category_id" id="category_id" class="form-control" required>
+                    <option value="" disabled>Sélectionnez une catégorie</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}" {{ $category->id == $question->category_id ? 'selected' : '' }}>
+                            {{ $category->name }}
+                        </option>
+                    @endforeach
+                </select>
             </div>
         </div>
+
+        <!-- Champ de niveau (pour modifier le niveau si nécessaire) -->
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>ID Catégorie:</strong>
-                <input type="number" name="category_id" class="form-control" value="{{ $question->category_id }}" placeholder="ID Catégorie">
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>ID Utilisateur:</strong>
-                <input type="number" name="user_id" class="form-control" value="{{ $question->user_id }}" placeholder="ID Utilisateur">
+                <label for="level"><strong>Niveau :</strong></label>
+                <input type="number" name="level" class="form-control" value="{{ $question->level }}" placeholder="Niveau" min="1" max="3" required>
             </div>
         </div>
 
@@ -59,11 +65,11 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Réponse {{ $index + 1 }}:</strong>
-                    <input type="text" name="answers[{{ $index }}][description]" class="form-control" value="{{ $answer->description }}" placeholder="Description de la réponse">
+                    <input type="text" name="answers[{{ $index }}][description]" class="form-control" value="{{ old('answers.' . $index . '.description', $answer->description) }}" placeholder="Description de la réponse">
                 </div>
                 <div class="form-group">
-                    <label for="answers[{{ $index }}][is_correct]">
-                        <input type="checkbox" name="answers[{{ $index }}][is_correct]" id="answers[{{ $index }}][is_correct]" value="1" {{ $answer->is_correct ? 'checked' : '' }}>
+                    <label for="answers_correct_{{ $index }}">
+                        <input type="radio" name="correct_answer" id="answers_correct_{{ $index }}" value="{{ $index }}" {{ $answer->is_correct ? 'checked' : '' }}>
                         Correcte
                     </label>
                     <input type="hidden" name="answers[{{ $index }}][id]" value="{{ $answer->id }}">
@@ -71,11 +77,11 @@
             </div>
         @endforeach
 
+
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-            <button type="submit" class="btn btn-primary btn-sm mb-3 mt-2"><i class="fa-solid fa-floppy-disk"></i> Modifier</button>
+            <button type="submit" class="btn btn-primary btn-sm mb-3 mt-2"><i class="fa-solid fa-floppy-disk"></i> Mettre à jour</button>
         </div>
     </div>
 </form>
 
-<p class="text-center text-primary"><small>Tutorial by ItSolutionStuff.com</small></p>
-@endsection
+<p class="text-center text-primary"><small>Delphine MOULIN DWWM</small></

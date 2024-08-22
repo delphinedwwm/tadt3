@@ -18,6 +18,10 @@
                     {{ __('You are logged in!') }}
                 </div>
             </div>
+            <div> 
+                <a href="{{ url('/game') }}">Game
+                </a>
+            </div>
         </div>
     </div>
 </div>

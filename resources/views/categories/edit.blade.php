@@ -28,9 +28,9 @@
 @endif
 
 <!-- Formulaire pour éditer une catégorie existante -->
-<form action="{{ route('categories.update',$category->id) }}" method="POST">
+<form action="{{ route('categories.update', $category->id) }}" method="POST">
     @csrf <!-- Protection CSRF -->
-    @method('PUT') <!-- Méthode PUT pour mise à jour -->
+    @method('PUT') <!-- Méthode PUT pour mise à jour respecter protocole http-->
 
     <div class="row">
         <!-- Champ pour le nom de la catégorie -->

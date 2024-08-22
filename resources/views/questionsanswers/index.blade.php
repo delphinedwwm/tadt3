@@ -30,9 +30,7 @@
             <th>ID</th>
             <th>Énoncé</th>
             <th>Niveau</th>
-            <th>ID Catégorie</th>
             <th>Nom Catégorie</th>
-            <th>Utilisateur</th>
             <th>Réponses</th>
             <th width="280px">Actions</th>
         </tr>
@@ -47,12 +45,8 @@
             <td>{{ $question->question }}</td>
             <!-- Affiche le niveau de la question -->
             <td>{{ $question->level }}</td>
-            <!-- Affiche l'ID de la catégorie de la question -->
-            <td>{{ $question->category_id }}</td>
             <!-- Affiche le nom de la catégorie de la question -->
-            <td> </td>
-            <!-- Affiche l'ID de l'utilisateur ayant posé la question -->
-            <td>{{ $question->user_id }}</td>
+            <td>{{ $question->category->name }}</td>
             <!-- Affiche les réponses associées à la question -->
             <td>
                 <ul>
@@ -75,11 +69,8 @@
                     @method('DELETE')
                     <!-- Bouton pour supprimer la question et ses réponses, visible uniquement si l'utilisateur a la permission -->
                     @can('questionanswer-delete')
-                    <form action="{{ route('questionsanswers.destroy', $question->id) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i> Delete</button>
-                    </form>
+                    <a class="btn btn-danger btn-sm" href="{{ route('questionsanswers.delete', $question->id) }}">Delete</a>
+                    
                     @endcan
 
                 </form>

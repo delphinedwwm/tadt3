@@ -80,8 +80,9 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\View\View
      */
-    public function show(category $category): View
+    public function show($id): View
     {
+        $category = Category::find($id);
         // Retourne la vue 'categories.show' avec les informations de la catégorie
         return view('categories.show',compact('category'));
     }
@@ -92,8 +93,14 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\View\View
      */
-    public function edit(category $category): View
+    public function edit(int $id_category): View
     {
+        // dump('yoyo');
+        // 
+        $category = Category::findOrFail($id_category);
+        
+        // dd($category->name);
+
         // Retourne la vue 'categories.edit' avec les informations de la catégorie à éditer
         return view('categories.edit',compact('category'));
     }
@@ -105,8 +112,9 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, category $category): RedirectResponse
+    public function update(Request $request, $id_category): RedirectResponse
     {
+        $category = Category::findOrFail($id_category);
         // Valide les données du formulaire
         request()->validate([
             'name' => 'required',
@@ -128,8 +136,17 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function destroy(category $category): RedirectResponse
+    public function delete($id)
     {
+        // Trouver la category correspondante dans la base de données
+        $category = category::findOrFail($id);
+
+        // Passer la category à la vue
+        return view('categories.delete', compact('category'));
+    }
+    public function destroy(int $id_category): RedirectResponse
+    {
+        $category = Category::findOrFail($id_category);
         // Supprime la catégorie
         $category->delete();
 

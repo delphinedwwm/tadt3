@@ -38,6 +38,13 @@ class QuestionAnswerController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * 15);
     }
 
+    public function show($id): View
+    {
+        $question  = Question::findOrFail($id);
+        $answers =$question->answers;
+        return view('questionsanswers.show', compact('question', 'answers'));
+    }
+
     public function create(): View
     {
         // Assurez-vous de passer les catégories disponibles à la vue
@@ -46,56 +53,50 @@ class QuestionAnswerController extends Controller
     }
 
     public function store(Request $request): RedirectResponse
-{
-    $request->validate([
-        'question' => 'required|string|max:200',
-        'level' => 'required|integer|min:1|max:3',
-        'category_id' => 'required|integer|min:1',
-        'answers.*.description' => 'required|string|max:400',
-        'answers.*.is_correct' => 'required|boolean', // La première réponse doit être correcte
-    ]);
-
-    // Vérifier si la question existe déjà
-    $existingQuestion = Question::where('question', $request->input('question'))->first();
-    if ($existingQuestion) {
-        return redirect()->back()->withErrors(['question' => 'La question existe déjà.'])->withInput();
-    }
-
-    // Récupérer l'ID de la dernière question et l'incrémenter de 1
-    $lastQuestion = Question::latest()->first();
-    $nextId = $lastQuestion ? $lastQuestion->id + 1 : 1;
-
-    // Récupérer la catégorie par son ID
-    $category = Category::findOrFail($request->input('category_id'));
-
-    // Créer la question avec l'ID incrémenté
-    $question = Question::create([
-        'id' => $nextId,
-        'question' => $request->input('question'),
-        'level' => $request->input('level'),
-        'category_id' => $request->input('category_id'),
-        'user_id' => auth()->id(),  // Récupérer l'ID de l'utilisateur authentifié
-    ]);
-
-    // Créer les réponses associées avec les données préchargées
-    foreach ($request->input('answers') as $answerData) {
-        Answer::create([
-            'description' => $answerData['description'],
-            'is_correct' => $answerData['is_correct'],
-            'question_id' => $question->id
-        ]);
-    }
-
-    return redirect()->route('questionsanswers.index')
-        ->with('success', 'Question et réponses créées avec succès.');
-}
-
-    public function show($id): View
     {
-        $question  = Question::findOrFail($id);
-        $answers =$question->answers;
-        return view('questionsanswers.show', compact('question', 'answers'));
+        $request->validate([
+            'question' => 'required|string|max:200',
+            'level' => 'required|integer|min:1|max:3',
+            'category_id' => 'required|integer|min:1',
+            'answers.*.description' => 'required|string|max:400',
+            'correct_answer' => 'required|integer|min:0|max:3', // pour s'assurez-vous qu'une réponse correcte est sélectionnée
+        ]);
+
+        // Vérifier si la question existe déjà
+        $existingQuestion = Question::where('question', $request->input('question'))->first();
+        if ($existingQuestion) {
+            return redirect()->back()->withErrors(['question' => 'La question existe déjà.'])->withInput();
+        }
+
+        // Récupérer l'ID de la dernière question et l'incrémenter de 1
+        $lastQuestion = Question::latest()->first();
+        $nextId = $lastQuestion ? $lastQuestion->id + 1 : 1;
+
+        // Récupérer la catégorie par son ID
+        $category = Category::findOrFail($request->input('category_id'));
+
+        // Créer la question avec l'ID incrémenté
+        $question = Question::create([
+            'id' => $nextId,
+            'question' => $request->input('question'),
+            'level' => $request->input('level'),
+            'category_id' => $request->input('category_id'),
+            'user_id' => auth()->id(),  // Récupérer l'ID de l'utilisateur authentifié
+        ]);
+
+        // Créer les réponses associées avec les données préchargées
+        foreach ($request->input('answers') as $index => $answerData) {
+            Answer::create([
+                'description' => $answerData['description'],
+                'is_correct' => $index == $request->input('correct_answer'),
+                'question_id' => $question->id
+            ]);
+
+        return redirect()->route('questionsanswers.index')
+            ->with('success', 'Question et réponses créées avec succès.');
+        }
     }
+    
 
     public function edit($id): View
     {
@@ -109,10 +110,10 @@ class QuestionAnswerController extends Controller
 {
     $request->validate([
         'question' => 'required|string|max:200',
-        'level' => 'required|integer|min:1',
-        'category_id' => 'required|integer|min:1|exists:categories,id',
-        'user_id' => 'required|integer|min:1', 
-        'answers.*.description' => 'required|string|max:400',
+        'level' => 'required|integer|min:1|max:3',
+        'category_id' => 'required|integer|min:1|exists:categories,id', 
+        'answers.*.description' => 'string|max:400',
+        'correct_answer' => 'required|integer|min:0|max:3', // pour s'assurez-vous qu'une réponse correcte est sélectionnée
     ]);
 
     $question = Question::findOrFail($id);
@@ -120,18 +121,30 @@ class QuestionAnswerController extends Controller
         'question' => $request->input('question'),
         'level' => $request->input('level'),
         'category_id' => $request->input('category_id'),
-        'updated_by' => auth()->id(), // Mettre à jour par l'utilisateur authentifié
+        // 'updated_by' => auth()->id(), // Mettre à jour par l'utilisateur authentifié
     ]);
 
     // Mettre à jour les réponses associées
-    foreach ($request->input('answers') as $answerData) {
+    foreach ($request->input('answers') as $index => $answerData) {
         $answer = Answer::findOrFail($answerData['id']);
-        $answer->update($answerData);
+        $answer->update([
+            'description' => $answerData['description'],
+            // Compare l'index courant avec la valeur de `correct_answer` pour déterminer si cette réponse est correcte
+            'is_correct' => $index == $request->input('correct_answer'),
+        ]);
     }
 
     return redirect()->route('questionsanswers.index')->with('success', 'Question et réponses mises à jour avec succès.');
-}
+    }
 
+    public function delete($id)
+    {
+        // Trouver la question correspondante dans la base de données
+        $question = Question::findOrFail($id);
+
+        // Passer la question à la vue
+        return view('questionsanswers.delete', compact('question'));
+    }
     public function destroy($id): RedirectResponse
     {
         // Trouve la question à supprimer
