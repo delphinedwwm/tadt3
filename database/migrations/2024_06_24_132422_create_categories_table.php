@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->string('logo')->nullable(); // nullable pour permettre des catégories sans logo
             $table->text('name');
-            $table->string('color'); /** ajout d'une pastille de couleur voir à faire en css */
             $table->text('type');
             $table->timestamps();
             /** ne pas oublier l'ajout du logo ds une colonne voir space tourism pour la gestion de l'image   */

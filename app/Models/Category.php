@@ -21,7 +21,7 @@ class Category extends Model
      * 
      * @var $fillable
      */
-    protected $fillable = ['name', 'color', 'type']; // ne pas oublier le logo color = CSS
+    protected $fillable = ['name', 'logo', 'type']; // ne pas oublier le logo color = CSS
     
     /**
      * Définit la relation OneToMany avec la table 'Questions'

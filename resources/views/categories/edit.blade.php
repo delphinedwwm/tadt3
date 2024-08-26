@@ -28,7 +28,7 @@
 @endif
 
 <!-- Formulaire pour éditer une catégorie existante -->
-<form action="{{ route('categories.update', $category->id) }}" method="POST">
+<form action="{{ route('categories.update', $category->id) }}" method="POST" enctype="multipart/form-data">
     @csrf <!-- Protection CSRF -->
     @method('PUT') <!-- Méthode PUT pour mise à jour respecter protocole http-->
 
@@ -43,14 +43,28 @@
                 @enderror
             </div>
         </div>
-        <!-- Champ pour la couleur de la catégorie LOGO --> 
+        <!-- Champ pour le logo actuel de la catégorie --> 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Color</strong> <!-- attetion ajouter logo et colors geérée en CSS -->
-                <textarea class="form-control" style="height:150px" name="color" placeholder="Color">{{ $category->color }}</textarea>
-                @error('color')
-                <span>{{ $message }}</span>
-                @enderror
+                <label for="logo">Current Logo:</label><br>
+                @if($category->logo)
+                    <img src="{{ asset($category->logo) }}" alt="{{ $category->name }}" style="max-width: 150px;">
+                @else
+                    <p>No logo available.</p>
+                @endif
+            @error('logo')
+            <span>{{ $message }}</span>
+            @enderror
+            </div>
+        </div>
+        <!-- Champ pour le nouveau logo de la catégorie --> 
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <label for="logo">Upload New Logo (Optional):</label>
+                <input type="file" name="logo" class="form-control">
+            @error('logo')
+            <span>{{ $message }}</span>
+            @enderror
             </div>
         </div>
         <!-- Champ pour le type de la catégorie -->

@@ -25,10 +25,10 @@ class GameManagementController extends Controller
             $question = Question::inRandomOrder()->with('answers')->first();
     
             // Récupérer le score actuel de l'utilisateur depuis la session
-            $score = $request->session()->get('score', 0);
+            $score = $request->session()->get('points', 0);
     
             // Passer les données à la vue
-            return view('game_management.game', compact('question', 'score'));
+            return view('game_management.game', compact('question', 'points'));
         }
 
         // Traite la soumission de la réponse
@@ -39,7 +39,7 @@ class GameManagementController extends Controller
     
             // Si la réponse est correcte, augmenter le score dans la session
             if ($isCorrect) {
-                $request->session()->increment('score');
+                $request->session()->increment('points');
             }
     
             // Rediriger vers une nouvelle question

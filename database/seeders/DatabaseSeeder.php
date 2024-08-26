@@ -61,35 +61,35 @@ class DatabaseSeeder extends Seeder
             
             [
                 'name' => 'HTML',
-                'color' => 'Blue',
                 'type' => 'Langage',
-                // ne pas oublier l'ajout du logo pour chaque catégorie ds une colonne supplémentaire
+                'logo' => 'logos/html_32.png',
             ],
             [
                 'name' => 'CSS',
-                'color' => 'Red',
                 'type' => 'Langage',
+                'logo' => 'logos/css_32.png',
             ],
             [
                 'name' => 'JAVASCRIPT',
-                'color' => 'Yellow',
                 'type' => 'Langage',
+                'logo' => 'logos/js_32.png',
             ],
             [
                 'name' => 'PHP',
-                'color' => 'Green',
                 'type' => 'Langage',
+                'logo' => 'logos/php_32.png',
             ],
             [
                 'name' => 'SQL',
-                'color' => 'Pink',
                 'type' => 'Langage',
+                'logo' => 'logos/sql_32.png',
             ],
             [
                 'name' => 'LARAVEL',
-                'color' => 'Orange',
                 'type' => 'Framework',
+                'logo' => 'logos/laravel_32.png',
             ],
+            
         ];
 
         // liste des questions
@@ -1124,7 +1124,6 @@ class DatabaseSeeder extends Seeder
         ];
 
       
-        
         $this->users_questions = [
         // user 1
             [

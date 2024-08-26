@@ -37,10 +37,12 @@
     <tr>
         <!-- Incrémente le compteur de category et affiche le numéro -->
         <td>{{ $category->id }}</td>
+        <!-- Affiche le logo de la category -->
+        <td>
+            <img src="{{ asset($category->logo) }}" alt="{{ $category->name }}" class="img-fluid img-thumbnail" style="max-width: 32px;">
+        </td>
         <!-- Affiche le nom de la category -->
         <td>{{ $category->name }}</td>
-        <!-- Affiche les couleurs de la category -->
-        <td>{{ $category->color }}</td> <!-- attetion ajouter logo et colors geérée en CSS -->
         <!-- Affiche le type de la category -->
         <td>{{ $category->type }}</td>
 

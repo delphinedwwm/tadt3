@@ -16,18 +16,18 @@
 
 <!-- Affichage des détails des catégories -->
 <div class="row">
-    <!-- Affichage du nom des catégories -->
+    <!-- Affichage du logo de la catégorie -->
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Logo :</strong>
+            <img src="{{ asset($category->logo) }}" alt="{{ $category->name }}" class="img-fluid img-thumbnail" style="max-width: 32px;">
+        </div>
+    </div>
+    <!-- Affichage du nom de la catégorie -->
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Name :</strong>
             {{ $category->name }}
-        </div>
-    </div>
-    <!-- Affichage de la couleur de la  catégories -->  
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Color :</strong> <!-- attention ajouter logo et colors geérée en CSS -->
-            {{ $category->color }}
         </div>
     </div>
     <!-- Affichage du type des catégories -->

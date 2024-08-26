@@ -28,7 +28,7 @@
 @endif
 
 <!-- Formulaire pour ajouter une nouvelle catégorie -->
-<form action="{{ route('categories.store') }}" method="POST">
+<form action="{{ route('categories.store') }}" method="POST" enctype="multipart/form-data">
     @csrf <!-- Protection CSRF -->
 
     <div class="row">
@@ -42,16 +42,20 @@
                 @enderror
             </div>
         </div>
-        <!-- Champ pour les détails du produit -->
+        
+        <!-- Champ pour le logo -->
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Color</strong><!-- attetion ajouter logo et colors geérée en CSS -->
-                <textarea class="form-control" style="height:150px" name="color" placeholder="Color"></textarea>
-                @error('color')
+                <label label  for="logo" > Logo : </label > 
+                <input  type="file"  name="logo"  id="logo" > 
+                <!-- <strong>Logo :</strong>
+                <input type="file" id="logo" name="logo" accept="image/png, image/jpeg"> -->
+                @error('logo')
                 <span>{{ $message }}</span>
                 @enderror
             </div>
         </div>
+        
         <!-- Champ pour les type de la catégorie -->
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
