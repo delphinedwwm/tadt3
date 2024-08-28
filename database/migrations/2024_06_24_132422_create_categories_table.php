@@ -17,7 +17,6 @@ return new class extends Migration
             $table->text('name');
             $table->text('type');
             $table->timestamps();
-            /** ne pas oublier l'ajout du logo ds une colonne voir space tourism pour la gestion de l'image   */
         });
     }
 

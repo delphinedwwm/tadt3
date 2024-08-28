@@ -11,7 +11,15 @@ use App\Http\Controllers\QuestionAnswerController;
 Route::get('/', function () {
     return view('welcome');
 });
-  
+Route::middleware([
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('componants/dashboard');
+    })->name('dashboard');
+    Route::get('/game', function () {
+        return view('componants/game');
+    })->name('game');
+});
 Auth::routes();
   
 Route::get('/home', [HomeController::class, 'index'])->name('home');

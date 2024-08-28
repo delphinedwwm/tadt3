@@ -40,26 +40,23 @@
 </div>
 <!-- Actions disponibles pour chaque category -->
 <div>
-            <form action="{{ route('categories.update',$category->id) }}" method="PUT">
-                    @csrf
-                    @method('PUT')
-                <!-- Lien pour éditer la categorie, visible uniquement si l'utilisateur a la permission -->
-                @can('category-edit')
-                <a class="btn btn-primary btn-sm" href="{{ route('categories.edit',$category->id) }}"> Edit</a>
-                @endcan
+    <form action="{{ route('categories.update',$category->id) }}" method="PUT">
+    @csrf
+    @method('PUT')
+        <!-- Lien pour éditer la categorie, visible uniquement si l'utilisateur a la permission -->
+        @can('category-edit')
+        <a class="btn btn-primary btn-sm" href="{{ route('categories.edit',$category->id) }}"> Edit</a>
+        @endcan
 
-                @csrf
-                @method('DELETE')
-               <!-- Bouton pour supprimer la categorie et ses réponses, visible uniquement si l'utilisateur a la permission -->
-               @can('category-delete')
-                    
-                    <a class="btn btn-danger btn-sm" href="{{ route('categories.delete', $category->id) }}">Delete</a>
-                @endcan
-
-                
-            </form>
-                </td>
-    </div>
+        @csrf
+        @method('DELETE')
+        <!-- Bouton pour supprimer la categorie et ses réponses, visible uniquement si l'utilisateur a la permission -->
+        @can('category-delete')
+            
+            <a class="btn btn-danger btn-sm" href="{{ route('categories.delete', $category->id) }}">Delete</a>
+        @endcan                
+    </form>
+</div>
 <!-- Pied de page avec un crédit -->
 <!-- Mention du projet -->
 <p class="text-center text-primary"><small>Delphine Moulin DWWM</small></p>

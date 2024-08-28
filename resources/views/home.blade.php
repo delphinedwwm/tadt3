@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div> 
-                <a href="{{ url('/game') }}">Game
+                <a href="{{ route(componants/game') }}">Game
                 </a>
             </div>
         </div>

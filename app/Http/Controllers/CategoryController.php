@@ -179,9 +179,16 @@ class CategoryController extends Controller
 
     public function destroy(int $id_category): RedirectResponse
     {
+        // Trouve la catégorie à supprimer
         $category = Category::findOrFail($id_category);
-        // Supprime la catégorie
-        $category->delete();
+
+        // Supprime l'image associée si elle existe
+        if ($category->logo && file_exists(public_path($category->logo))) {
+            unlink(public_path($category->logo));
+        }
+
+    // Supprime la catégorie de la base de données
+    $category->delete();
 
         // Redirige vers la liste des catégories avec un message de succès
         return redirect()->route('categories.index')

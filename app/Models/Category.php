@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Models;
-
 
 use App\Models\Question;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -21,8 +19,7 @@ class Category extends Model
      * 
      * @var $fillable
      */
-    protected $fillable = ['name', 'logo', 'type']; // ne pas oublier le logo color = CSS
-    
+    protected $fillable = ['name', 'logo', 'type'];     
     /**
      * Définit la relation OneToMany avec la table 'Questions'
      *      - Une catégorie (table 'categories') concerne zéro ou plusieurs questions (table 'questions') : défini dans le modèle 'Question'
