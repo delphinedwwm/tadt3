@@ -30,6 +30,7 @@ class PermissionTableSeeder extends Seeder
            'questionanswer-create',
            'questionanswer-edit',
            'questionanswer-delete',
+           'play-game',
         ];
         
         foreach ($permissions as $permission) {

@@ -18,10 +18,7 @@
                     {{ __('You are logged in!') }}
                 </div>
             </div>
-            <div> 
-                <a href="{{ route(componants/game') }}">Game
-                </a>
-            </div>
+        
         </div>
     </div>
 </div>

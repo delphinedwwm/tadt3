@@ -131,6 +131,16 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     public function delete($id)
+     {
+         // Trouver l'utilisateur correspondant dans la base de données
+         $user = User::findOrFail($id);
+        //  dd($user);
+ 
+         // Passer l'utilisateur à la vue
+         return view('users.delete', compact('user'));
+     } 
     public function destroy($id): RedirectResponse
     {
         User::find($id)->delete();

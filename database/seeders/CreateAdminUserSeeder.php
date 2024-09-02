@@ -29,21 +29,13 @@ class CreateAdminUserSeeder extends Seeder
             'password' => bcrypt('123456')
         ]);
 
-        // Créer un rôle 'Admin'
-        $adminRole = Role::create(['name' => 'Admin']);
-        
-        // Créer un rôle 'User'
-        $userRole = Role::create(['name' => 'User']);
-        
-        // Assigner toutes les permissions au rôle 'Admin'
-        $adminRole->syncPermissions(Permission::all());
-        
-        // Assigner des permissions spécifiques au rôle 'User'
-        $userPermissions = [
-            'category-list',
-            'questionanswer-list',
-        ];
-        $userRole->syncPermissions($userPermissions);
+         // Création du rôle admin et assignation de toutes les permissions
+         $adminRole = Role::create(['name' => 'admin']);
+         $adminRole->givePermissionTo(Permission::all());
+ 
+         // Création du rôle utilisateur et assignation uniquement à l'accès au jeu
+         $userRole = Role::create(['name' => 'user']);
+         $userRole->givePermissionTo('play-game');
         
         // Assigner le rôle 'Admin' à l'utilisateur Admin
         $adminUser->assignRole($adminRole);

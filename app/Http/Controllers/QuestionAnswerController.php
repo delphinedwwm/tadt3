@@ -96,7 +96,7 @@ class QuestionAnswerController extends Controller
         }
 
         return redirect()->route('questionsanswers.index')
-            ->with('success', 'Question et réponses créées avec succès.');
+                        ->with('success', 'Question et réponses créées avec succès.');
     }
     
 
@@ -109,34 +109,34 @@ class QuestionAnswerController extends Controller
     }
 
     public function update(Request $request, $id): RedirectResponse
-{
-    $request->validate([
-        'question' => 'required|string|max:200',
-        'level' => 'required|integer|min:1|max:3',
-        'category_id' => 'required|integer|min:1|exists:categories,id', 
-        'answers.*.description' => 'string|max:400',
-        'correct_answer' => 'required|integer|min:0|max:3', // pour s'assurez-vous qu'une réponse correcte est sélectionnée
-    ]);
-
-    $question = Question::findOrFail($id);
-    $question->update([
-        'question' => $request->input('question'),
-        'level' => $request->input('level'),
-        'category_id' => $request->input('category_id'),
-        // 'updated_by' => auth()->id(), // Mettre à jour par l'utilisateur authentifié
-    ]);
-
-    // Mettre à jour les réponses associées
-    foreach ($request->input('answers') as $index => $answerData) {
-        $answer = Answer::findOrFail($answerData['id']);
-        $answer->update([
-            'description' => $answerData['description'],
-            // Compare l'index courant avec la valeur de `correct_answer` pour déterminer si cette réponse est correcte
-            'is_correct' => $index == $request->input('correct_answer'),
+    {
+        $request->validate([
+            'question' => 'required|string|max:200',
+            'level' => 'required|integer|min:1|max:3',
+            'category_id' => 'required|integer|min:1|exists:categories,id', 
+            'answers.*.description' => 'string|max:400',
+            'correct_answer' => 'required|integer|min:0|max:3', 
         ]);
-    }
 
-    return redirect()->route('questionsanswers.index')->with('success', 'Question et réponses mises à jour avec succès.');
+        $question = Question::findOrFail($id);
+        $question->update([
+            'question' => $request->input('question'),
+            'level' => $request->input('level'),
+            'category_id' => $request->input('category_id'),
+        ]);
+
+        // Mettre à jour les réponses associées
+        foreach ($request->input('answers') as $index => $answerData) {
+            $answer = Answer::findOrFail($answerData['id']);
+            $answer->update([
+                'description' => $answerData['description'],
+                // Compare l'index courant avec la valeur de `correct_answer` pour déterminer si cette réponse est correcte
+                'is_correct' => $index == $request->input('correct_answer'),
+            ]);
+        }
+
+        return redirect()->route('questionsanswers.index')
+                        ->with('success', 'Question et réponses mises à jour avec succès.');
     }
 
     public function delete($id)
@@ -150,13 +150,11 @@ class QuestionAnswerController extends Controller
     public function destroy($id): RedirectResponse
     {
         // Trouve la question à supprimer
-        $question = Question::findOrFail($id); // findOrFail = méthode utilisée pour récupérer un modèle par sa clé primaire (ID) à partir de la base de données
+        $question = Question::findOrFail($id); 
         $question->answers()->delete();
         $question->delete();
 
         // Redirige l'utilisateur vers la page index 
         return redirect()->route('questionsanswers.index')->with('success', 'Question et réponses supprimées avec succès.');
-
-     
     }
 }

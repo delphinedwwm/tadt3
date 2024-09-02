@@ -140,6 +140,15 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+     public function delete($id)
+    {
+        // Trouver le rôle correspondante dans la base de données
+        $role = Role::findOrFail($id);
+
+        // Passer le role à la vue
+        return view('roles.delete', compact('role'));
+    }
     public function destroy($id): RedirectResponse
     {
         DB::table("roles")->where('id',$id)->delete();

@@ -16,14 +16,14 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('componants/dashboard');
     })->name('dashboard');
-    Route::get('/game', function () {
-        return view('componants/game');
-    })->name('game');
+    // Route::get('/game', function () {
+    //     return view('game');
+    // })->name('game');
 });
 Auth::routes();
   
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-  
+// Route::get('/game', [GameManagementController.gameController::class, 'game_management.game'])->name('game');
 // Route::group(['middleware' => ['auth']], function() {
 //     Route::resource('roles', RoleController::class);
 //     Route::resource('users', UserController::class);

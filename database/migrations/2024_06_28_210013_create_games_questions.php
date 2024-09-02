@@ -25,8 +25,6 @@ return new class extends Migration
             $table->foreign('user_id')->references('user_id')->on('games')->onDelete('cascade');
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
             
-            
-
             $table->primary(['user_id','question_id']);
         });
 

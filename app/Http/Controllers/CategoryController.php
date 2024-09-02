@@ -133,7 +133,7 @@ class CategoryController extends Controller
     $validated = $request->validate([
         'name' => 'required',
         'type'  => 'required',
-        'logo'  => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation du fichier image
+        'logo'  => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
     ]);
 
     // Gère l'upload du logo
