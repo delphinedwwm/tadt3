@@ -15,9 +15,9 @@ return new class extends Migration
             // $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('question_id');
-            $table->integer('asked_count');
-            $table->integer('stars');
-            $table->unsignedBigInteger('answers_trues_count')->default(0);
+            $table->integer('asked_count')->default(0); // Nombre de fois que la question a été posée à l'utilisateur
+            $table->integer('stars')->default(0); 
+            $table->integer('answers_trues_count')->default(0); // Nombre de réponses correctes;
             $table->timestamps();
 
             // Contraintes de clé étrangère

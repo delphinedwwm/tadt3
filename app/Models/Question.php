@@ -57,7 +57,7 @@ class Question extends Model
      */
     public function answers(): HasMany
     {
-        return $this->HasMany(Answer::class);
+        return $this->hasMany(Answer::class);
     }
 
      /**

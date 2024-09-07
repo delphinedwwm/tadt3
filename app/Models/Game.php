@@ -17,6 +17,15 @@ class Game extends Model
      * 
      * @var array $fillable
      */
+    
+    // Indique que 'user_id' est la clé primaire
+    protected $primaryKey = 'user_id';
+
+    // Désactive l'auto-incrémentation, car la clé primaire n'est pas auto-incrémentée
+    public $incrementing = false;
+
+    // Indique que la clé primaire est de type entier
+    protected $keyType = 'unsignedBigInteger';
     protected $fillable = ['user_id', 'points'];
 
     /**

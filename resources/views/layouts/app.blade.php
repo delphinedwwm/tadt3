@@ -18,6 +18,7 @@
 </head>
 <body>
     <div id="app">
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -30,12 +31,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <!-- Espace vide ou éléments de navigation supplémentaires -->
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -48,23 +48,23 @@
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
-                            @else
-                            <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
-                            <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
-                            <li><a class="nav-link" href="{{ route('categories.index') }}">Manage Category</a></li>
-                            <li><a class="nav-link" href="{{ route('questionsanswers.index') }}">Manage Question Answer</a></li>
+                        @else
+                            @role('admin')
+                                <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">Manage User</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('roles.index') }}">Manage Role</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('categories.index') }}">Manage Category</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('questionsanswers.index') }}">Manage Question Answer</a></li>
+                            @endrole
+                            
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
@@ -76,10 +76,36 @@
             </div>
         </nav>
 
+        <!-- Main content -->
         <main class="py-4">
             @yield('content')
         </main>
+
+        <!-- Game Controls Section -->
+        <div class="container py-4 text-center">
+            @auth
+            <div class="btn-group" role="group" aria-label="Game Controls">
+                <a href="#" class="btn btn-success" onclick="event.preventDefault(); document.getElementById('start-game-form').submit();">Démarrer la Partie</a>
+                <form id="start-game-form" action="{{ route('games.start') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+
+                <a href="#" class="btn btn-danger" onclick="event.preventDefault(); document.getElementById('stop-game-form').submit();">Arrêter la Partie</a>
+                <form id="stop-game-form" action="{{ route('games.stop') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+
+                <a href="#" class="btn btn-warning" onclick="event.preventDefault(); document.getElementById('resume-game-form').submit();">Reprendre la Partie</a>
+                <form id="resume-game-form" action="{{ route('games.resume') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </div>
+            @endauth
+        </div>
+
     </div>
+
+    <!-- JavaScript -->
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

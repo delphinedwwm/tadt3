@@ -47,7 +47,7 @@ class GameQuestion extends Pivot
      *
      * @return BelongsTo
      */
-    public function BelongsTo(): BelongsTo
+    public function BelongsTo($related, $foreignKey = null, $ownerKey = null, $relation = null): BelongsTo
     {
         return $this->belongsTo(Question::class);
     }

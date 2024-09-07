@@ -7,6 +7,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\QuestionAnswerController;
+use App\Http\Controllers\GameManagementController;
    
 Route::get('/', function () {
     return view('welcome');
@@ -83,4 +84,20 @@ Route::group(['middleware' => ['auth']], function() {
     
     Route::get('questionanswer/delete/{id}', [QuestionAnswerController::class, 'delete'])->name('questionsanswers.delete');
     Route::delete('questionanswer/destroy/{id}', [QuestionAnswerController::class, 'destroy'])->name('questionsanswers.destroy');
+
+    // Route pour démarrer une partie
+    Route::post('games/start', [GameManagementController::class, 'startGame'])->middleware('auth')->name('games.start');
+
+    // Route pour arrêter une partie
+    Route::post('games/stop', [GameManagementController::class, 'stopGame'])->middleware('auth')->name('games.stop');
+
+    // Route pour reprendre une partie
+    Route::post('games/resume', [GameManagementController::class, 'resumeGame'])->middleware('auth')->name('games.resume');
+
+
+    // Route pour enregistrer les réponses de l'utilisateur
+    Route::post('user-questions/record', [GameManagementController::class, 'recordUserQuestionInteraction'])->middleware('auth')->name('recordUserQuestionInteraction');
+
+    Route::get('/app', [GameManagementController::class, 'someMethod'])->name('app');
+
 });
