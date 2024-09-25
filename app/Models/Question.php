@@ -74,7 +74,7 @@ class Question extends Model
      */
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'users_questions')
+        return $this->belongsToMany(User::class, 'userQuestion')
                     ->using(UserQuestion::class) // Indique le modèle de la table pivot
                     ->withPivot( 'user_id', 'question_id', 'asked_count', 'stars', 'answers_trues_count',)
             // Colonnes supplémentaires dans la table pivot

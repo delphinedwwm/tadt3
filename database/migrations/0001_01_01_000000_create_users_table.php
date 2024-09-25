@@ -18,6 +18,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable(); //  Quand un utilisateur vérifie son email, la colonne email_verified_at est mise à jour avec l'heure actuelle.
             $table->string('password');
             $table->rememberToken(); // utilisée pour stocker un jeton (token) qui permet de "se souvenir" d'un utilisateur connecté pour une certaine période.
+            $table->timestamp('last_login_at')->nullable(); // Ajoute cette ligne pour la colonne last_login_at
+            $table->integer('login_duration')->default(0); // Ajoute cette ligne si elle n'existe pas
             $table->timestamps();
         });
 

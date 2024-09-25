@@ -13,10 +13,6 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [  // Associe l'événement Registered à son listener CreateGameOnUserRegister
-        // Place your event and listeners here, e.g.,
-        // 'App\Events\SomeEvent' => [
-        //     'App\Listeners\SomeEventListener',
-        // ],
         \Illuminate\Auth\Events\Registered::class => [
             \App\Listeners\CreateGameOnUserRegister::class,
         ],

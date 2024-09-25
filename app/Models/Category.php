@@ -4,7 +4,8 @@ namespace App\Models;
 use App\Models\Question;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 
 /**
  * Cette classe défini le modèle Eloquent concernant pour la table 'Categories'
@@ -13,7 +14,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Category extends Model
 {
     use HasFactory;
-
     /**
      * Définit les champs assignables en masse
      * 
@@ -27,8 +27,8 @@ class Category extends Model
      * 
      * @return HasMany
      */
-    public function question(): HasMany 
+    public function questions(): HasMany 
     {
-        return $this->HasMany(Questions::class);
+        return $this->hasMany(Question::class);
     }
 }

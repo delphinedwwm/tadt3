@@ -11,7 +11,10 @@ use Illuminate\Database\Eloquent\Model;
 class Game extends Model
 {
     use HasFactory;
-
+    
+    const STATUS_PAUSED = 'paused';
+    const STATUS_IN_PROGRESS = 'in_progress';
+    const STATUS_COMPLETED = 'completed';
     /**
      * Définit les champs assignables en masse
      * 

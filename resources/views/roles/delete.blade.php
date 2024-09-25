@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Êtes-vous sûr de vouloir supprimer le rôle suivant : {{ $role->name }}?</h1>
+<div class="container mt-4">
+    <h1>Supprimer</h1>
+    <h2>Êtes-vous sûr de vouloir supprimer le rôle suivant : {{ $role->name }}?</h2>
 
     <form action="{{ route('roles.destroy', $role->id) }}" method="POST">
         @csrf

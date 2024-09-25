@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     { // Crée la table de liason 'users_questions'
-        Schema::create('users_questions', function (Blueprint $table) {
+        Schema::create('userQuestion', function (Blueprint $table) {
             // $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('question_id');
@@ -39,6 +39,6 @@ return new class extends Migration
     public function down(): void
     {
         // Supprime la table de liaison 'users_questions'
-        Schema::dropIfExists('users_questions');
+        Schema::dropIfExists('userQuestion');
     }
 };

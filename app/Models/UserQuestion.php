@@ -15,7 +15,7 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class UserQuestion extends Pivot
 {
     use HasFactory;
-
+    protected $table = "userQuestion"; // Si le nom de la table est différent de la convention
    /**
      * Définit les champs assignables en masse
      * 

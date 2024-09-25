@@ -10,6 +10,13 @@ use Spatie\Permission\Models\Permission;
 use DB;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Category;
+use App\Models\Game;
+use App\Models\Question;
+use App\Models\User;
+use App\Models\UserQuestion;
+use App\Models\GameQuestion;
     
 class RoleController extends Controller
 {

@@ -15,25 +15,27 @@ Route::get('/', function () {
 Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('componants/dashboard');
+        return view('components/dashboard');
     })->name('dashboard');
-    // Route::get('/game', function () {
-    //     return view('game');
-    // })->name('game');
 });
+
+// routes pour tester le jeu
+    Route::get('/games/test', [GameManagementController::class, 'testGame'])->name('games.test');
+
+    Route::get('games/showTest', [GameManagementController::class, 'submitAnswerTest'])->name('games.showTest');
+
+    Route::post('games/submitTest', [GameManagementController::class, 'submitAnswerTest'])->name('games.submitTest');
+
+    Route::post('/game/nextQuestionTest', [GameManagementController::class, 'nextQuestionTest'])->name('games.nextQuestionTest');
+
+
 Auth::routes();
   
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-// Route::get('/game', [GameManagementController.gameController::class, 'game_management.game'])->name('game');
-// Route::group(['middleware' => ['auth']], function() {
-//     Route::resource('roles', RoleController::class);
-//     Route::resource('users', UserController::class);
-//     // Route::resource('categories', CategoryController::class);
-//     // Route::resource('questionsanswers', QuestionAnswerController::class);
-
 
 Route::group(['middleware' => ['auth']], function() {
-    // Routes for UserController
+    
+// Routes for UserController
     Route::get('users', [UserController::class, 'index'])->name('users.index');
     Route::get('users/show/{id}', [UserController::class, 'show'])->name('users.show');
     
@@ -46,7 +48,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('users/delete/{id}', [UserController::class, 'delete'])->name('users.delete');
     Route::delete('users/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
     
-    // Routes for RoleController
+// Routes for RoleController
     Route::get('roles', [RoleController::class, 'index'])->name('roles.index');
     Route::get('roles/show/{id}', [RoleController::class, 'show'])->name('roles.show');
     
@@ -59,7 +61,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('roles/delete/{id}', [RoleController::class, 'delete'])->name('roles.delete');
     Route::delete('roles/destroy/{id}', [RoleController::class, 'destroy'])->name('roles.destroy');
     
-    // Routes for CategoryController
+// Routes for CategoryController
     Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
     Route::get('categories/show/{id}', [CategoryController::class, 'show'])->name('categories.show');
     
@@ -72,7 +74,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('categories/delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete');
     Route::delete('categories/destroy/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
-    // Routes for QuestionAnswerController
+// Routes for QuestionAnswerController
     Route::get('questionanswer', [QuestionAnswerController::class, 'index'])->name('questionsanswers.index');
     Route::get('questionanswer/show/{id}', [QuestionAnswerController::class, 'show'])->name('questionsanswers.show');
     
@@ -85,14 +87,26 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('questionanswer/delete/{id}', [QuestionAnswerController::class, 'delete'])->name('questionsanswers.delete');
     Route::delete('questionanswer/destroy/{id}', [QuestionAnswerController::class, 'destroy'])->name('questionsanswers.destroy');
 
-    // Route pour démarrer une partie
+// Route pour démarrer une partie
     Route::post('games/start', [GameManagementController::class, 'startGame'])->middleware('auth')->name('games.start');
+    
+// Route pour afficher une question du jeu
+    Route::get('/games/start', [GameManagementController::class, 'showQuestion'])->name('games.show');
+
+    Route::get('games/show', [GameManagementController::class, 'showQuestion'])->name('games.show');
+    
+    Route::post('games/submit', [GameManagementController::class, 'submitAnswer'])->name('games.submit');
+
+    Route::post('/game/nextQuestion', [GameManagementController::class, 'nextQuestion'])->name('games.nextQuestion');
 
     // Route pour arrêter une partie
-    Route::post('games/stop', [GameManagementController::class, 'stopGame'])->middleware('auth')->name('games.stop');
+    Route::get('games/stop', [GameManagementController::class, 'stopGame'])->middleware('auth')->name('games.stop');
 
+    // route pour mettre en pause une partie
+    Route::get('/game/pause', [GameManagementController::class, 'pauseGame'])->name('games.pause');
+    
     // Route pour reprendre une partie
-    Route::post('games/resume', [GameManagementController::class, 'resumeGame'])->middleware('auth')->name('games.resume');
+    Route::get('games/resume', [GameManagementController::class, 'resumeGame'])->middleware('auth')->name('games.resume');
 
 
     // Route pour enregistrer les réponses de l'utilisateur

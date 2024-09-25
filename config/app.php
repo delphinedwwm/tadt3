@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Trivi-All Dev Trek'),
 
     /*
     |--------------------------------------------------------------------------
@@ -155,7 +155,6 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // Ajoutez EventServiceProvider ici
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 

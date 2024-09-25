@@ -1,4 +1,3 @@
-{{-- resources/views/games/resume.blade.php --}}
 @extends('layouts.app')
 
 @section('content')

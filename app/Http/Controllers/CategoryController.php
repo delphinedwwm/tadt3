@@ -63,7 +63,7 @@ class CategoryController extends Controller
     $request->validate([
         'name' => 'required',
         'type'  => 'required',
-        'logo'  => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Validation du fichier image
+        'logo'  => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', 
     ]);
 
     // Utilisation du nom d'origine du fichier logo
@@ -108,12 +108,8 @@ class CategoryController extends Controller
      */
     public function edit(int $id_category): View
     {
-        // dump('yoyo');
-        // 
         $category = Category::findOrFail($id_category);
         
-        // dd($category->name);
-
         // Retourne la vue 'categories.edit' avec les informations de la catégorie à éditer
         return view('categories.edit',compact('category'));
     }
@@ -125,41 +121,36 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\RedirectResponse
      */
+
     public function update(Request $request, $id_category): RedirectResponse
-{
-    $category = Category::findOrFail($id_category);
-
-    // Valide les données du formulaire
-    $validated = $request->validate([
-        'name' => 'required',
-        'type'  => 'required',
-        'logo'  => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
-    ]);
-
-    // Gère l'upload du logo
-    if ($request->hasFile('logo')) {
-        // méthode hasFile() pour vérifier si un fichier a été téléchargé avec la clé 'logo' dans la requête.
-    
-        // Supprimer l'ancien logo si nécessaire
-        if ($category->logo && file_exists(public_path($category->logo))) {
-            unlink(public_path($category->logo));
-        }
-        
-        // Sauvegarder le nouveau logo
-        $logoName = time().'.'.$request->logo->extension();
-        $request->logo->move(public_path('logos'), $logoName);
-        $category->logo = 'logos/' . $logoName;
-    }   
-        
-     // Mise à jour des autres champs
-     $category->name = $request->name;
-     $category->type = $request->type;
-     $category->save();
-
-    // Redirige vers la liste des catégories avec un message de succès
-    return redirect()->route('categories.index')
-                    ->with('success', 'Category updated successfully');
-}
+    {
+        $category = Category::findOrFail($id_category);
+        // Valide les données du formulaire
+        $validated = $request->validate([
+            'name' => 'required',
+            'type'  => 'required',
+            'logo'  => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', 
+        ]);
+        // Gère l'upload du logo
+        if ($request->hasFile('logo')) {
+            // méthode hasFile() pour vérifier si un fichier a été téléchargé avec la clé 'logo' dans la requête.
+            // Supprimer l'ancien logo si nécessaire
+            if ($category->logo && file_exists(public_path($category->logo))) {
+                unlink(public_path($category->logo));
+            }
+            // Sauvegarder le nouveau logo
+            $logoName = time().'.'.$request->logo->extension();
+            $request->logo->move(public_path('logos'), $logoName);
+            $category->logo = 'logos/' . $logoName;
+        }   
+        // Mise à jour des autres champs
+        $category->name = $request->name;
+        $category->type = $request->type;
+        $category->save();
+        // Redirige vers la liste des catégories avec un message de succès
+        return redirect()->route('categories.index')
+                        ->with('success', 'Category updated successfully');
+    }
 
 
     /**
@@ -187,8 +178,8 @@ class CategoryController extends Controller
             unlink(public_path($category->logo));
         }
 
-    // Supprime la catégorie de la base de données
-    $category->delete();
+        // Supprime la catégorie de la base de données
+        $category->delete();
 
         // Redirige vers la liste des catégories avec un message de succès
         return redirect()->route('categories.index')

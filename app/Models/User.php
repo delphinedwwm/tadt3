@@ -33,6 +33,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+    ];
+    
     /**
      * Get the attributes that should be cast.
      *
@@ -50,6 +55,7 @@ class User extends Authenticatable
         return $this->hasOne(Game::class);
     }
     
+    
      /**
      * Définit la relation avec la table 'questions' :
      * - Un utilisateur (table 'users') concerne zéro à plusieurs questions (table 'questions') : défini dans le modèle 'Genre'
@@ -62,9 +68,9 @@ class User extends Authenticatable
      *
      * @return BelongsToMany
      */
-    public function users_questions(): BelongsToMany
+    public function user_question(): BelongsToMany
     {
-        return $this->belongsToMany(Question::class, 'users_questions')
+        return $this->belongsToMany(Question::class, 'userQuestion')
                     ->using(UserQuestion::class) // Indique le modèle de la table pivot
                     ->withPivot('user_id', 'question_id', 'asked_count', 'stars', 'answers_trues_count') // Colonnes supplémentaires dans la table pivot
                     ->withTimestamps(); // Indique l'utilisation des dates de création et de mise à jour dans la table pivot

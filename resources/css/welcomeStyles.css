@@ -1,0 +1,183 @@
+@import url("https://fonts.bunny.net/css?family=agency+fb:400,600&display=swap");
+@import url("https://fonts.bunny.net/css?family=aptos+mono:400,600&display=swap");
+
+body {
+    font-family: 'Aptos Mono', monospace;
+    margin: 0;
+    padding: 0;
+    color: #2a398e;
+    line-height: 1.4;  
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color:#2a398e;;
+    color: #fff;
+    padding: 0.5em 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav a {
+    color: #fff;
+    margin: 0 10px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+nav a:hover {
+    color: #f1c40f;
+    text-shadow: 0 0 5px #2a398e;
+}
+
+.centered-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5em; 
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Agency FB', sans-serif;
+    font-size: 42px;
+    font-weight:600;
+    color: #f1c40f;
+    margin: 0.5 0;  
+    text-shadow: 2px 2px 4px #2a398e;
+}
+
+h2 {
+    font-size: 20px; 
+    font-weight:600;
+    color: #2a398e;
+    margin: 0.5em;
+    font-family: 'Aptos Mono', monospace;
+}
+
+h3 {
+    font-style: 14px;
+    font-weight: 600;
+    margin: 0.5em;
+}
+ul {
+    list-style: none;
+}
+
+p, li {
+    font-size: 16px;
+    margin: 0.2em 1em;
+    color: #000000;
+    list-style:disc;
+}
+
+li {
+    margin-left: 3.5em;
+}
+.logos-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    margin-top: 1em;
+    margin-bottom: 0.2em;
+}
+
+.logo {
+    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+}
+
+.cta {
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    box-shadow: 0 8px 30px #2a398e;
+    padding: 1.5em;
+    margin: 1.5em auto;
+    max-width: 900px;
+    border-radius: 15px;
+}
+
+.button {
+    display: inline-block;
+    margin: 10px 10px;
+    padding: 8px 16px; /* Réduction de l'espacement interne */
+    font-size: 1em;
+    font-weight: 600;
+    color: #f1c40f;
+    background-color: #2a398e;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s;
+    font-family: 'Aptos Mono', monospace;
+}
+
+.button:hover {
+    background-color: #f1c40f;
+    color: #2a398e;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+    background-color: #2a398e;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 1em;
+    font-family: 'Aptos Mono', monospace;
+}
+
+/* Media Queries pour les petits écrans (mobile) */
+@media (max-width: 600px) {
+    /* Réduire la taille des titres sur mobile */
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    .cta p {
+        font-size: 14px; 
+        line-height: 1.6; 
+        padding: 0 1em; 
+    }
+
+    /* Adapter la taille des éléments de la liste */
+    .cta ul li {
+        font-size: 14px;
+        margin-left: 1.5em; 
+    }
+
+
+    /* Ajuster les boutons pour les petits écrans */
+    .button {
+        font-size: 0.9em;
+        padding: 10px 14px;
+    }
+
+    /* Images logo plus petites sur mobile */
+    .logos-container .logo {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* Espacement plus étroit pour le CTA */
+    .cta {
+        padding: 1em;
+        margin: 1em 0.5em;
+    }
+}
