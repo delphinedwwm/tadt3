@@ -45,7 +45,12 @@ class GameManagementController extends Controller
     }
 
     public function submitAnswerTest(Request $request)
-    {        
+    {      
+         // Vérification si une réponse a été sélectionnée
+        $validated = $request
+            ->validate(['answer' => 'required'],
+                        ['answer.required' => 'Veuillez sélectionner une réponse s\'il vous plaît.']);
+
         // Récupérer l'ID de la réponse sélectionnée par l'utilisateur
         $selectedAnswerId = $request->input('answer');
         

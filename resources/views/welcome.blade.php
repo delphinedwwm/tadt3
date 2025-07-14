@@ -34,6 +34,7 @@
             <img src="logos/js_32.png" alt="JS Logo" class="logo">
             <img src="logos/php_32.png" alt="PHP Logo" class="logo">
             <img src="logos/sql_32.png" alt="SQL Logo" class="logo">
+            <img src="logos/laravel_32.png" alt="SQL Logo" class="logo">
         </div>
     </div>
 
