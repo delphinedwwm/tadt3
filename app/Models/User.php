@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -33,11 +34,6 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-    ];
-    
     /**
      * Get the attributes that should be cast.
      *
@@ -48,31 +44,36 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
         ];
     }
 
-    public function game() {
+    /**
+     * Définit la relation HasOne avec la table 'games'
+     * - Un utilisateur a une partie active
+     *
+     * @return HasOne
+     */
+    public function game(): HasOne
+    {
         return $this->hasOne(Game::class);
     }
-    
-    
-     /**
+
+    /**
      * Définit la relation avec la table 'questions' :
-     * - Un utilisateur (table 'users') concerne zéro à plusieurs questions (table 'questions') : défini dans le modèle 'Genre'
-     * - Une question (table 'questions') est concernée par zéro à plusieurs utilisateurs (table 'users') : défini ici
+     * - Un utilisateur (table 'users') concerne zéro à plusieurs questions (table 'questions')
+     * - Une question (table 'questions') est concernée par zéro à plusieurs utilisateurs (table 'users')
      *
-     * Cette relation génère une table pivot (ou table d'association) qui est 'users_questions'.
-     * Par conséquent, la relation suivante existe avec la table 'users_questions' :
-     * - Un utilisateur (table 'users') concerne zéro ou plusieurs associations utilisateur/question (table 'users_questions')
-     * - Une association utilisateur/question (table 'users_questions') concerne un et un seul utilisateur (table 'users')
+     * Cette relation génère une table pivot 'user_question'.
      *
      * @return BelongsToMany
      */
     public function user_question(): BelongsToMany
     {
-        return $this->belongsToMany(Question::class, 'userQuestion')
-                    ->using(UserQuestion::class) // Indique le modèle de la table pivot
-                    ->withPivot('user_id', 'question_id', 'asked_count', 'stars', 'answers_trues_count') // Colonnes supplémentaires dans la table pivot
-                    ->withTimestamps(); // Indique l'utilisation des dates de création et de mise à jour dans la table pivot
+        return $this->belongsToMany(Question::class, 'user_question')
+                    ->using(UserQuestion::class)
+                    ->withPivot('user_id', 'question_id', 'asked_count', 'stars', 'answers_trues_count')
+                    ->withTimestamps();
     }
 }

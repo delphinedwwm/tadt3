@@ -74,15 +74,14 @@ class Question extends Model
      */
     public function users(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'userQuestion')
-                    ->using(UserQuestion::class) // Indique le modèle de la table pivot
-                    ->withPivot( 'user_id', 'question_id', 'asked_count', 'stars', 'answers_trues_count',)
-            // Colonnes supplémentaires dans la table pivot
-                    ->withTimestamps(); // Indique l'utilisation des dates de création et mise à jour dans la   table pivot
+        return $this->belongsToMany(User::class, 'user_question')
+                    ->using(UserQuestion::class)
+                    ->withPivot('asked_count', 'stars', 'answers_trues_count')  // ✅ SANS user_id et question_id
+                    ->withTimestamps();
     }
 
     /**
-     * Définit la relation BelongsToMany avec la table 'games' via la table pivot 'games_questions'
+     * Définit la relation BelongsToMany avec la table 'games' via la table pivot 'game_question'
      *      - Un jeu (table 'games') concerne zéro à plusieurs questions (table 'questions') : défini dans le modèle 'Game'
      *      - Une question (table 'questions') est concernée par zéro à plusieurs jeux (table 'games') : défini ici
      * 
@@ -90,7 +89,7 @@ class Question extends Model
      */
     public function games(): BelongsToMany
     {
-        return $this->belongsToMany(Game::class, 'games_questions')
+        return $this->belongsToMany(Game::class, 'game_question')
                     ->using(GameQuestion::class) // Indique le modèle de la table pivot
                     ->withPivot( 'user_id', 'question_id', 'asked_count', 'stars', 'answers_trues_count',) // Colonnes supplémentaires dans la table pivot
                     ->withTimestamps(); // Indique l'utilisation des dates de création et mise à jour dans la table pivot

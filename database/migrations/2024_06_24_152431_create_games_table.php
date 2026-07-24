@@ -9,9 +9,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('games', function (Blueprint $table) {
-            $table->id(); 
+            $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade')->index();
             $table->integer('total_score')->default(0)->unsigned();
+            $table->integer('points')->default(0)->unsigned(); // ← AJOUTE CETTE LIGNE
             $table->integer('current_streak')->default(0)->unsigned();
             $table->enum('status', ['in_progress', 'paused', 'completed'])->default('in_progress');
             $table->timestamp('started_at')->useCurrent();
