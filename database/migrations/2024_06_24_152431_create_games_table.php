@@ -6,28 +6,21 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('games', function (Blueprint $table) {
-            // Utilise user_id comme clé primaire et clé étrangère
-            $table->unsignedBigInteger('user_id')->primary();
-            $table->integer('points');
-            $table->string('status')->default('in_progress'); // État de la partie : in_progress, paused, completed
-            $table->timestamp('started_at')->nullable(); // Date de début de la partie
-            $table->timestamps(); 
-            
-            // Contrainte de clé étrangère
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            
+            $table->id(); 
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->index();
+            $table->integer('total_score')->default(0)->unsigned();
+            $table->integer('current_streak')->default(0)->unsigned();
+            $table->enum('status', ['in_progress', 'paused', 'completed'])->default('in_progress');
+            $table->timestamp('started_at')->useCurrent();
+            $table->timestamp('paused_at')->nullable();
+            $table->timestamp('ended_at')->nullable();
+            $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('games');
