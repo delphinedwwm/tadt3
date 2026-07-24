@@ -73,7 +73,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Question::class, 'user_question')
                     ->using(UserQuestion::class)
-                    ->withPivot('user_id', 'question_id', 'asked_count', 'stars', 'answers_trues_count')
+                    ->withPivot('asked_count', 'stars', 'answers_trues_count')
                     ->withTimestamps();
     }
 }

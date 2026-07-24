@@ -90,8 +90,8 @@ class Question extends Model
     public function games(): BelongsToMany
     {
         return $this->belongsToMany(Game::class, 'game_question')
-                    ->using(GameQuestion::class) // Indique le modèle de la table pivot
-                    ->withPivot( 'user_id', 'question_id', 'asked_count', 'stars', 'answers_trues_count',) // Colonnes supplémentaires dans la table pivot
-                    ->withTimestamps(); // Indique l'utilisation des dates de création et mise à jour dans la table pivot
-    }
+                    ->using(GameQuestion::class)
+                    ->withPivot('asked_count', 'stars', 'answers_trues_count')
+                    ->withTimestamps();
+    }   
 }
