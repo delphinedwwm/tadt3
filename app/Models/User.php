@@ -9,6 +9,12 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+
+ * @method bool hasRole($roles) - Vérifie si l'utilisateur a un rôle spécifique. Retourne true ou false
+ * @method void assignRole($roles) - Assigne un ou plusieurs rôles à l'utilisateur. Ne retourne rien (void)
+ * @method \Illuminate\Database\Eloquent\Collection getRoleNames() - Récupère la liste des noms de rôles de l'utilisateur. Retourne une Collection
+ */
 class User extends Authenticatable
 {
     use HasFactory, Notifiable, HasRoles;

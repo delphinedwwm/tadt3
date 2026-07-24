@@ -2,23 +2,14 @@
     
 namespace App\Http\Controllers;
 
-
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-use DB;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Category;
-use App\Models\Game;
-use App\Models\Question;
-use App\Models\User;
-use App\Models\UserQuestion;
-use App\Models\GameQuestion;
-    
-class RoleController extends Controller
+use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+
+ class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
