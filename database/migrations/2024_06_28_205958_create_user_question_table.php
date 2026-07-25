@@ -10,29 +10,25 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    { // Crée la table de liason 'users_questions'
+    {
         Schema::create('user_question', function (Blueprint $table) {
-            // $table->id();
+            $table->id(); // ✅ AJOUTE CETTE LIGNE
+            
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('question_id');
-            $table->integer('asked_count')->default(0); // Nombre de fois que la question a été posée à l'utilisateur
-            $table->integer('stars')->default(0); 
-            $table->integer('answers_trues_count')->default(0); // Nombre de réponses correctes;
+            $table->integer('asked_count')->default(0);
+            $table->integer('stars')->default(0);
+            $table->integer('answers_trues_count')->default(0);
             $table->timestamps();
 
             // Contraintes de clé étrangère
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('question_id')->references('id')->on('questions')->onDelete('cascade');
-            
-            // // Contrainte d'unicité
-            // $table->unique(['user_id','question_id']); 
-            // 'unique' ne convient pas ici car j'ai plusieurs fois le même user_id et la même question_id das ma table
 
-            // Contrainte de clef étrangère
-            $table->primary(['user_id','question_id']); 
+            // ✅ AJOUTE AUSSI L'UNICITÉ
+            $table->unique(['user_id','question_id']);
         });
     }
-
     /**
      * Reverse the migrations.
      */

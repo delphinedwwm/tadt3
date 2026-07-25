@@ -20,8 +20,7 @@ return new class extends Migration
             $table->integer('stars')->default(0);
             $table->integer('answers_trues_count')->default(0);
             $table->timestamps();
-            // Empêche d'avoir deux fois la même question dans la même partie
-            $table->unique(['game_id', 'question_id']);
+            
         });
     
     }

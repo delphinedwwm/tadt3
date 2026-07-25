@@ -9,41 +9,42 @@ use App\Models\Answer;
 use App\Models\Game;
 use App\Models\GameQuestion;
 use App\Models\UserQuestion;
-
-use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {    
-    private $users;
+    // ===== PROPRIÉTÉS : SEULEMENT LES DONNÉES EN DUR =====
+    private $fixedUsers;
     private $categories;
     private $questions;
     private $answers;
-    private $games;
-    private $user_question;
-    private $game_question;
+
     /**
      * Initialise les données à seeder
      */
     public function __construct()
     {
-    // liste des utilisateurs 
-        $this->users = [
+    // Liste des utilisateurs 
+        $this->fixedUsers = [
+            [
+                'name' => 'Delphine',
+                'email' => 'delphine@admin.com',
+                'password' => bcrypt('123456')
+            ],
             [
                 'name' => 'Célia',
-                'email' => 'celiadev@user.com',
+                'email' => 'celia@user.com',
                 'password' => bcrypt('123456')
             ],
             [
                 'name' => 'Nathan',
-                'email' => 'nathanweb@user.com',
+                'email' => 'nathan@user.com',
                 'password' => bcrypt('123456')
             ],
             [
                 'name' => 'Jérémie',
-                'email' => 'jeremiedev@user.com',
+                'email' => 'jeremie@user.com',
                 'password' => bcrypt('123456')
             ],
         ];
@@ -85,7 +86,7 @@ class DatabaseSeeder extends Seeder
 
     // liste des questions
         $this->questions = [
-            // question HTML
+        // question HTML
             [  
                 'question' => 'Qu\'est-ce que HTML5 ?',
                 'category_id' => '1',
@@ -117,7 +118,7 @@ class DatabaseSeeder extends Seeder
                 'level' => '1',  
             ],
 
-            // question CSS
+        // question CSS
             [  
                 'question' => 'Qu\'est-ce que CSS3 ?',
                 'category_id' => '2',
@@ -155,7 +156,7 @@ class DatabaseSeeder extends Seeder
                 'level' => '3',
             ],
 
-            // question JS
+        // question JS
             [  
                 'question' => 'Qu\'est-ce que JavaScript ?',
                 'category_id' => '3',
@@ -193,7 +194,7 @@ class DatabaseSeeder extends Seeder
                 'level' => '2',  // Corrigé de niveau 3 à niveau 2
             ],
 
-            // question PHP
+        // question PHP
             [  
                 'question' => 'Qu\'est-ce que PHP ?',
                 'category_id' => '4',
@@ -231,7 +232,7 @@ class DatabaseSeeder extends Seeder
                 'level' => '3',
             ],
 
-            // question SQL
+        // question SQL
             [  
                 'question' => 'Qu\'est-ce que SQL ?',
                 'category_id' => '5',
@@ -269,7 +270,7 @@ class DatabaseSeeder extends Seeder
                 'level' => '3',
             ],
 
-            // question LARAVEL
+        // question LARAVEL
             [  
                 'question' => 'Qu\'est-ce que Laravel ?',
                 'category_id' => '6',
@@ -308,7 +309,7 @@ class DatabaseSeeder extends Seeder
             ],
         ];
     
-    // Listes des réponses nouvelles organisation
+    // Listes des réponses 
         $this->answers = [
         // Réponses HTML5
             [
@@ -1086,940 +1087,6 @@ class DatabaseSeeder extends Seeder
             ],
 
         ];
-
-        // Liste des jeux
-        $this->games = [
-            [
-                'user_id' => '1',
-                'points' => '22',
-            ],
-            [
-                'user_id' => '2',
-                'points' => '27',
-            ],
-            [
-                'user_id' => '3',
-                'points' => '35',
-            ],
-            // [
-            //     'user_id' => '4',
-            //     'points' => '19',
-            // ],
-            // [
-            //     'user_id' => '5',
-            //     'points' => '0',
-            // ],
-        ];
-
-      
-        $this->user_question = [
-        // user 1
-            [
-                'user_id' => '1',
-                'question_id' => '17',
-                'asked_count' => '4',
-                'stars' => '1',
-                'answers_trues_count' => '3', 
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '25',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '8',
-                'asked_count' => '2',
-                'stars' => '1',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '19',
-                'asked_count' => '3',
-                'stars' => '1',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '6',
-                'asked_count' => '3',
-                'stars' => '1',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '14',
-                'asked_count' => '3',
-                'stars' => '1',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '20',
-                'asked_count' => '3',
-                'stars' => '1',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '5',
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '1', 
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '13',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '4',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '24',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '15',
-                'asked_count' => '3',
-                'stars' => '1',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '7',
-                'asked_count' => '4',
-                'stars' => '1',
-                'answers_trues_count' => '3',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '21',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '1',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '23',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '12',
-                'asked_count' => '3',
-                'stars' => '1',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '2',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '10',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '9',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '16',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '18',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '22',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '26',
-                'asked_count' => '2',
-                'stars' => '1',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '29',
-                'asked_count' => '4',
-                'stars' => '1',
-                'answers_trues_count' => '3',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '30',
-                'asked_count' => '4',
-                'stars' => '1',
-                'answers_trues_count' => '3',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '31',
-                'asked_count' => '3',
-                'stars' => '1',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '32',
-                'asked_count' => '3',
-                'stars' => '1',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '33',
-                'asked_count' => '4',
-                'stars' => '1',
-                'answers_trues_count' => '3',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '34',
-                'asked_count' => '4',
-                'stars' => '1',
-                'answers_trues_count' => '3',
-            ],
-            [
-                'user_id' => '1',
-                'question_id' => '35',
-                'asked_count' => '4',
-                'stars' => '1',
-                'answers_trues_count' => '3',
-            ],
-
-        // user 2
-            [
-                'user_id' => '2',
-                'question_id' => '10',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '5',
-                'asked_count' => '1',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '18',
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '14',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '7',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '22',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '3',
-                'asked_count' => '1',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '26',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '11',
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '3',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '9',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '15',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '17',
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '20',
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '6',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '8',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '13',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '4',
-                'asked_count' => '1',
-                'stars' => '0',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '25',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '12',
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '23',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '2',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '27',
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '19',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '1',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '28',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '16',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '21',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '29',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '30',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '31',
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '3',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '24',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '32',
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '33',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '2',
-                'question_id' => '34',
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-
-        // user 3
-
-            [
-                'user_id' => '3',
-                'question_id' => '4',  // Quelle balise HTML est utilisée pour définir un paragraphe ?
-                'asked_count' => '2',
-                'stars' => '1',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '17', // Qu'est-ce que Composer ?
-                'asked_count' => '1',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '10', // Comment centrer un élément horizontalement avec CSS ?
-                'asked_count' => '4',
-                'stars' => '1',
-                'answers_trues_count' => '1',  // Réduit à 1 bonne réponse
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '25', // Qu'est-ce qu'un middleware en Laravel ?
-                'asked_count' => '2',
-                'stars' => '1',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '29', // Qu'est-ce qu'une transaction dans une base de données ?
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '7',  // Comment lier un fichier CSS externe à un document HTML ?
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '15', // Quelle est la méthode utilisée pour ajouter un élément à la fin d'un tableau en JS ?
-                'asked_count' => '3',
-                'stars' => '1',
-                'answers_trues_count' => '1',  // Réduit à 1 bonne réponse
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '22', // Qu'est-ce que l'ORM Eloquent ?
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '1',  // Réduit à 1 bonne réponse
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '9',  // Qu'est-ce qu'un sélecteur CSS ?
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '12', // Quelle méthode JS est utilisée pour convertir une chaîne en nombre entier ?
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '1',  // Qu'est-ce que HTML5 ?
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '3',  // Comment inclure une image dans une page HTML ?
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '24', // Quelle est la différence entre GROUP BY et ORDER BY en SQL ?
-                'asked_count' => '4',
-                'stars' => '1',
-                'answers_trues_count' => '1',  // Réduit à 1 bonne réponse
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '19', // Quelle est la différence entre une base de données relationnelle et non-relationnelle ?
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '31', // Quelle est la différence entre DELETE et TRUNCATE en SQL ?
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '21', // Comment afficher le contenu d'un fichier texte en PHP ?
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '28', // Qu'est-ce qu'un service provider en Laravel ?
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '3',
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '5',  // Quelle balise HTML est utilisée pour créer un lien hypertexte ?
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '14', // Quelles sont les règles pour nommer une variable en PHP ?
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '27', // Qu'est-ce qu'un événement en JS ?
-                'asked_count' => '3',
-                'stars' => '1',
-                'answers_trues_count' => '1',  // Réduit à 1 bonne réponse
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '11', // Quelle propriété CSS est utilisée pour ajouter de l'espace à l'intérieur d'un élément ?
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '1',  // Réduit à 1 bonne réponse
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '13', // Quelle est la différence entre les méthodes == et === ?
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '30', // Qu'est-ce qu'une jointure en SQL ?
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',  // Réduit à 1 bonne réponse
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '8',  // Comment ajouter un commentaire dans CSS ?
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'user_id' => '3',
-                'question_id' => '6',  // Qu'est-ce que l'API Fetch en JS ?
-                'asked_count' => '3',
-                'stars' => '1',
-                'answers_trues_count' => '2',
-            ],
-            
-        ];
-            
-        // Liste des game_question
-        $this->game_question = [
-        // game 1 (user 1)
-            [
-                'game_id' => '1',
-                'question_id' => '5',
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '1',
-                'question_id' => '13',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '1',
-                'question_id' => '4',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'game_id' => '1',
-                'question_id' => '24',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'game_id' => '1',
-                'question_id' => '15',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '1',
-                'question_id' => '7',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '1',
-                'question_id' => '21',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '1',
-                'question_id' => '1',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'game_id' => '1',
-                'question_id' => '23',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '1',
-                'question_id' => '12',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'game_id' => '1',
-                'question_id' => '2',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '1',
-                'question_id' => '10',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '1',
-                'question_id' => '9',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '1',
-                'question_id' => '16',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'game_id' => '1',
-                'question_id' => '18',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '1',
-                'question_id' => '22',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-
-        // game 2 (user 2)
-            [
-                'game_id' => '2',
-                'question_id' => '10',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'game_id' => '2',
-                'question_id' => '5',
-                'asked_count' => '1',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '2',
-                'question_id' => '18',
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'game_id' => '2',
-                'question_id' => '14',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '2',
-                'question_id' => '7',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '2',
-                'question_id' => '22',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'game_id' => '2',
-                'question_id' => '3',
-                'asked_count' => '1',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '2',
-                'question_id' => '26',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '2',
-                'question_id' => '11',
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '3',
-            ],
-            [
-                'game_id' => '2',
-                'question_id' => '9',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '2',
-                'question_id' => '15',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '2',
-                'question_id' => '17',
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-
-        // game 3 (user 3)
-            [
-                'game_id' => '3',
-                'question_id' => '4',
-                'asked_count' => '2',
-                'stars' => '1',
-                'answers_trues_count' => '0',
-            ],
-            [
-                'game_id' => '3',
-                'question_id' => '17',
-                'asked_count' => '1',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '3',
-                'question_id' => '10',
-                'asked_count' => '4',
-                'stars' => '1',
-                'answers_trues_count' => '3',
-            ],
-            [
-                'game_id' => '3',
-                'question_id' => '25',
-                'asked_count' => '2',
-                'stars' => '1',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '3',
-                'question_id' => '29',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'game_id' => '3',
-                'question_id' => '7',
-                'asked_count' => '2',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-            [
-                'game_id' => '3',
-                'question_id' => '15',
-                'asked_count' => '3',
-                'stars' => '1',
-                'answers_trues_count' => '2',
-            ],
-            [
-                'game_id' => '3',
-                'question_id' => '22',
-                'asked_count' => '4',
-                'stars' => '0',
-                'answers_trues_count' => '3',
-            ],
-            [
-                'game_id' => '3',
-                'question_id' => '9',
-                'asked_count' => '3',
-                'stars' => '0',
-                'answers_trues_count' => '1',
-            ],
-        ];
-        
     }
 
 
@@ -2028,153 +1095,201 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Seed la table 'users'
-        $this->processUsers($this->users);
+        echo " Démarrage du seeding...\n";
 
-        // Seed la table 'categories'
+        // ===== 1 PERMISSIONS ET RÔLES EN PREMIER =====
+        echo " Création des permissions et rôles...\n";
+        $this->call(PermissionTableSeeder::class);
+        $this->call(CreateAdminUserSeeder::class);
+
+        // ===== 2 DONNÉES EN DUR =====
+        echo " Création des données de base...\n";
+        $this->processFixedUsers($this->fixedUsers);
         $this->processCategories($this->categories);
-
-        // Seed la table 'questions'
         $this->processQuestions($this->questions);
-
-        // Seed la table 'answers'
         $this->processAnswers($this->answers);
 
-        // Seed la table 'games'
-        $this->processGames($this->games);
+        // ===== 3 PARTIES AVEC FACTORIES =====
+        echo " Création des parties pour les users fixes...\n";
+        $this->createFixedGamesWithFactories();
 
-        // Seed la table 'user_question'
-        $this->processUserQuestion($this->user_question);
+        // ===== 4 UTILISATEURS SUPPLÉMENTAIRES (OPTIONNEL) =====
+        echo " Création de 50 utilisateurs supplémentaires...\n";
+        $this->createAdditionalUsers();
 
-        // Seed la table 'game_question'
-        $this->processGameQuestion($this->game_question);
-
-         // Appel des autres seeders
-        $this->call([
-            PermissionTableSeeder::class,
-            CreateAdminUserSeeder::class,
-        ]);
+        echo "✅ Seeding terminé avec succès !\n";
     }
 
-     /**
-     * Seed la table 'users'
+    /**
+     * Seed les 4 utilisateurs fixes avec leurs rôles
      */
-    private function processUsers($users)
+    private function processFixedUsers($users)
     {
-        // Insère les données dans la table 'users'
-        DB::table('users')->insert($users);
+        $adminRole = \Spatie\Permission\Models\Role::where('name', 'admin')->first();
+        $userRole = \Spatie\Permission\Models\Role::where('name', 'user')->first();
+
+        foreach ($users as $userData) {
+            $user = User::firstOrCreate(
+                ['email' => $userData['email']],
+                $userData
+            );
+
+            if ($user->email === 'delphine@admin.com') {
+                $user->syncRoles($adminRole);
+            } else {
+                $user->syncRoles($userRole);
+            }
+        }
     }
 
-     /**
+    /**
      * Seed la table 'categories'
      */
     private function processCategories($categories)
     {
-        DB::table('categories')->insert($categories);
+        foreach ($categories as $category) {
+            Category::firstOrCreate(
+                ['name' => $category['name']],
+                $category
+            );
+        }
     }
 
-     /**
+    /**
      * Seed la table 'questions'
      */
     private function processQuestions($questions)
     {
         foreach ($questions as $question) {
-            // dump($question);
-            // Définit les données de la question à destination de la table 'questions'
-            $data = 
-            [
-                'question'=> $question['question'],
-                'level'=> $question['level'],
+            $data = [
+                'question' => $question['question'],
+                'level' => $question['level'],
                 'category_id' => $question['category_id'],
-                'user_id' => '1' // celui qui créer les question 1er user est toujours l'admin
+                'user_id' => 1  // Admin toujours user_id = 1
             ];
 
-            // Insère les données dans la table 'questions'
-            DB::table('questions')->insertGetId($data); // je n'ai pas besoin de '$question_id = ' car je ne m'en ressers pas après dans la fonction. je n'ai pas besoin de sotcker la valeur ds une variable.
-
-            // ---- code suivants inutile -----
-            // Seed la catégorie de la question
-            // $this->processQuestionCategory($question_id, $question['type']);
-
-            // Seed la réponse correspondande à la question
-            // $this->processAnswer($question_id, $question['question']);
+            DB::table('questions')->insertGetId($data);
         }
     }
 
-     /**
+    /**
      * Seed la table 'answers'
      */
     private function processAnswers($answers)
     {
         foreach ($answers as $answer) {
-            // dump($answer);
-            // Définit les données de la réponse à destination de la table 'answers'
             $data = [
                 'question_id' => $answer['question_id'],
-                'description'=> $answer['description'],
-                'is_correct'=> $answer['is_correct'],
+                'description' => $answer['description'],
+                'is_correct' => $answer['is_correct'],
             ];
-            // Insère les données dans la table 'answers'
-            $answer_id = DB::table('answers')->insertGetId($data);
+
+            DB::table('answers')->insertGetId($data);
         }
     }
 
-     /**
-     * Seed la table 'games'
-     */
-    private function processGames($games)
-    {
-        foreach ($games as $game) {
-            // dump($game);
-            // Définit les données de la réponse à destination de la table 'games'
-            $data = [
-                'user_id' => $game['user_id'],
-                'points' => $game['points'],
-            ];
-            // Insère les données dans la table 'games'
-            DB::table('games')->insertGetId($data);
-        }
-    }
     /**
-     * Seed la table 'user_question'
+     * Crée les Games et GameQuestions pour les 4 users fixes avec Factories
      */
-    private function processUserQuestion($user_question)
+        private function createFixedGamesWithFactories()
     {
-        foreach ($user_question as $data) {
-            $insertData = [
-                'user_id' => $data['user_id'],
-                'question_id' => $data['question_id'],
-                'asked_count' => $data['asked_count'],
-                'stars' => $data['stars'],
-                'answers_trues_count' => $data['answers_trues_count'],
-                'created_at' => now(),
-                'updated_at' => now(),
-            ];
-            DB::table('user_question')->insert($insertData);
+        $users = User::whereIn('email', [
+            'delphine@admin.com',
+            'celia@user.com',
+            'nathan@user.com',
+            'jeremie@user.com',
+        ])->get();
+
+        $gamesPerUser = [
+            'delphine@admin.com' => 3,
+            'celia@user.com' => 3,
+            'nathan@user.com' => 5,
+            'jeremie@user.com' => 7,
+        ];
+
+        // Récupère TOUTES les 60 questions (6 catégories x 10 questions)
+        $allQuestions = Question::all();
+
+        foreach ($users as $user) {
+            $gameCount = $gamesPerUser[$user->email] ?? 3;
+
+            for ($i = 0; $i < $gameCount; $i++) {
+                $game = Game::factory()
+                    ->for($user)
+                    ->create();
+
+                // Crée 300 records : chaque question posée 5 fois
+                $gameQuestions = [];
+                
+                foreach ($allQuestions as $question) {
+                    // Répète chaque question 5 fois
+                    for ($repeat = 1; $repeat <= 5; $repeat++) {
+                        $gameQuestions[] = [
+                            'game_id' => $game->id,
+                            'question_id' => $question->id,
+                            'asked_count' => rand(1, 15),
+                            'answers_trues_count' => rand(0, 15),
+                            'stars' => rand(0, 5),
+                            'created_at' => now()->subDays(rand(0, 90)),
+                            'updated_at' => now(),
+                        ];
+                    }
+                }
+
+                // Mélange aléatoirement les 300 records
+                $gameQuestions = collect($gameQuestions)->shuffle()->toArray();
+
+                // Insert en masse
+                GameQuestion::insert($gameQuestions);
+            }
+        }
+
+        $this->aggregateGameQuestionsToUserQuestions();
+    }
+
+    /**
+     * Agrège les GameQuestions en UserQuestions
+     */
+    private function aggregateGameQuestionsToUserQuestions()
+    {
+        $gameQuestions = GameQuestion::all();
+
+        foreach ($gameQuestions as $gq) {
+            $game = Game::find($gq->game_id);
+            
+            if (!$game) continue;
+
+            $userQuestion = UserQuestion::firstOrNew([
+                'user_id' => $game->user_id,
+                'question_id' => $gq->question_id,
+            ]);
+
+            $userQuestion->asked_count = ($userQuestion->asked_count ?? 0) + $gq->asked_count;
+            $userQuestion->answers_trues_count = ($userQuestion->answers_trues_count ?? 0) + $gq->answers_trues_count;
+            $userQuestion->stars = $gq->stars;
+            $userQuestion->save();
         }
     }
 
-     
-     /**
-     * Seed la table 'game_question'
+    /**
+     * Crée 50 utilisateurs supplémentaires
      */
-    
-    private function processGameQuestion($game_question)
+    private function createAdditionalUsers()
     {
-        foreach ($game_question as $data) {
-            // Définit les données à destination de la table 'game_question'
-            $insertData = [
-                'game_id' => $data['game_id'],
-                'question_id' => $data['question_id'],
-                'asked_count' => $data['asked_count'],
-                'stars' => $data['stars'],
-                'answers_trues_count' => $data['answers_trues_count'],
-                'created_at' => now(),
-                'updated_at' => now(),
-            ];
-            
-            // Insère les données dans la table 'game_question'
-            DB::table('game_question')->insert($insertData);
-        }
+        $userRole = \Spatie\Permission\Models\Role::where('name', 'user')->first();
+
+        User::factory(50)
+            ->create()
+            ->each(function ($user) use ($userRole) {
+                $user->assignRole($userRole);
+
+                Game::factory(rand(3, 7))
+                    ->for($user)
+                    ->has(GameQuestion::factory(50))
+                    ->create();
+            });
+
+        // Agrège pour les nouveaux users aussi
+        $this->aggregateGameQuestionsToUserQuestions();
     }
 }

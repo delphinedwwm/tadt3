@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Services\AdminStatisticsService;
 use App\Services\UserStatisticsService;
-use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    use HasRoles;
     /**
      * Create a new controller instance.
      */
@@ -28,12 +27,12 @@ class HomeController extends Controller
         if ($user->hasRole('admin')) {
             $adminService = new AdminStatisticsService();
             $data = $adminService->getAllStatistics();
-            return view('home.admin', $data);
+            return view('home', $data);
         }
 
         // Sinon, charge les stats personnelles
         $userService = new UserStatisticsService();
         $data = $userService->getUserStatistics();
-        return view('home.user', $data);
+        return view('home', $data);
     }
 }

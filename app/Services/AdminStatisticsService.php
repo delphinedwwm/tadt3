@@ -11,43 +11,43 @@ class AdminStatisticsService
 {
     /**
      * Récupère toutes les statistiques pour l'admin
-     * @return array - Les statistiques
      */
     public function getAllStatistics(): array
     {
         $now = Carbon::now();
 
         return [
-            'categories' => [
-                'today' => $this->getCategoriesForPeriod('today'),
-                'week' => $this->getCategoriesForPeriod('week'),
-                'month' => $this->getCategoriesForPeriod('month'),
-                'year' => $this->getCategoriesForPeriod('year'),
-                'allTime' => $this->getCategoriesForPeriod('allTime'),
-            ],
-            'questions' => [
-                'today' => $this->getQuestionsCountForPeriod('today'),
-                'week' => $this->getQuestionsCountForPeriod('week'),
-                'month' => $this->getQuestionsCountForPeriod('month'),
-                'year' => $this->getQuestionsCountForPeriod('year'),
-                'allTime' => $this->getQuestionsCountForPeriod('allTime'),
-            ],
-            'users' => [
-                'today' => $this->getNewUsersCountForPeriod('today'),
-                'week' => $this->getNewUsersCountForPeriod('week'),
-                'month' => $this->getNewUsersCountForPeriod('month'),
-                'year' => $this->getNewUsersCountForPeriod('year'),
-                'allTime' => $this->getNewUsersCountForPeriod('allTime'),
-            ],
+            'categoriesToday' => $this->getCategoriesWithCountForPeriod('today'),
+            'categoriesThisWeek' => $this->getCategoriesWithCountForPeriod('week'),
+            'categoriesThisMonth' => $this->getCategoriesWithCountForPeriod('month'),
+            'categoriesThisYear' => $this->getCategoriesWithCountForPeriod('year'),
+            'categoriesAllTime' => $this->getCategoriesWithCountForPeriod('allTime'),
+            
+            'questionsToday' => $this->getQuestionsCountForPeriod('today'),
+            'questionsThisWeek' => $this->getQuestionsCountForPeriod('week'),
+            'questionsThisMonth' => $this->getQuestionsCountForPeriod('month'),
+            'questionsThisYear' => $this->getQuestionsCountForPeriod('year'),
+            'questionsAllTime' => $this->getQuestionsCountForPeriod('allTime'),
+            
+            'newUsersToday' => $this->getNewUsersCountForPeriod('today'),
+            'newUsersThisWeek' => $this->getNewUsersCountForPeriod('week'),
+            'newUsersThisMonth' => $this->getNewUsersCountForPeriod('month'),
+            'newUsersThisYear' => $this->getNewUsersCountForPeriod('year'),
+            'newUsersAllTime' => $this->getNewUsersCountForPeriod('allTime'),
         ];
     }
 
     /**
-     * Récupère le nombre de catégories pour une période
+     * Récupère les catégories AVEC le count pour une période
      */
-    private function getCategoriesForPeriod(string $period): int
+    private function getCategoriesWithCountForPeriod(string $period)
     {
-        return $this->getCountForPeriod(Category::class, $period);
+        $now = Carbon::now();
+        $query = Category::withCount(['questions' => function ($q) use ($now, $period) {
+            $this->applyPeriodFilter($q, $period, $now);
+        }]);
+
+        return $query->orderBy('questions_count', 'desc')->get();
     }
 
     /**
@@ -67,21 +67,18 @@ class AdminStatisticsService
     }
 
     /**
-     * Méthode générique pour récupérer le compte pour une période
+     * Applique le filtre de période
      */
-    private function getCountForPeriod(string $model, string $period): int
+    private function applyPeriodFilter($query, string $period, Carbon $now)
     {
-        $now = Carbon::now();
-        $query = $model::query();
-
         switch ($period) {
             case 'today':
                 $query->whereDate('created_at', $now->toDateString());
                 break;
             case 'week':
                 $query->whereBetween('created_at', [
-                    $now->startOfWeek(),
-                    $now->endOfWeek()
+                    $now->copy()->startOfWeek(),
+                    $now->copy()->endOfWeek()
                 ]);
                 break;
             case 'month':
@@ -92,10 +89,18 @@ class AdminStatisticsService
                 $query->whereYear('created_at', $now->year);
                 break;
             case 'allTime':
-                // Pas de filtre
                 break;
         }
+    }
 
+    /**
+     * Méthode générique pour récupérer le compte pour une période
+     */
+    private function getCountForPeriod(string $model, string $period): int
+    {
+        $now = Carbon::now();
+        $query = $model::query();
+        $this->applyPeriodFilter($query, $period, $now);
         return $query->count();
     }
 }
