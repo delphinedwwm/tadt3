@@ -4,7 +4,7 @@ namespace App\Services\Traits;
 
 use App\Models\Category;
 use App\Models\GameQuestion;
-use App\Models\Question;
+
 use App\Models\UserQuestion;
 use Carbon\Carbon;
 
@@ -13,7 +13,7 @@ trait CalculatesStatistics
     /**
      * Récupère les catégories pour une période (avec le nombre de questions)
      */
-    protected function getCategoriesForPeriod(string $period): array
+    protected function getCategoriesForPeriod(string $period)
     {
         $now = Carbon::now();
         $query = Category::withCount('questions');
@@ -30,18 +30,18 @@ trait CalculatesStatistics
                 break;
             case 'month':
                 $query->whereMonth('created_at', $now->month)
-                      ->whereYear('created_at', $now->year);
+                    ->whereYear('created_at', $now->year);
                 break;
             case 'year':
                 $query->whereYear('created_at', $now->year);
                 break;
             case 'all':
             case 'allTime':
-                // Pas de filtre, on récupère tout
+                // Pas de filtre
                 break;
         }
 
-        return $query->orderBy('questions_count', 'desc')->get()->toArray();
+        return $query->orderBy('questions_count', 'desc')->get(); // ← Retourne Collection, pas array
     }
 
     /**

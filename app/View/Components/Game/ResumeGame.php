@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components;
+namespace App\View\Components\Game;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class TestGame extends Component
+class ResumeGame extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class TestGame extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.test-game');
+        return view('components.resume-game');
     }
 }

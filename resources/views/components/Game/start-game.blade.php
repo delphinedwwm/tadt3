@@ -1,3 +1,4 @@
+<!-- resources/views/home.blade.php -->
 @extends('layouts.app')
 
 @section('content')
@@ -5,20 +6,14 @@
         <h1>Question</h1>
         @if ($question)
             <!-- Afficher la catégorie et le niveau de difficulté -->
-            <h2>Catégorie : {{ $question->category->name }}</h2>
+            <h2>Catégorie : {{ $question->category->name}}</h2>
+            
+            <!-- Afficher le niveau de difficulté directement -->
             <p>Niveau de difficulté : {{ $question->level }}</p>
             <br>
             <p>{{ $question->question }}</p>
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul style="margin: 0; padding-left: 1rem;">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            <form id="answerForm" action="{{ route('games.submitTest') }}" method="POST">
+
+            <form id="answerForm" action="{{ route('games.submit') }}" method="POST">
                 @csrf
                 @foreach ($question->answers as $answer)
                     <!-- Rendre toute la réponse cliquable sans cacher le bouton radio -->
@@ -49,7 +44,7 @@
                     <p class="text-danger">Mauvaise réponse. La bonne réponse était : {{ $question->answers->where('is_correct', true)->first()->description }}</p>
                 @endif
 
-                <form action="{{ route('games.nextQuestionTest') }}" method="POST">
+                <form action="{{ route('games.nextQuestion') }}" method="POST">
                     @csrf
                     <button type="submit" class="btn btn-secondary mt-3">Question Suivante</button>
                 </form>

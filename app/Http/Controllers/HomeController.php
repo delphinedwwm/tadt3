@@ -2,37 +2,38 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Statistics\AdminStatisticsService;
+use App\Services\Statistics\UserStatisticsService;
 use Illuminate\Support\Facades\Auth;
-use App\Services\AdminStatisticsService;
-use App\Services\UserStatisticsService;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     */
-    public function __construct()
-    {
+    private $adminStatisticsService;
+    private $userStatisticsService;
+
+    public function __construct(
+        AdminStatisticsService $adminStatisticsService,
+        UserStatisticsService $userStatisticsService
+    ) {
         $this->middleware('auth');
+        $this->adminStatisticsService = $adminStatisticsService;
+        $this->userStatisticsService = $userStatisticsService;
     }
 
-    /**
-     * Show the application dashboard.
-     */
     public function index()
     {
         $user = Auth::user();
+        $game = $user->game;
 
-        // Si c'est un admin, charge les stats globales
+        // Vérifier le rôle de l'utilisateur
         if ($user->hasRole('admin')) {
-            $adminService = new AdminStatisticsService();
-            $data = $adminService->getAllStatistics();
-            return view('home', $data);
+            // Récupérer les stats ADMIN
+            $statistics = $this->adminStatisticsService->getAllStatistics();
+        } else {
+            // Récupérer les stats USER
+            $statistics = $this->userStatisticsService->getUserStatistics();
         }
 
-        // Sinon, charge les stats personnelles
-        $userService = new UserStatisticsService();
-        $data = $userService->getUserStatistics();
-        return view('home', $data);
+        return view('home', array_merge($statistics, ['game' => $game]));
     }
 }

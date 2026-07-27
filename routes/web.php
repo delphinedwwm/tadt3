@@ -1,88 +1,107 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth; 
 
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\QuestionAnswerController;
-use App\Http\Controllers\GameManagementController;
+use App\Http\Controllers\GameController; 
+use App\Http\Controllers\StatisticController;
+
+// ============================================
+// ROUTES PUBLIQUES (sans authentification)
+// ============================================
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-//  METS Auth::routes() ICI, AVANT les autres routes
+// Routes de test du jeu (accessibles SANS login)
+Route::prefix('games')->group(function() {
+    Route::get('/test', [GameController::class, 'testGame'])->name('games.test');
+    Route::post('/submitTest', [GameController::class, 'submitAnswerTest'])->name('games.submitTest');
+    Route::post('/nextQuestionTest', [GameController::class, 'nextQuestionTest'])->name('games.nextQuestionTest');
+});
+
+// ============================================
+// ROUTES D'AUTHENTIFICATION
+// ============================================
+
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// ============================================
+// ROUTES PROTÉGÉES (authentification requise)
+// ============================================
 
-Route::middleware([])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('components/dashboard');
-    })->name('dashboard');
-});
+Route::middleware(['auth'])->group(function() {
 
-// routes pour tester le jeu (SANS auth pour l'instant)
-Route::get('/games/test', [GameManagementController::class, 'testGame'])->name('games.test');
-Route::get('games/showTest', [GameManagementController::class, 'submitAnswerTest'])->name('games.showTest');
-Route::post('games/submitTest', [GameManagementController::class, 'submitAnswerTest'])->name('games.submitTest');
-Route::post('/game/nextQuestionTest', [GameManagementController::class, 'nextQuestionTest'])->name('games.nextQuestionTest');
+    // ---- HOME / DASHBOARD ----
+    Route::get('/statistics', [StatisticController::class, 'index'])->name('statistics.index');
+    });
 
-// TOUTES les autres routes dans le groupe auth
-Route::group(['middleware' => ['auth']], function() {
+    // ---- USERS ----
+    Route::prefix('users')->group(function() {
+        Route::get('/', [UserController::class, 'index'])->name('users.index');
+        Route::get('show/{id}', [UserController::class, 'show'])->name('users.show');
+        Route::get('create', [UserController::class, 'create'])->name('users.create');
+        Route::post('store', [UserController::class, 'store'])->name('users.store');
+        Route::get('edit/{id}', [UserController::class, 'edit'])->name('users.edit');
+        Route::put('update/{id}', [UserController::class, 'update'])->name('users.update');
+        Route::get('delete/{id}', [UserController::class, 'delete'])->name('users.delete');
+        Route::delete('destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+    });
 
-    // Routes for UserController
-    Route::get('users', [UserController::class, 'index'])->name('users.index');
-    Route::get('users/show/{id}', [UserController::class, 'show'])->name('users.show');
-    Route::get('users/create', [UserController::class, 'create'])->name('users.create');
-    Route::post('users/store', [UserController::class, 'store'])->name('users.store');
-    Route::get('users/edit/{id}', [UserController::class, 'edit'])->name('users.edit');
-    Route::put('users/update/{id}', [UserController::class, 'update'])->name('users.update');
-    Route::get('users/delete/{id}', [UserController::class, 'delete'])->name('users.delete');
-    Route::delete('users/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+    // ---- ROLES ----
+    Route::prefix('roles')->group(function() {
+        Route::get('/', [RoleController::class, 'index'])->name('roles.index');
+        Route::get('show/{id}', [RoleController::class, 'show'])->name('roles.show');
+        Route::get('create', [RoleController::class, 'create'])->name('roles.create');
+        Route::post('store', [RoleController::class, 'store'])->name('roles.store');
+        Route::get('edit/{id}', [RoleController::class, 'edit'])->name('roles.edit');
+        Route::put('update/{id}', [RoleController::class, 'update'])->name('roles.update');
+        Route::get('delete/{id}', [RoleController::class, 'delete'])->name('roles.delete');
+        Route::delete('destroy/{id}', [RoleController::class, 'destroy'])->name('roles.destroy');
+    });
 
-    // Routes for RoleController
-    Route::get('roles', [RoleController::class, 'index'])->name('roles.index');
-    Route::get('roles/show/{id}', [RoleController::class, 'show'])->name('roles.show');
-    Route::get('roles/create', [RoleController::class, 'create'])->name('roles.create');
-    Route::post('roles/store', [RoleController::class, 'store'])->name('roles.store');
-    Route::get('roles/edit/{id}', [RoleController::class, 'edit'])->name('roles.edit');
-    Route::put('roles/update/{id}', [RoleController::class, 'update'])->name('roles.update');
-    Route::get('roles/delete/{id}', [RoleController::class, 'delete'])->name('roles.delete');
-    Route::delete('roles/destroy/{id}', [RoleController::class, 'destroy'])->name('roles.destroy');
+    // ---- CATEGORIES ----
+    Route::prefix('categories')->group(function() {
+        Route::get('/', [CategoryController::class, 'index'])->name('categories.index');
+        Route::get('show/{id}', [CategoryController::class, 'show'])->name('categories.show');
+        Route::get('create', [CategoryController::class, 'create'])->name('categories.create');
+        Route::post('store', [CategoryController::class, 'store'])->name('categories.store');
+        Route::get('edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
+        Route::put('update/{id}', [CategoryController::class, 'update'])->name('categories.update');
+        Route::get('delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete');
+        Route::delete('destroy/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+    });
 
-    // Routes for CategoryController
-    Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
-    Route::get('categories/show/{id}', [CategoryController::class, 'show'])->name('categories.show');
-    Route::get('categories/create', [CategoryController::class, 'create'])->name('categories.create');
-    Route::post('categories/store', [CategoryController::class, 'store'])->name('categories.store');
-    Route::get('categories/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
-    Route::put('categories/update/{id}', [CategoryController::class, 'update'])->name('categories.update');
-    Route::get('categories/delete/{id}', [CategoryController::class, 'delete'])->name('categories.delete');
-    Route::delete('categories/destroy/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+    // ---- QUESTIONS & ANSWERS ----
+    Route::prefix('questionanswer')->group(function() {
+        Route::get('/', [QuestionAnswerController::class, 'index'])->name('questionsanswers.index');
+        Route::get('show/{id}', [QuestionAnswerController::class, 'show'])->name('questionsanswers.show');
+        Route::get('create', [QuestionAnswerController::class, 'create'])->name('questionsanswers.create');
+        Route::post('store', [QuestionAnswerController::class, 'store'])->name('questionsanswers.store');
+        Route::get('edit/{id}', [QuestionAnswerController::class, 'edit'])->name('questionsanswers.edit');
+        Route::put('update/{id}', [QuestionAnswerController::class, 'update'])->name('questionsanswers.update');
+        Route::get('delete/{id}', [QuestionAnswerController::class, 'delete'])->name('questionsanswers.delete');
+        Route::delete('destroy/{id}', [QuestionAnswerController::class, 'destroy'])->name('questionsanswers.destroy');
+    });
 
-    // Routes for QuestionAnswerController
-    Route::get('questionanswer', [QuestionAnswerController::class, 'index'])->name('questionsanswers.index');
-    Route::get('questionanswer/show/{id}', [QuestionAnswerController::class, 'show'])->name('questionsanswers.show');
-    Route::get('questionanswer/create', [QuestionAnswerController::class, 'create'])->name('questionsanswers.create');
-    Route::post('questionanswer/store', [QuestionAnswerController::class, 'store'])->name('questionsanswers.store');
-    Route::get('questionanswer/edit/{id}', [QuestionAnswerController::class, 'edit'])->name('questionsanswers.edit');
-    Route::put('questionanswer/update/{id}', [QuestionAnswerController::class, 'update'])->name('questionsanswers.update');
-    Route::get('questionanswer/delete/{id}', [QuestionAnswerController::class, 'delete'])->name('questionsanswers.delete');
-    Route::delete('questionanswer/destroy/{id}', [QuestionAnswerController::class, 'destroy'])->name('questionsanswers.destroy');
+    // GAMES - PARTIES AVEC AUTH - UTILISE GameController
+    Route::prefix('games')->group(function() {
+        Route::get('/start-options', [GameController::class, 'startOptions'])->name('games.startOptions');
+        Route::post('/start', [GameController::class, 'start'])->name('games.start');
+        Route::get('/{gameId}/question', [GameController::class, 'showQuestion'])->name('games.showQuestion');
+        Route::post('/{gameId}/submit', [GameController::class, 'submitAnswer'])->name('games.submitAnswer');
+        Route::get('/{gameId}/pause', [GameController::class, 'pauseGame'])->name('games.pause');
+        Route::post('/{gameId}/resume', [GameController::class, 'resumeGame'])->name('games.resume');
+        Route::post('/{gameId}/cancel', [GameController::class, 'cancelGame'])->name('games.cancel');
+        Route::get('/{gameId}/summary', [GameController::class, 'summary'])->name('games.summary');
+    });
 
-    // Routes for Game
-    Route::post('games/start', [GameManagementController::class, 'startGame'])->name('games.start');
-    Route::get('/games/start', [GameManagementController::class, 'showQuestion'])->name('games.show');
-    Route::get('games/show', [GameManagementController::class, 'showQuestion'])->name('games.show');
-    Route::post('games/submit', [GameManagementController::class, 'submitAnswer'])->name('games.submit');
-    Route::post('/game/nextQuestion', [GameManagementController::class, 'nextQuestion'])->name('games.nextQuestion');
-    Route::get('games/stop', [GameManagementController::class, 'stopGame'])->name('games.stop');
-    Route::get('/game/pause', [GameManagementController::class, 'pauseGame'])->name('games.pause');
-    Route::get('games/resume', [GameManagementController::class, 'resumeGame'])->name('games.resume');
-    Route::post('user-questions/record', [GameManagementController::class, 'recordUserQuestionInteraction'])->name('recordUserQuestionInteraction');
-    Route::get('/app', [GameManagementController::class, 'someMethod'])->name('app');
-
-});
+// ============================================
+// ROUTES API (optionnel)
+// ============================================
+// À ajouter plus tard si besoin
