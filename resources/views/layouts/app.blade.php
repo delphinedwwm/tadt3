@@ -12,6 +12,7 @@
 <body>
     <div id="app">
         <!-- Navbar -->
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -41,11 +42,15 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">User</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('roles.index') }}">Role</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('categories.index') }}">Category</a></li>
-                            <li class="nav-item"><a class="nav-link" href="{{ route('questionsanswers.index') }}">Question Answer</a></li>
+                            <!-- LIENS ADMIN SEULEMENT -->
+                            @if(Auth::user()->hasRole('admin'))
+                                <li class="nav-item"><a class="nav-link" href="{{ route('users.index') }}">User</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('roles.index') }}">Role</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('categories.index') }}">Category</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('questionsanswers.index') }}">Question Answer</a></li>
+                            @endif
 
+                            <!-- TOUJOURS VISIBLE (Admin ET User) -->
                             <li class="nav-item">
                                 <form action="{{ route('logout') }}" method="POST" style="display:inline;">
                                     @csrf

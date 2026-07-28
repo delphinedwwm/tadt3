@@ -15,26 +15,40 @@ class StatisticController extends Controller
     public function __construct(
         AdminStatisticsService $adminStatisticsService,
         UserStatisticsService $userStatisticsService
-    )
-    {
+    ) {
         $this->middleware('auth');
         $this->adminStatisticsService = $adminStatisticsService;
         $this->userStatisticsService = $userStatisticsService;
     }
 
     /**
-     * Affiche le dashboard avec les statistiques appropriées
+     * Affiche les statistiques appropriées selon le rôle
      */
     public function index(): View
     {
         $user = Auth::user();
+        $game = $user->game;
 
         if ($user->hasRole('admin')) {
-            $stats = $this->adminStatisticsService->getAdminStatistics();
-        } else {
-            $stats = $this->userStatisticsService->getUserStatistics();
-        }
+            // L'ADMIN a DEUX onglets
+            $globalStats = $this->adminStatisticsService->getAllStatistics();
+            $personalStats = $this->userStatisticsService->getAllStatistics();
 
-        return view('statistics.dashboard', compact('stats', 'user'));
+            // Retourne la VUE ADMIN avec les DEUX services
+            return view('components.dashboards.admin-dashboard', array_merge(
+                $globalStats,
+                $personalStats,
+                ['game' => $game]
+            ));
+        } else {
+            // 👤 L'USER a UN seul onglet
+            $stats = $this->userStatisticsService->getAllStatistics();
+
+            // Retourne la VUE USER avec le service USER
+            return view('components.dashboards.user-dashboard', array_merge(
+                $stats,
+                ['game' => $game]
+            ));
+        }
     }
 }

@@ -38,9 +38,9 @@ Auth::routes();
 Route::middleware(['auth'])->group(function() {
 
     // ---- HOME / DASHBOARD ----
+    Route::get('/home', [StatisticController::class, 'index'])->name('home');  
     Route::get('/statistics', [StatisticController::class, 'index'])->name('statistics.index');
-    });
-
+    
     // ---- USERS ----
     Route::prefix('users')->group(function() {
         Route::get('/', [UserController::class, 'index'])->name('users.index');
@@ -100,8 +100,4 @@ Route::middleware(['auth'])->group(function() {
         Route::post('/{gameId}/cancel', [GameController::class, 'cancelGame'])->name('games.cancel');
         Route::get('/{gameId}/summary', [GameController::class, 'summary'])->name('games.summary');
     });
-
-// ============================================
-// ROUTES API (optionnel)
-// ============================================
-// À ajouter plus tard si besoin
+});

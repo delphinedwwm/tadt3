@@ -17,7 +17,7 @@ class UserDashboard extends Component
 
     public function render(): View
     {
-        $stats = $this->userStatisticsService->getUserStatistics();
+        $stats = $this->userStatisticsService->getAllStatistics();
         return view('components.dashboards.user-dashboard', $stats);
     }
 }

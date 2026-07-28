@@ -17,7 +17,7 @@ class AdminDashboard extends Component
 
     public function render(): View
     {
-        $stats = $this->adminStatisticsService->getAdminStatistics();
+        $stats = $this->adminStatisticsService->getAllStatistics();
         return view('components.dashboards.admin-dashboard', $stats);
     }
 }
